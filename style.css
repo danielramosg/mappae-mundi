@@ -1,0 +1,93 @@
+body {
+  background: #fcfcfa;
+      font-family: verdana;
+
+}
+
+.stroke {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1px;
+}
+
+.fill {
+  fill: #fff;
+  fill-opacity: 0;
+}
+
+.graticule {
+  fill: none;
+  stroke: #777;
+  stroke-width: .5px;
+  stroke-opacity: .5;
+}
+
+.land {
+  fill: #222;
+  fill-opacity:0.2;
+}
+
+.boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-width: .5px;
+}  
+  
+.listellip {
+	stroke-width:2px;
+	fill-opacity:0.5;
+	pointer-events:none;  
+}
+
+.geodesic {
+  fill: none;
+  stroke: #f00;
+  stroke-width: 2px;
+}
+
+.loxodrome {
+  fill: none;
+  stroke: #00f;
+  stroke-width: 2px;
+}  
+
+
+.map_tag {
+	float: left;
+	position: relative;
+    border: 3px solid #73AD21;
+    width: 55%;
+/* 	width: 960px; */
+	height: 600px;
+}
+
+svg {
+	position: absolute;
+	left: 0px;
+    top: 0px;
+}
+
+canvas {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: -1;
+}
+
+.text_tag {
+	float: right;
+	max-width:40%;
+	/*max-width: 630px;*/
+	margin: 0.5em;
+    padding: 1em;
+    font-size: 90%;
+    padding-top: 0px;
+}
+
+.controls_tag {
+	clear: left;
+}
+
+h1 {
+	text-align: center;
+}
