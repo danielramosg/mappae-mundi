@@ -235,6 +235,18 @@ function clearEllipses() {  listellip = [];  removeEllipses(); };
 
 function popEllipse() { listellip.pop(); removeEllipses(); drawEllipses(); }; //TODO: remove only last ellipse
 
+function sampleEllipses() {
+	for (i=-120; i<=180; i+=60) {
+		for (j=-40; j<=40; j+=40) {
+			listellip.push([i,j]);
+	}};
+	
+	for (i=-150; i<180; i+=60) {
+		for (j=-60; j<=80; j+=40) {
+			listellip.push([i,j]);
+	}};
+	removeEllipses(); drawEllipses();	
+	};
 
 var geo_flip=true;
 var geo_ptA;
@@ -384,23 +396,36 @@ function drawSvg () {
 function drawEllipses () {
 	svg = d3.select("svg");		
 	for (i=0; i < listellip.length; i++) {
-		props = TissotEllipse(projection,listellip[i]);
-		xy=projection(listellip[i])
+		//verify that the point is on the map
+		lp = listellip[i];
+		xy=projection(lp);
+		lp_vf = projection.invert(xy);
 		
-		svg.append("ellipse")
-			.attr("class","listellip")
-			.attr("cx",0)
-			.attr("cy",0)
-			.attr("rx",20*props.sax0)
-			.attr("ry",20*props.sax1)
-			.attr("transform","translate("+xy[0] +' '+ xy[1] +") "+ "rotate("+ props.angle+ ")")
-			.attr("stroke",props.strokecolor)
-			.attr("stroke-width",2)
-			.attr("fill",props.fillcolor)
-			.attr("fill-opacity",0.5);
-		};
+		var tolerance = 1;
+		if ( 
+  			(Math.abs(lp[0] - lp_vf[0]) < tolerance ) && 
+ 			(Math.abs(lp[1] - lp_vf[1]) < tolerance ) &&		
+			(xy[0] > 30 ) && (xy[0] < width -30 ) &&
+			(xy[1] > 30 ) && (xy[1] < height -30 )		
+			) { 
+			// console.log( Math.abs(xy[1]))
+// 			console.log(height -30)
+			props = TissotEllipse(projection,listellip[i]);
+		
+			svg.append("ellipse")
+				.attr("class","listellip")
+				.attr("cx",0)
+				.attr("cy",0)
+				.attr("rx",20*props.sax0)
+				.attr("ry",20*props.sax1)
+				.attr("transform","translate("+xy[0] +' '+ xy[1] +") "+ "rotate("+ props.angle+ ")")
+				.attr("stroke",props.strokecolor)
+				.attr("stroke-width",2)
+				.attr("fill",props.fillcolor)
+				.attr("fill-opacity",0.5);
+			};
+		};	
 };
-
 
 //var R = Math.PI/180 * projection.scale();
 	
