@@ -198,7 +198,7 @@ switch (projection.rotate().toString()) { //Can't compare arrays directly
 	};
 	
 
-d3.text("./txt/en/"+shortname+".html", function(error, text) {
+d3.text("./txt/"+Language+"/"+shortname+".html", function(error, text) {
   if (error) throw error;
   document.getElementById("text_tag").innerHTML = text;
 });
@@ -628,7 +628,7 @@ function mode_loxodrome() {
 
 updateMap();
 
-d3.text("./txt/en/info_map.html", function(error, text) {
+d3.text("./txt/"+Language+"/info_map.html", function(error, text) {
   if (error) throw error;
   document.getElementById("text_tag").innerHTML = text;
 });
