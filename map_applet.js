@@ -262,14 +262,20 @@ function clearGeodesic() {
 	geodesic_data = {}; 
 	d3.selectAll(".geodesic").remove(); 
 	geodesic = svg.insert("path", ".graticule")
- 					.attr("class", "geodesic")
+ 					.attr("class", "geodesic");
+
+	document.getElementById("geo_tag").style.display = "none";		
+				
  	};
 
 function clearLoxodrome() {  
 	loxodrome_data = {}; 
 	d3.selectAll(".loxodrome").remove(); 
  	loxodrome = svg.insert("path", ".graticule")
- 					.attr("class", "loxodrome")
+ 					.attr("class", "loxodrome");
+ 					
+	document.getElementById("loxo_tag").style.display = "none";		
+				
 	};
 
 
@@ -448,9 +454,9 @@ function updateCoordsTag(obj) {
 	psign = lp[1]>=0. ? 'N' : 'S'
 	
 	document.getElementById("coords_tag").innerHTML =  
-	'<table style="display:inline; padding:0px;"><td style="width:90px; text-align:right;">' + 
+	'<table style="display:inline; padding:0px;"><td style="width:70px; text-align:right;">' + 
 	Math.abs(lp[1]).toFixed(2) + '\u00B0 ' + psign + 
-	'</td> <td style="width:90px; text-align:right;">' +
+	'</td> <td style="width:70px; text-align:right;">' +
 	Math.abs(lp[0]).toFixed(2) + '\u00B0 ' + lsign +
 	'</td></table>';	
 	
@@ -573,7 +579,9 @@ function geodesic_draw() {
 				.attr("d",path);
 				
 		document.getElementById("geolength_tag").innerHTML = 
-		(d3.geo.length(geodesic_data)*6366.197723675814).toFixed(0) + " km";		
+		(d3.geo.length(geodesic_data)*6366.197723675814).toFixed(0) + " km";
+		
+		document.getElementById("geo_tag").style.display = "inline";		
 		};
 
 
@@ -615,6 +623,9 @@ function loxodrome_draw() {
 		
 		document.getElementById("loxoazimuth_tag").innerHTML = 
 		az.toFixed(2) + "\u00B0";
+		
+		document.getElementById("loxo_tag").style.display = "inline";		
+
 		};
 
 function mode_loxodrome() {

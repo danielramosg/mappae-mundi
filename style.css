@@ -61,6 +61,31 @@ body {
 	height: 600px;
 }
 
+.coords_tag {
+	position: absolute; 
+	bottom: 10px; 
+	left: 0px;
+	font-size: 12px;
+}
+
+.geo_tag {
+	position: absolute; 
+	bottom: 40px; 
+	right:10px;
+	color: #f00;
+	display: none;
+}
+.loxo_tag {
+	position: absolute; 
+	bottom: 10px; 
+	right:10px;
+	color: #00f;
+	display: none;	
+}
+
+
+
+
 svg {
 	position: absolute;
 	left: 0px;
@@ -86,6 +111,7 @@ canvas {
 
 .controls_tag {
 	clear: left;
+	width: 55%;
 }
 
 h1 {
