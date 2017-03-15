@@ -501,6 +501,7 @@ function tissot_click() {
 function tissot_mouseleave() {
 	indicatrix.attr("rx",null);
 	indicatrix.attr("ry",null);
+	default_mouseleave();
 };
 
 function mode_tissot() {
@@ -541,14 +542,20 @@ var move_drag = d3.behavior.drag()
 	  drawCanvas();
 	 }) ;
 
+
 function default_mousemove(){
 	updateCoordsTag(this);
 	};
+	
+function default_mouseleave(){
+	document.getElementById("coords_tag").innerHTML =  "";
+	};
+
 
 function mode_move() {
 	maparea.on('mousemove', default_mousemove);
 	maparea.on('click', null);
-	maparea.on('mouseleave', null);
+	maparea.on('mouseleave', default_mouseleave);
 	maparea.call(move_drag);
 	document.getElementById("sphere").style.cursor = 'move';
 
@@ -589,7 +596,7 @@ function mode_geodesic() {
 	maparea.on(".drag", null);
 	maparea.on('mousemove',default_mousemove);
 	maparea.on('click', geodesic_click);
-	maparea.on('mouseleave', null);
+	maparea.on('mouseleave', default_mouseleave);
 	document.getElementById("sphere").style.cursor = 'crosshair';
 };
 
@@ -632,7 +639,7 @@ function mode_loxodrome() {
 	maparea.on(".drag", null);
 	maparea.on('mousemove',default_mousemove);
 	maparea.on('click', loxodrome_click);
-	maparea.on('mouseleave', null);
+	maparea.on('mouseleave', default_mouseleave);
 	document.getElementById("sphere").style.cursor = 'crosshair';
 };
 
