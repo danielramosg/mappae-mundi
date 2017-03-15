@@ -123,3 +123,12 @@ canvas {
 h1 {
 	text-align: center;
 }
+
+button {
+	padding:0px;
+	margin:0px;
+}
+
+th {
+    text-align: left;
+}
