@@ -3,7 +3,7 @@ var width = document.getElementById("map_tag").clientWidth;
 var height = document.getElementById("map_tag").clientHeight;
 //var width = 960,
 //var    height = 600;
-console.log(width, height);    
+//console.log(width, height);    
     
     
 CurrentLocation = [-9.136500,38.707718];  //Lisbon
@@ -400,7 +400,12 @@ function drawSvg () {
 };
 
 function drawEllipses () {
-	svg = d3.select("svg");		
+	svg = d3.select("svg");
+	
+	var scalefactor = 
+	projection.scale() *
+	document.getElementById("ellipradius").value /6283.185 ;
+	
 	for (i=0; i < listellip.length; i++) {
 		//verify that the point is on the map
 		lp = listellip[i];
@@ -422,8 +427,8 @@ function drawEllipses () {
 				.attr("class","listellip")
 				.attr("cx",0)
 				.attr("cy",0)
-				.attr("rx",20*props.sax0)
-				.attr("ry",20*props.sax1)
+				.attr("rx",scalefactor *props.sax0)
+				.attr("ry",scalefactor *props.sax1)
 				.attr("transform","translate("+xy[0] +' '+ xy[1] +") "+ "rotate("+ props.angle+ ")")
 				.attr("stroke",props.strokecolor)
 				.attr("stroke-width",2)
@@ -469,11 +474,15 @@ function tissot_mousemove() {
 	lp = projection.invert(xy); //lp = lambda, phi = lon, lat
 
 	updateCoordsTag(this);
+	
+	var scalefactor = 
+	projection.scale() *
+	document.getElementById("ellipradius").value /6283.185 ;		
 
 	ellip = TissotEllipse(projection,lp)
 	
-	indicatrix.attr("rx",20*ellip.sax0);
-	indicatrix.attr("ry",20*ellip.sax1);
+	indicatrix.attr("rx",scalefactor *ellip.sax0);
+	indicatrix.attr("ry",scalefactor *ellip.sax1);
 	indicatrix.attr("transform","translate("+xy[0] +' '+ xy[1] +") "+ "rotate("+ ellip.angle+ ")");
 
 	indicatrix.attr("stroke",ellip.strokecolor);

@@ -82,7 +82,10 @@ About </button>
 "mode_tissot()"> 
 Tissot's indicatrix </td> 
 
-<td> </td>
+<td>
+<input type="number" id="ellipradius" min="0" max="20000" step="100" value="1000" style="width:50px; margin:0.5em;" onchange="removeEllipses(); drawEllipses();">km
+
+</td>
 <td><button type="button" onclick="clearEllipses()">
 <img src="./icons/trash.svg" width="20px" > <br>
 </button> </td>
@@ -188,8 +191,6 @@ Graticule </input>
 
 
 <script src="./map_applet.js"></script>
-
-<script> console.log(Language); </script>
 
 </body>
 </html>
