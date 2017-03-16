@@ -165,7 +165,6 @@ function changeAspect() {
 function updateMap() {
 
 projection=projectionslist[menu.node().selectedIndex].projection;
-console.log(projection.scale());
 
 shortname = projectionslist[menu.node().selectedIndex].shortname;
 d3.select("svg").remove();
