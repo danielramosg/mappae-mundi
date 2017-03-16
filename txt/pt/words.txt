@@ -1,0 +1,18 @@
+Projection-----Projecção
+Tissot's indicatrix-----Indicatriz de Tissot
+Geodesic-----Geodésica
+Loxodrome-----Loxodrómia
+Rotate globe-----Girar o globo
+Aspect-----Aspecto
+Terrain-----Terreno
+Country borders-----Fronteiras dos países
+Graticule-----Grelha geográfica
+Clear-----Limpar
+Undo-----Anular
+Sample-----Amostra/Exemplo (i need some context on this one)
+Equatorial-----Equatorial
+Polar (North)-----Polar (Norte)
+Polar (South)-----Polar (Sul)
+Oblique (Your location)-----Oblíquo (Sua localização)
+Oblique (Other)-----Oblíquo (Outra)
+About-----Sobre
