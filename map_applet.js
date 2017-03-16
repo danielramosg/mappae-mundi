@@ -292,17 +292,30 @@ function drawCanvas () {
 	var image = new Image;
 	image.onload = onload;
 	image.src = "raster.jpg";
-	
+
 	function onload() {
 	  var dx = image.width,
 		  dy = image.height;
+		  
+			var canvas_src = d3.select("#map_tag").append("canvas")
+			.attr("width", dx)
+    		.attr("height", dy);
+			canvas_src.node().style.display='none';
+			var context_src = canvas_src.node().getContext('2d');
+			//The source image has to be loaded into a canvas, because getImageData 
+			//only works for a canvas. If we re-use the same canvas for the source 
+			//and destination, the source image is clipped if dx > width or dy > height
+			//so we need a source canvas and a destination canvas.
+			
 
-	  context.drawImage(image, 0, 0, dx, dy);
+	  context_src.drawImage(image, 0, 0, dx, dy);
 
-	  var sourceData = context.getImageData(0, 0, dx, dy).data,
+	  var sourceData = context_src.getImageData(0, 0, dx, dy).data,
 		  target = context.createImageData(width, height),
 		  targetData = target.data;
-	
+			
+		canvas_src.node().remove();
+
 			
 	  var tolerance = 0.1;
 	  for (var y = 0, i = -1; y < height; ++y) {
@@ -320,11 +333,10 @@ function drawCanvas () {
 			  targetData[++i] = sourceData[++q];
 			  targetData[++i] = 255;
 			} else {i+=4;}
-    }
-  }
+	    }
+	  }
 
-
-	  context.clearRect(0, 0, width, height);
+	  //context.clearRect(0, 0, width, height);
 	  context.putImageData(target, 0, 0);
 	};
 
