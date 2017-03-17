@@ -166,7 +166,8 @@ Aspect </td>
 <tr><td>
 <input type="checkbox" id="rastervisible" onclick=
 "document.getElementsByTagName('canvas')[0]
-.style.visibility = this.checked? 'visible':'hidden' "> 
+.style.visibility = this.checked? 'visible':'hidden';
+document.getElementsByClassName('land')[0].style.visibility = this.checked? 'hidden':'visible'; "> 
 Terrain </input>
 </td></tr>
 <tr><td>

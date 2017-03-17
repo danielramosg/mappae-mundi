@@ -9,7 +9,7 @@ var height = document.getElementById("map_tag").clientHeight;
 CurrentLocation = [-9.136500,38.707718];  //Lisbon
 
 
-rotateToCurrentLocation = [-CurrentLocation[0],-CurrentLocation[1]]
+rotateToCurrentLocation = [-CurrentLocation[0],-CurrentLocation[1]];
 
 var projectionslist = [
   {	name: "Plate Carrée", //"Equirectangular (Plate Carrée)",
@@ -123,7 +123,7 @@ menu.selectAll("option")
   	.enter().append("option")
     .text(function(d) { return d.name; });
 
-menu.node().value = "Plate Carrée"; //"Equirectangular (Plate Carrée)";    
+menu.node().value = "Orthographic"; //"Equirectangular (Plate Carrée)";    
 
 menu.on("change", updateMap);
 
@@ -153,6 +153,7 @@ function changeAspect() {
 	
 	//updateMap();
 	
+	d3.select(".land").style("visibility","visible");
 	d3.select("canvas").remove();
 	path = d3.geo.path().projection(projection);
 	d3.selectAll("path").attr("d", path);
@@ -310,9 +311,9 @@ function drawCanvas () {
 
 	  context_src.drawImage(image, 0, 0, dx, dy);
 
-	  var sourceData = context_src.getImageData(0, 0, dx, dy).data,
-		  target = context.createImageData(width, height),
-		  targetData = target.data;
+	  	var sourceData = context_src.getImageData(0, 0, dx, dy).data;
+		var target = context.createImageData(width, height);
+		var targetData = target.data;
 			
 		canvas_src.node().remove();
 
@@ -338,6 +339,9 @@ function drawCanvas () {
 
 	  //context.clearRect(0, 0, width, height);
 	  context.putImageData(target, 0, 0);
+
+	  d3.select(".land").style("visibility", d3.select("#rastervisible").node().checked ? "hidden" : "visible");	
+	  //here to make land disappear just after canvas is drawn, synchronously
 	};
 
 };
@@ -407,6 +411,8 @@ function drawSvg () {
  		.datum(loxodrome_data)
  		.attr("d",path);
  		
+ 	//d3.select(".land").style("visibility", d3.select("#rastervisible").node().checked ? "hidden" : "visible");	
+	
 
 };
 
@@ -539,7 +545,8 @@ var move_drag = d3.behavior.drag()
 	  var proj = projection.rotate();
 	  m0 = [d3.event.sourceEvent.pageX, d3.event.sourceEvent.pageY];
 	  o0 = [-proj[0],-proj[1]];
-  
+
+	  d3.select(".land").style("visibility","visible");	
 	  d3.select("canvas").remove();
 	  aspect.node().value = "oblique_other";
 
@@ -560,6 +567,7 @@ var move_drag = d3.behavior.drag()
 	
 	.on("dragend", function() {
 	  drawCanvas();
+
 	 }) ;
 
 
