@@ -12,31 +12,41 @@ CurrentLocation = [-9.136500,38.707718];  //Lisbon
 rotateToCurrentLocation = [-CurrentLocation[0],-CurrentLocation[1]];
 
 var projectionslist = [
-  {	name: "Plate Carrée", //"Equirectangular (Plate Carrée)",
-   	shortname: "platecarre",
+  {	shortname: "platecarre",
+  	name: {
+  		en: "Equirectangular (Plate Carrée)",
+  		pt: "Equiretangular (Plate Carrée)" },
 	projection: d3.geo.equirectangular()
 		.scale(0.15*width)
     	.translate([width / 2, height / 2])},
-  {	name: "Mercator", 
-  	shortname: "mercator",
+  {	shortname: "mercator",
+	name: {
+		en: "Mercator",
+		pt: "Mercator", },
   	projection: d3.geo.mercator()
   		.scale(650 / 2 / Math.PI)
   		.translate([width / 2, height / 2])
   		.clipExtent([[0,0],[width,height]])},
-  {	name: "Gall-Peters",
-  	shortname: "gallpeters",
+  {	shortname: "gallpeters",
+  	name: {
+  		en: "Gall-Peters",
+  		pt: "Gall-Peters", },
   	projection: d3.geo.cylindricalEqualArea().parallel(45)
   		.scale(0.2*width)
   		.translate([width / 2, height / 2])},
 //  {name: "Lambert cylindrical equal-area", projection: d3.geo.cylindricalEqualArea()},
-  {	name: "Mollweide",
-  	shortname: "mollweide",
+  {	shortname: "mollweide",
+  	name: {
+  		en: "Mollweide",
+  		pt: "Mollweide", },
   	projection: d3.geo.mollweide()
   		.scale(0.17*width)
     	.translate([width / 2, height / 2])
     	.precision(0.2)},
-  {	name: "Azimuthal Equidistant",
-  	shortname: "aziequi",
+  {	shortname: "aziequi",
+  	name: {
+  		en: "Azimuthal Equidistant",
+  		pt: "Azimutal Equidistante", },
   	projection: d3.geo.azimuthalEquidistant()
   		.scale(0.1*width)
     	.translate([width / 2, height / 2])
@@ -44,8 +54,10 @@ var projectionslist = [
        	.clipExtent([[0,0],[width,height]])
     	.precision(.1)
     	.rotate(rotateToCurrentLocation)  },
-  {	name: "Gnomonic",
-  	shortname: "gnomo",
+  {	shortname: "gnomo",
+  	name: {
+  		en: "Gnomonic",
+  		pt: "Gnomônica", },
   	projection: d3.geo.gnomonic()
   		.clipAngle(90 - 1e-3)
     	.scale(120)
@@ -53,8 +65,10 @@ var projectionslist = [
     	.precision(.1)
     	.clipExtent([[0,0],[width,height]])
     	.rotate(rotateToCurrentLocation)	}, 
-  {name: "Stereographic", 
-	shortname: "stereo",
+  {	shortname: "stereo",
+  	name: {
+  		en: "Stereographic",
+		pt: "Estereográfica", },
   	projection: d3.geo.stereographic()
  		.scale(280)
     	.translate([width / 2, height / 2])
@@ -62,8 +76,10 @@ var projectionslist = [
     	.clipAngle(130 - 1e-3)
     	.precision(.1)
     	.clipExtent([[0,0],[width,height]])},
-  {name: "Orthographic", 
-	shortname: "ortho",
+  {	shortname: "ortho",
+  	name: {
+  		en: "Orthographic",
+		pt: "Ortográfica", },
   	projection: d3.geo.orthographic()
  		.scale(0.28*width)
     	.translate([width / 2, height / 2])
@@ -115,15 +131,15 @@ var projectionslist = [
 ];
 
 
-
 var menu = d3.select("#projection-menu");
     
 menu.selectAll("option")
     .data(projectionslist)
   	.enter().append("option")
-    .text(function(d) { return d.name; });
+  	.attr("value",function(d) { return d.shortname; })
+    .text(function(d) { return d.name[Language]; });
 
-menu.node().value = "Orthographic"; //"Equirectangular (Plate Carrée)";    
+menu.node().value = "ortho"; //"Equirectangular (Plate Carrée)";    
 
 menu.on("change", updateMap);
 
