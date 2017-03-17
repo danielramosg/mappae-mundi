@@ -1,134 +1,148 @@
 
-var width = document.getElementById("map_tag").clientWidth;
-var height = document.getElementById("map_tag").clientHeight;
-//var width = 960,
-//var    height = 600;
-//console.log(width, height);    
-    
-    
+
 CurrentLocation = [-9.136500,38.707718];  //Lisbon
 
 
 rotateToCurrentLocation = [-CurrentLocation[0],-CurrentLocation[1]];
 
-var projectionslist = [
-  {	shortname: "platecarre",
-  	name: {
-  		en: "Equirectangular (Plate Carrée)",
-  		pt: "Equiretangular (Plate Carrée)" },
-	projection: d3.geo.equirectangular()
-		.scale(0.15*width)
-    	.translate([width / 2, height / 2])},
-  {	shortname: "mercator",
-	name: {
-		en: "Mercator",
-		pt: "Mercator", },
-  	projection: d3.geo.mercator()
-  		.scale(650 / 2 / Math.PI)
-  		.translate([width / 2, height / 2])
-  		.clipExtent([[0,0],[width,height]])},
-  {	shortname: "gallpeters",
-  	name: {
-  		en: "Gall-Peters",
-  		pt: "Gall-Peters", },
-  	projection: d3.geo.cylindricalEqualArea().parallel(45)
-  		.scale(0.2*width)
-  		.translate([width / 2, height / 2])},
-//  {name: "Lambert cylindrical equal-area", projection: d3.geo.cylindricalEqualArea()},
-  {	shortname: "mollweide",
-  	name: {
-  		en: "Mollweide",
-  		pt: "Mollweide", },
-  	projection: d3.geo.mollweide()
-  		.scale(0.17*width)
-    	.translate([width / 2, height / 2])
-    	.precision(0.2)},
-  {	shortname: "aziequi",
-  	name: {
-  		en: "Azimuthal Equidistant",
-  		pt: "Azimutal Equidistante", },
-  	projection: d3.geo.azimuthalEquidistant()
-  		.scale(0.1*width)
-    	.translate([width / 2, height / 2])
-    	.clipAngle(180 - 1e-3)
-       	.clipExtent([[0,0],[width,height]])
-    	.precision(.1)
-    	.rotate(rotateToCurrentLocation)  },
-  {	shortname: "gnomo",
-  	name: {
-  		en: "Gnomonic",
-  		pt: "Gnomônica", },
-  	projection: d3.geo.gnomonic()
-  		.clipAngle(90 - 1e-3)
-    	.scale(120)
-    	.translate([width / 2, height / 2])
-    	.precision(.1)
-    	.clipExtent([[0,0],[width,height]])
-    	.rotate(rotateToCurrentLocation)	}, 
-  {	shortname: "stereo",
-  	name: {
-  		en: "Stereographic",
-		pt: "Estereográfica", },
-  	projection: d3.geo.stereographic()
- 		.scale(280)
-    	.translate([width / 2, height / 2])
-    	//.clipAngle(90)
-    	.clipAngle(130 - 1e-3)
-    	.precision(.1)
-    	.clipExtent([[0,0],[width,height]])},
-  {	shortname: "ortho",
-  	name: {
-  		en: "Orthographic",
-		pt: "Ortográfica", },
-  	projection: d3.geo.orthographic()
- 		.scale(0.28*width)
-    	.translate([width / 2, height / 2])
-    	.clipAngle(90)
-		.clipExtent([[0,0],[width,height]])
-    	.precision(.1)
-    	.rotate(rotateToCurrentLocation) }
 
-//   {name: "Aitoff", projection: d3.geo.aitoff()},
-//   {name: "Albers", projection: d3.geo.albers().scale(145).parallels([20, 50])},
-//   {name: "August", projection: d3.geo.august().scale(60)},
-//   {name: "Baker", projection: d3.geo.baker().scale(100)},
-//   {name: "Boggs", projection: d3.geo.boggs()},
-//   {name: "Bonne", projection: d3.geo.bonne().scale(120)},
-//   {name: "Bromley", projection: d3.geo.bromley()},
-//   {name: "Craster Parabolic", projection: d3.geo.craster()},
-//   {name: "Collignon", projection: d3.geo.collignon().scale(93)},
-//   {name: "Eckert I", projection: d3.geo.eckert1().scale(165)},
-//   {name: "Eckert II", projection: d3.geo.eckert2().scale(165)},
-//   {name: "Eckert III", projection: d3.geo.eckert3().scale(180)},
-//   {name: "Eckert IV", projection: d3.geo.eckert4().scale(180)},
-//   {name: "Eckert V", projection: d3.geo.eckert5().scale(170)},
-//   {name: "Eckert VI", projection: d3.geo.eckert6().scale(170)},
-//   {name: "Eisenlohr", projection: d3.geo.eisenlohr().scale(60)},
-//   {name: "Hammer", projection: d3.geo.hammer().scale(165)},
-//   {name: "Hill", projection: d3.geo.hill()},
-//   {name: "Goode Homolosine", projection: d3.geo.homolosine()},
-//   {name: "Kavrayskiy VII", projection: d3.geo.kavrayskiy7()},
-//   {name: "Lagrange", projection: d3.geo.lagrange().scale(120)},
-//   {name: "Larrivée", projection: d3.geo.larrivee().scale(95)},
-//   {name: "Laskowski", projection: d3.geo.laskowski().scale(120)},
-//   {name: "Loximuthal", projection: d3.geo.loximuthal()},
-//   {name: "Miller", projection: d3.geo.miller().scale(100)},
-//   {name: "McBryde–Thomas Flat-Polar Parabolic", projection: d3.geo.mtFlatPolarParabolic()},
-//   {name: "McBryde–Thomas Flat-Polar Quartic", projection: d3.geo.mtFlatPolarQuartic()},
-//   {name: "McBryde–Thomas Flat-Polar Sinusoidal", projection: d3.geo.mtFlatPolarSinusoidal()},
-//   {name: "Natural Earth", projection: d3.geo.naturalEarth()},
-//   {name: "Nell–Hammer", projection: d3.geo.nellHammer()},
-//   {name: "Polyconic", projection: d3.geo.polyconic().scale(100)},
-//   {name: "Robinson", projection: d3.geo.robinson()},
-//   {name: "Sinusoidal", projection: d3.geo.sinusoidal()},
-//   {name: "Sinu-Mollweide", projection: d3.geo.sinuMollweide()},
-//   {name: "van der Grinten", projection: d3.geo.vanDerGrinten().scale(75)},
-//   {name: "van der Grinten IV", projection: d3.geo.vanDerGrinten4().scale(120)},
-//   {name: "Wagner IV", projection: d3.geo.wagner4()},
-//   {name: "Wagner VI", projection: d3.geo.wagner6()},
-//   {name: "Wagner VII", projection: d3.geo.wagner7()},
-//   {name: "Winkel Tripel", projection: d3.geo.winkel3()}
-];
+function defineProjections() {
+
+	width = document.getElementById("map_tag").clientWidth;
+	height = document.getElementById("map_tag").clientHeight;
+
+	projectionslist = [
+	  {	shortname: "platecarre",
+		name: {
+			en: "Equirectangular (Plate Carrée)",
+			pt: "Equiretangular (Plate Carrée)" },
+		projection: d3.geo.equirectangular()
+			.scale(0.15*Math.min(width,2*height))
+			.translate([width / 2, height / 2])},
+	  {	shortname: "mercator",
+		name: {
+			en: "Mercator",
+			pt: "Mercator", },
+		projection: d3.geo.mercator()
+			.scale(0.15*Math.min(width,1.1*height))
+			.translate([width / 2, height / 2])
+			.clipExtent([[0,0],[width,height]])},
+	  {	shortname: "gallpeters",
+		name: {
+			en: "Gall-Peters",
+			pt: "Gall-Peters", },
+		projection: d3.geo.cylindricalEqualArea().parallel(45)
+			.scale(0.2*Math.min(width, 1.571*height))
+			.translate([width / 2, height / 2])},
+	//  {name: "Lambert cylindrical equal-area", projection: d3.geo.cylindricalEqualArea()},
+	  {	shortname: "mollweide",
+		name: {
+			en: "Mollweide",
+			pt: "Mollweide", },
+		projection: d3.geo.mollweide()
+			.scale(0.155*Math.min(width, 2*height))
+			.translate([width / 2, height / 2])
+			.precision(0.2)},
+	  {	shortname: "aziequi",
+		name: {
+			en: "Azimuthal Equidistant",
+			pt: "Azimutal Equidistante", },
+		projection: d3.geo.azimuthalEquidistant()
+			.scale(0.15*Math.min(width,height))
+			.translate([width / 2, height / 2])
+			.clipAngle(180 - 1e-3)
+			.clipExtent([[0,0],[width,height]])
+			.precision(.1)
+			.rotate(rotateToCurrentLocation)  },
+	  {	shortname: "gnomo",
+		name: {
+			en: "Gnomonic",
+			pt: "Gnomônica", },
+		projection: d3.geo.gnomonic()
+			.clipAngle(90 - 1e-3)
+			.scale(120)
+			.translate([width / 2, height / 2])
+			.precision(.1)
+			.clipExtent([[0,0],[width,height]])
+			.rotate(rotateToCurrentLocation)	}, 
+	  {	shortname: "stereo",
+		name: {
+			en: "Stereographic",
+			pt: "Estereográfica", },
+		projection: d3.geo.stereographic()
+			.scale(280)
+			.translate([width / 2, height / 2])
+			//.clipAngle(90)
+			.clipAngle(130 - 1e-3)
+			.precision(.1)
+			.clipExtent([[0,0],[width,height]])},
+	  {	shortname: "ortho",
+		name: {
+			en: "Orthographic",
+			pt: "Ortográfica", },
+		projection: d3.geo.orthographic()
+			.scale(0.45*Math.min(width,height))
+			.translate([width / 2, height / 2])
+			.clipAngle(90)
+			.clipExtent([[0,0],[width,height]])
+			.precision(.1)
+			.rotate(rotateToCurrentLocation) }
+
+	//   {name: "Aitoff", projection: d3.geo.aitoff()},
+	//   {name: "Albers", projection: d3.geo.albers().scale(145).parallels([20, 50])},
+	//   {name: "August", projection: d3.geo.august().scale(60)},
+	//   {name: "Baker", projection: d3.geo.baker().scale(100)},
+	//   {name: "Boggs", projection: d3.geo.boggs()},
+	//   {name: "Bonne", projection: d3.geo.bonne().scale(120)},
+	//   {name: "Bromley", projection: d3.geo.bromley()},
+	//   {name: "Craster Parabolic", projection: d3.geo.craster()},
+	//   {name: "Collignon", projection: d3.geo.collignon().scale(93)},
+	//   {name: "Eckert I", projection: d3.geo.eckert1().scale(165)},
+	//   {name: "Eckert II", projection: d3.geo.eckert2().scale(165)},
+	//   {name: "Eckert III", projection: d3.geo.eckert3().scale(180)},
+	//   {name: "Eckert IV", projection: d3.geo.eckert4().scale(180)},
+	//   {name: "Eckert V", projection: d3.geo.eckert5().scale(170)},
+	//   {name: "Eckert VI", projection: d3.geo.eckert6().scale(170)},
+	//   {name: "Eisenlohr", projection: d3.geo.eisenlohr().scale(60)},
+	//   {name: "Hammer", projection: d3.geo.hammer().scale(165)},
+	//   {name: "Hill", projection: d3.geo.hill()},
+	//   {name: "Goode Homolosine", projection: d3.geo.homolosine()},
+	//   {name: "Kavrayskiy VII", projection: d3.geo.kavrayskiy7()},
+	//   {name: "Lagrange", projection: d3.geo.lagrange().scale(120)},
+	//   {name: "Larrivée", projection: d3.geo.larrivee().scale(95)},
+	//   {name: "Laskowski", projection: d3.geo.laskowski().scale(120)},
+	//   {name: "Loximuthal", projection: d3.geo.loximuthal()},
+	//   {name: "Miller", projection: d3.geo.miller().scale(100)},
+	//   {name: "McBryde–Thomas Flat-Polar Parabolic", projection: d3.geo.mtFlatPolarParabolic()},
+	//   {name: "McBryde–Thomas Flat-Polar Quartic", projection: d3.geo.mtFlatPolarQuartic()},
+	//   {name: "McBryde–Thomas Flat-Polar Sinusoidal", projection: d3.geo.mtFlatPolarSinusoidal()},
+	//   {name: "Natural Earth", projection: d3.geo.naturalEarth()},
+	//   {name: "Nell–Hammer", projection: d3.geo.nellHammer()},
+	//   {name: "Polyconic", projection: d3.geo.polyconic().scale(100)},
+	//   {name: "Robinson", projection: d3.geo.robinson()},
+	//   {name: "Sinusoidal", projection: d3.geo.sinusoidal()},
+	//   {name: "Sinu-Mollweide", projection: d3.geo.sinuMollweide()},
+	//   {name: "van der Grinten", projection: d3.geo.vanDerGrinten().scale(75)},
+	//   {name: "van der Grinten IV", projection: d3.geo.vanDerGrinten4().scale(120)},
+	//   {name: "Wagner IV", projection: d3.geo.wagner4()},
+	//   {name: "Wagner VI", projection: d3.geo.wagner6()},
+	//   {name: "Wagner VII", projection: d3.geo.wagner7()},
+	//   {name: "Winkel Tripel", projection: d3.geo.winkel3()}
+	];
+};
+
+defineProjections();
+
+
+
+var element = document.getElementById("map_tag")
+new ResizeSensor(element, function() {
+    //console.log('Changed to ' + element.clientWidth);
+	defineProjections();
+	updateMap();
+	//console.log(width);
+	});
+
 
 
 var menu = d3.select("#projection-menu");
@@ -181,43 +195,43 @@ function changeAspect() {
 
 function updateMap() {
 
-projection=projectionslist[menu.node().selectedIndex].projection;
+	projection=projectionslist[menu.node().selectedIndex].projection;
 
-shortname = projectionslist[menu.node().selectedIndex].shortname;
-d3.select("svg").remove();
-d3.select("canvas").remove();
-drawCanvas();
-drawSvg();
-drawEllipses();
-if (document.getElementById("radio_tissot").checked) {mode_tissot(); };
-if (document.getElementById("radio_move").checked) {mode_move(); };
-if (document.getElementById("radio_geodesic").checked) {mode_geodesic(); };
-if (document.getElementById("radio_loxodrome").checked) {mode_loxodrome(); };
+	shortname = projectionslist[menu.node().selectedIndex].shortname;
+	d3.select("svg").remove();
+	d3.select("canvas").remove();
+	drawCanvas();
+	drawSvg();
+	drawEllipses();
+	if (document.getElementById("radio_tissot").checked) {mode_tissot(); };
+	if (document.getElementById("radio_move").checked) {mode_move(); };
+	if (document.getElementById("radio_geodesic").checked) {mode_geodesic(); };
+	if (document.getElementById("radio_loxodrome").checked) {mode_loxodrome(); };
 
 
-switch (projection.rotate().toString()) { //Can't compare arrays directly
-	case "0,0,0":
-		aspect.node().value = "equatorial";
-		break;
-	case "0,-90,0":
-		aspect.node().value = "polar_north";
-		break;
-	case "0,90,0":
-		aspect.node().value = "polar_south";
-		break;
-	case rotateToCurrentLocation.toString() +',0':
-		aspect.node().value = "oblique_yourlocation";
-		break;
-	default:
-		aspect.node().value = "oblique_other";
-		break;
-	};
+	switch (projection.rotate().toString()) { //Can't compare arrays directly
+		case "0,0,0":
+			aspect.node().value = "equatorial";
+			break;
+		case "0,-90,0":
+			aspect.node().value = "polar_north";
+			break;
+		case "0,90,0":
+			aspect.node().value = "polar_south";
+			break;
+		case rotateToCurrentLocation.toString() +',0':
+			aspect.node().value = "oblique_yourlocation";
+			break;
+		default:
+			aspect.node().value = "oblique_other";
+			break;
+		};
 	
 
-d3.text("./txt/"+Language+"/"+shortname+".html", function(error, text) {
-  if (error) throw error;
-  document.getElementById("text_tag").innerHTML = text;
-});
+	d3.text("./txt/"+Language+"/"+shortname+".html", function(error, text) {
+	  if (error) throw error;
+	  document.getElementById("text_tag").innerHTML = text;
+	});
 
 };
 
@@ -669,7 +683,7 @@ function loxodrome_draw() {
 				
 		document.getElementById("loxolength_tag").innerHTML = 
 		document.getElementById("loxoextended").checked ?
-		(Math.abs(20000/Math.cos(az))).toFixed(0) + " km" :
+		(Math.abs(20000/Math.cos(az*0.017453292519943295))).toFixed(0) + " km" :
 		(d3.geo.length(loxodrome_data)*6366.197723675814).toFixed(0) + " km";
 		
 		document.getElementById("loxoazimuth_tag").innerHTML = 
