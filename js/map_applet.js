@@ -328,7 +328,7 @@ function drawCanvas () {
 
 	var image = new Image;
 	image.onload = onload;
-	image.src = "raster.jpg";
+	image.src = "img/raster.jpg";
 
 	function onload() {
 	  var dx = image.width,
