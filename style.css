@@ -53,13 +53,37 @@ body {
 
 
 .map_tag {
-	float: left;
+	/*float: left;*/
 	position: relative;
+	margin-right:45%;
     border: 3px solid #73AD21;
-    width: 55%;
+    /*max-width: 55%;*/
 /* 	width: 960px; */
 	height: 600px;
 }
+
+.coords_tag {
+	position: absolute; 
+	bottom: 10px; 
+	left: 0px;
+	font-size: 12px;
+}
+
+.geo_tag {
+	position: absolute; 
+	bottom: 40px; 
+	right:10px;
+	color: #f00;
+	display: none;
+}
+.loxo_tag {
+	position: absolute; 
+	bottom: 10px; 
+	right:10px;
+	color: #00f;
+	display: none;	
+}
+
 
 svg {
 	position: absolute;
@@ -79,15 +103,32 @@ canvas {
 	max-width:40%;
 	/*max-width: 630px;*/
 	margin: 0.5em;
-    padding: 1em;
+    padding: 2em;
     font-size: 90%;
     padding-top: 0px;
+    margin-top:0px;
+    /*border: 3px solid #23A3F1;*/
+    height: 900px;
+    overflow: scroll;
 }
 
 .controls_tag {
-	clear: left;
+	/*clear: right;*/
+	/*width: 55%;*/
+	/*border: 3px solid #F3A361;*/
+	margin-right:45%;
+
 }
 
 h1 {
 	text-align: center;
+}
+
+button {
+	padding:0px;
+	margin:0px;
+}
+
+th {
+    text-align: left;
 }

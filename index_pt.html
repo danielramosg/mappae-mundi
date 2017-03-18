@@ -13,18 +13,11 @@ obtained with wget-->
 <script src="./d3.geo.projection.v0.min.js"></script>
 <script src="./topojson.v1.min.js"></script>
 <script src="./numeric-1.2.6.min.js"></script>
-<script src="./ResizeSensor.js"></script> <!--for Resize events-->
-<script src="./ElementQueries.js"></script> <!--for Resize events-->
 
 <script src="./map_math.js"></script>
 
 
-
-
 <div style="float:right;">
-
-<input type="checkbox" id="checktext" onclick="hideshowText()">
-Info </input>
 <button type="button" onclick='
 		d3.text("./txt/"+Language+"/info_map.html", function(error, text) {
   		if (error) throw error;
@@ -38,15 +31,12 @@ Start </button>
 		}); '>
 About </button>
 <br>
-<a href="./index_pt.html"> Português </a>
-<script> Language = "en" </script>
+<a href="./index.html"> English </a>
+<script> Language = "pt" </script>
 </div>
 
 
-<h1> Maps of the Earth </h1>
-
-
-
+<h1> Mapas da Terra </h1>
 
 
 <div id="text_tag" class="text_tag"> </div>
@@ -176,8 +166,7 @@ Aspect </td>
 <tr><td>
 <input type="checkbox" id="rastervisible" onclick=
 "document.getElementsByTagName('canvas')[0]
-.style.visibility = this.checked? 'visible':'hidden';
-document.getElementsByClassName('land')[0].style.visibility = this.checked? 'hidden':'visible'; "> 
+.style.visibility = this.checked? 'visible':'hidden' "> 
 Terrain </input>
 </td></tr>
 <tr><td>
