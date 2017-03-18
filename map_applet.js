@@ -14,8 +14,8 @@ function defineProjections() {
 	projectionslist = [
 	  {	shortname: "platecarre",
 		name: {
-			en: "Equirectangular (Plate Carrée)",
-			pt: "Equiretangular (Plate Carrée)" },
+			en: "Plate Carrée",
+			pt: "Plate Carrée" },
 		projection: d3.geo.equirectangular()
 			.scale(0.15*Math.min(width,2*height))
 			.translate([width / 2, height / 2])},
@@ -73,7 +73,7 @@ function defineProjections() {
 			.scale(280)
 			.translate([width / 2, height / 2])
 			//.clipAngle(90)
-			.clipAngle(130 - 1e-3)
+			.clipAngle(160 - 1e-3)
 			.precision(.1)
 			.clipExtent([[0,0],[width,height]])},
 	  {	shortname: "ortho",
@@ -155,7 +155,9 @@ menu.selectAll("option")
 
 menu.node().value = "ortho"; //"Equirectangular (Plate Carrée)";    
 
-menu.on("change", updateMap);
+
+function proj_changed(){ updateMap(); setText(menu.node().value); };
+menu.on("change", proj_changed);
 
 
 
@@ -193,15 +195,6 @@ function changeAspect() {
 	};
 
 
-function hideshowText() {
-if(document.getElementById("checktext").checked)	
- 	{d3.select("#map_tag").style("margin-right","45%");
- 	d3.select("#text_tag").style("display","block");}
- 	else 
- 	{d3.select("#text_tag").style("display","none");
- 	d3.select("#map_tag").style("margin-right","0");}
- };
-
 
 
 function updateMap() {
@@ -238,11 +231,7 @@ function updateMap() {
 			break;
 		};
 	
-
-	d3.text("./txt/"+Language+"/"+shortname+".html", function(error, text) {
-	  if (error) throw error;
-	  document.getElementById("text_tag").innerHTML = text;
-	});
+	//setText(shortname);
 
 };
 
@@ -714,7 +703,5 @@ function mode_loxodrome() {
 updateMap();
 hideshowText();
 
-d3.text("./txt/"+Language+"/info_map.html", function(error, text) {
-  if (error) throw error;
-  document.getElementById("text_tag").innerHTML = text;
-});
+setText("info_map");
+

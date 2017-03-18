@@ -55,11 +55,11 @@ body {
 .map_tag {
 	/*float: left;*/
 	position: relative;
-	margin-right:45%;
+	/*margin-right:45%;*/
     border: 3px solid #73AD21;
     /*max-width: 55%;*/
 /* 	width: 960px; */
-	height: 600px;
+	height: 60vh;
 }
 
 .coords_tag {
@@ -100,15 +100,15 @@ canvas {
 
 .text_tag {
 	float: right;
-	max-width:40%;
+	max-width:30%;
 	/*max-width: 630px;*/
 	margin: 0.5em;
     padding: 2em;
-    font-size: 90%;
+    font-size: 80%;
     padding-top: 0px;
     margin-top:0px;
     /*border: 3px solid #23A3F1;*/
-    height: 900px;
+    height: 80vh;
     overflow: scroll;
 }
 
@@ -116,7 +116,7 @@ canvas {
 	/*clear: right;*/
 	/*width: 55%;*/
 	/*border: 3px solid #F3A361;*/
-	margin-right:45%;
+	margin-right:35%;
 
 }
 

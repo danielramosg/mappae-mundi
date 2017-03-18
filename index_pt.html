@@ -13,23 +13,20 @@ obtained with wget-->
 <script src="./d3.geo.projection.v0.min.js"></script>
 <script src="./topojson.v1.min.js"></script>
 <script src="./numeric-1.2.6.min.js"></script>
+<script src="./ResizeSensor.js"></script> <!--for Resize events-->
+<script src="./ElementQueries.js"></script> <!--for Resize events-->
 
 <script src="./map_math.js"></script>
+<script src="./ui_functions.js"></script>
+
+
 
 
 <div style="float:right;">
-<button type="button" onclick='
-		d3.text("./txt/"+Language+"/info_map.html", function(error, text) {
-  		if (error) throw error;
-  		document.getElementById("text_tag").innerHTML = text;
-		}); '>
-Start </button>
-<button type="button" onclick='
-		d3.text("./txt/"+Language+"/about.html", function(error, text) {
-  		if (error) throw error;
-  		document.getElementById("text_tag").innerHTML = text;
-		}); '>
-About </button>
+
+<input type="checkbox" id="checktext" onclick="hideshowText()">Info </input>
+<button type="button" onclick='setText("info_map")'>Start </button>
+<button type="button" onclick='setText("about")'>About </button>
 <br>
 <a href="./index.html"> English </a>
 <script> Language = "pt" </script>
@@ -37,6 +34,9 @@ About </button>
 
 
 <h1> Mapas da Terra </h1>
+
+
+
 
 
 <div id="text_tag" class="text_tag"> </div>
@@ -69,84 +69,62 @@ About </button>
 <!-- Sub-Table of tools-->
 <table style="display:inline"> 
 <tr>
-<td>
 
-<button type="button" onclick='
-		d3.text("./txt/"+Language+"/info_tissot.html", function(error, text) {
-  		if (error) throw error;
-  		document.getElementById("text_tag").innerHTML = text;
-		}); '>
-? </button>
+<td> <input type="radio" id="radio_tissot" name="mode" value="tissot" checked onclick=
+"mode_tissot()"> Tissot's indicatrix </td> 
 
-<input type="radio" id="radio_tissot" name="mode" value="tissot" checked onclick=
-"mode_tissot()"> 
-Tissot's indicatrix </td> 
+<td><button type="button" onclick='setText("info_tissot")'>
+<img src="./icons/info.svg" width="20px" > </button>
 
-<td>
-<input type="number" id="ellipradius" min="0" max="20000" step="100" value="1000" style="width:50px; margin:0.5em;" onchange="removeEllipses(); drawEllipses();">km
+<button type="button" onclick="clearEllipses()">
+<img src="./icons/trash.svg" width="20px" > </button>
 
-</td>
-<td><button type="button" onclick="clearEllipses()">
-<img src="./icons/trash.svg" width="20px" > <br>
-</button> </td>
-<td><button type="button" onclick="popEllipse()">
-<img src="./icons/undo.svg" width="20px" > <br>
-</button> </td>
-<td><button type="button" onclick="sampleEllipses()">
-<img src="./icons/tissotsample2.svg" width="20px" > <br>
-</button> </td>
+<button type="button" onclick="popEllipse()">
+<img src="./icons/undo.svg" width="20px" > </button>
+
+<button type="button" onclick="sampleEllipses()">
+<img src="./icons/tissotsample2.svg" width="20px" > </button> 
+
+<input type="number" id="ellipradius" min="0" max="20000" step="100" value="1000" style="width:50px; margin:0.5em;" onchange="removeEllipses(); drawEllipses();">km</td>
 </tr>
 
 <tr>
-<td> 
-<button type="button" onclick='
-		d3.text("./txt/"+Language+"/info_geodesic.html", function(error, text) {
-  		if (error) throw error;
-  		document.getElementById("text_tag").innerHTML = text;
-		}); '>
-? </button>
-
-<input type="radio" id="radio_geodesic" name="mode" value="move" onclick=
+<td> <input type="radio" id="radio_geodesic" name="mode" value="move" onclick=
 "mode_geodesic()"> 
 Geodesic </td>
 
-<td><input type="checkbox" id="geoextended" onclick="geodesic_draw()"> Extend </input></td>
-<td><button type="button" onclick="clearGeodesic()"> 
-<img src="./icons/trash.svg" width="20px" > <br>
-</button></td>
+<td> <button type="button" onclick='setText("info_geodesic")'>
+<img src="./icons/info.svg" width="20px" > </button>
+
+<button type="button" onclick="clearGeodesic()"> 
+<img src="./icons/trash.svg" width="20px" > </button>
+
+<input type="checkbox" id="geoextended" onclick="geodesic_draw()"> Extend </input>
+
 </tr>
 
 <tr>
-<td>
-<button type="button" onclick='
-		d3.text("./txt/"+Language+"/info_loxodrome.html", function(error, text) {
-  		if (error) throw error;
-  		document.getElementById("text_tag").innerHTML = text;
-		}); '>
-? </button>
+<td> <input type="radio" id="radio_loxodrome" name="mode" value="move" onclick=
+"mode_loxodrome()">Loxodrome </td>
 
-<input type="radio" id="radio_loxodrome" name="mode" value="move" onclick=
-"mode_loxodrome()"> 
-Loxodrome </td>
+<td> <button type="button" onclick='setText("info_loxodrome")'>
+<img src="./icons/info.svg" width="20px" > </button>
 
-<td><input type="checkbox" id="loxoextended" onclick="loxodrome_draw()"> Extend </input></td>
-<td><button type="button" onclick="clearLoxodrome()">
-<img src="./icons/trash.svg" width="20px" > <br>
-</button></td>
+<button type="button" onclick="clearLoxodrome()">
+<img src="./icons/trash.svg" width="20px" > </button>
+
+<input type="checkbox" id="loxoextended" onclick="loxodrome_draw()"> Extend </input>
+
 </tr>
-<tr>
-<td>
-<button type="button" onclick='
-		d3.text("./txt/"+Language+"/info_rotate.html", function(error, text) {
-  		if (error) throw error;
-  		document.getElementById("text_tag").innerHTML = text;
-		}); '>
-? </button>
 
-<input type="radio" id="radio_move" name="mode" value="move" onclick=
-"mode_move()"> 
-Aspect </td>
+<tr>
+<td> <input type="radio" id="radio_move" name="mode" value="move" onclick=
+"mode_move()"> Aspect </td>
 <td> 
+
+<button type="button" onclick='setText("info_rotate")'>
+<img src="./icons/info.svg" width="20px" > </button>
+
 <select id="select-aspect"> 
 <option value=equatorial> Equatorial </option>
 <option value=polar_north> Polar (North) </option>
@@ -166,14 +144,15 @@ Aspect </td>
 <tr><td>
 <input type="checkbox" id="rastervisible" onclick=
 "document.getElementsByTagName('canvas')[0]
-.style.visibility = this.checked? 'visible':'hidden' "> 
+.style.visibility = this.checked? 'visible':'hidden';
+document.getElementsByClassName('land')[0].style.visibility = this.checked? 'hidden':'visible'; "> 
 Terrain </input>
 </td></tr>
 <tr><td>
 <input type="checkbox" id="countriesvisible" onclick=
 "document.getElementsByClassName('boundary')[0]
 .style.visibility = this.checked? 'visible':'hidden' "> 
-Country borders </input>
+Countries </input>
 </td></tr>
 <tr><td>
 <input type="checkbox" id="graticulevisible" onclick=
