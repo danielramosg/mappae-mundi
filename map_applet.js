@@ -151,7 +151,7 @@ menu.selectAll("option")
     .data(projectionslist)
   	.enter().append("option")
   	.attr("value",function(d) { return d.shortname; })
-    .text(function(d) { return d.name[Language]; });
+    .text(function(d) { return d.name[SoEUI.getLanguage()]; });
 
 menu.node().value = "ortho"; //"Equirectangular (Plate Carrée)";    
 
@@ -237,13 +237,8 @@ function updateMap() {
 			aspect.node().value = "oblique_other";
 			break;
 		};
-	
 
-	d3.text("./txt/"+Language+"/"+shortname+".html", function(error, text) {
-	  if (error) throw error;
-	  document.getElementById("text_tag").innerHTML = text;
-	});
-
+	SoEUI.displayHelpFile(shortname);
 };
 
 
@@ -713,8 +708,3 @@ function mode_loxodrome() {
 
 updateMap();
 hideshowText();
-
-d3.text("./txt/"+Language+"/info_map.html", function(error, text) {
-  if (error) throw error;
-  document.getElementById("text_tag").innerHTML = text;
-});

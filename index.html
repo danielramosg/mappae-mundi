@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-
 <head>
-<link rel="stylesheet" type="text/css" href="./style.css">
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <script type='text/javascript' src="vendor/jquery/jquery-3.2.0.min.js"></script>
+  <script type='text/javascript' src="d3.v3.min.js"></script>
+  <script type='text/javascript' src="d3.geo.projection.v0.min.js"></script>
+  <script type='text/javascript' src="topojson.v1.min.js"></script>
+  <script type='text/javascript' src="numeric-1.2.6.min.js"></script>
+  <script type='text/javascript' src="ResizeSensor.js"></script> <!--for Resize events-->
+  <script type='text/javascript' src="ElementQueries.js"></script> <!--for Resize events-->
+  <script type='text/javascript' src="map_math.js"></script>
+  <script type='text/javascript' src="js/bundle.js"></script>
+  <script type='text/javascript' src="js/vendors.js"></script>
 </head>
-
-
 <body>
 <!-- <script src="https://d3js.org/d3.v3.min.js"></script> 
 obtained with wget-->
-<script src="./d3.v3.min.js"></script>
-<script src="./d3.geo.projection.v0.min.js"></script>
-<script src="./topojson.v1.min.js"></script>
-<script src="./numeric-1.2.6.min.js"></script>
-<script src="./ResizeSensor.js"></script> <!--for Resize events-->
-<script src="./ElementQueries.js"></script> <!--for Resize events-->
-
-<script src="./map_math.js"></script>
 
 
 
@@ -25,21 +24,11 @@ obtained with wget-->
 
 <input type="checkbox" id="checktext" onclick="hideshowText()">
 Info </input>
-<button type="button" onclick='
-		d3.text("./txt/"+Language+"/info_map.html", function(error, text) {
-  		if (error) throw error;
-  		document.getElementById("text_tag").innerHTML = text;
-		}); '>
-Start </button>
-<button type="button" onclick='
-		d3.text("./txt/"+Language+"/about.html", function(error, text) {
-  		if (error) throw error;
-  		document.getElementById("text_tag").innerHTML = text;
-		}); '>
-About </button>
+<button type="button" data-ui-help='info_map'>Start</button>
+<button type="button" data-ui-help='about'>About</button>
 <br>
-<a href="./index_pt.html"> Português </a>
-<script> Language = "en" </script>
+<a href="#" data-ui-lang-set="en"> English </a>
+<a href="#" data-ui-lang-set="pt"> Português </a>
 </div>
 
 
@@ -81,11 +70,7 @@ About </button>
 <tr>
 <td>
 
-<button type="button" onclick='
-		d3.text("./txt/"+Language+"/info_tissot.html", function(error, text) {
-  		if (error) throw error;
-  		document.getElementById("text_tag").innerHTML = text;
-		}); '>
+<button type="button" data-ui-help='info_tissot'>
 ? </button>
 
 <input type="radio" id="radio_tissot" name="mode" value="tissot" checked onclick=
@@ -109,11 +94,7 @@ Tissot's indicatrix </td>
 
 <tr>
 <td> 
-<button type="button" onclick='
-		d3.text("./txt/"+Language+"/info_geodesic.html", function(error, text) {
-  		if (error) throw error;
-  		document.getElementById("text_tag").innerHTML = text;
-		}); '>
+<button type="button" data-ui-help='info_geodesic'>
 ? </button>
 
 <input type="radio" id="radio_geodesic" name="mode" value="move" onclick=
@@ -128,12 +109,7 @@ Geodesic </td>
 
 <tr>
 <td>
-<button type="button" onclick='
-		d3.text("./txt/"+Language+"/info_loxodrome.html", function(error, text) {
-  		if (error) throw error;
-  		document.getElementById("text_tag").innerHTML = text;
-		}); '>
-? </button>
+<button type="button" data-ui-help='info_loxodrome'> ? </button>
 
 <input type="radio" id="radio_loxodrome" name="mode" value="move" onclick=
 "mode_loxodrome()"> 
@@ -146,11 +122,7 @@ Loxodrome </td>
 </tr>
 <tr>
 <td>
-<button type="button" onclick='
-		d3.text("./txt/"+Language+"/info_rotate.html", function(error, text) {
-  		if (error) throw error;
-  		document.getElementById("text_tag").innerHTML = text;
-		}); '>
+<button type="button" data-ui-help='info_rotate'>
 ? </button>
 
 <input type="radio" id="radio_move" name="mode" value="move" onclick=

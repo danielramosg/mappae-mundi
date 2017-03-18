@@ -22,7 +22,8 @@ function bundleApp(isProduction) {
   // us use modules in the front end.
   var appBundler = browserify({
     entries: './es2015/main.js',
-    debug: true
+    debug: true,
+    standalone: 'SoE'
   });
 
   // If it's not for production, a separate vendors.js file will be created
