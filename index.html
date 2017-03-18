@@ -19,7 +19,12 @@ obtained with wget-->
 <script src="./map_math.js"></script>
 
 
+
+
 <div style="float:right;">
+
+<input type="checkbox" id="checktext" onclick="hideshowText()">
+Info </input>
 <button type="button" onclick='
 		d3.text("./txt/"+Language+"/info_map.html", function(error, text) {
   		if (error) throw error;
@@ -39,6 +44,9 @@ About </button>
 
 
 <h1> Maps of the Earth </h1>
+
+
+
 
 
 <div id="text_tag" class="text_tag"> </div>

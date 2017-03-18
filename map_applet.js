@@ -193,6 +193,17 @@ function changeAspect() {
 	};
 
 
+function hideshowText() {
+if(document.getElementById("checktext").checked)	
+ 	{d3.select("#map_tag").style("margin-right","45%");
+ 	d3.select("#text_tag").style("display","block");}
+ 	else 
+ 	{d3.select("#text_tag").style("display","none");
+ 	d3.select("#map_tag").style("margin-right","0");}
+ };
+
+
+
 function updateMap() {
 
 	projection=projectionslist[menu.node().selectedIndex].projection;
@@ -378,7 +389,7 @@ function drawCanvas () {
 
 // SVG Layer
 function drawSvg () {	
-	var svg = d3.select("#map_tag").append("svg")
+	svg = d3.select("#map_tag").append("svg")
 		.attr("width", width)
 		.attr("height", height);
 	
@@ -447,7 +458,6 @@ function drawSvg () {
 };
 
 function drawEllipses () {
-	svg = d3.select("svg");
 	
 	var scalefactor = 
 	projection.scale() *
@@ -488,7 +498,6 @@ function drawEllipses () {
 //var R = Math.PI/180 * projection.scale();
 	
 	
-	svg = d3.select("svg");
 
 
 
@@ -703,6 +712,7 @@ function mode_loxodrome() {
 
 
 updateMap();
+hideshowText();
 
 d3.text("./txt/"+Language+"/info_map.html", function(error, text) {
   if (error) throw error;
