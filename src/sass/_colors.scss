@@ -2,4 +2,11 @@ $color-black-real: #000;
 $color-white-real: #fff;
 
 $color-white: $color-white-real;
-$color-black: #5D5D5D;
+$color-black: $color-black-real;
+
+$color-map: #2e4e4e;
+$color-map-light: #3f5f60;
+
+@mixin neg {
+  -webkit-font-smoothing: antialiased !important;
+}

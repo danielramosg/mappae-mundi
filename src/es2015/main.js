@@ -23,4 +23,18 @@ $(() => {
   });
   // Load default help file
   ui.displayHelpFile('info_map');
+
+  // Set keyboard commands
+  $(window).on('keypress', (ev) => {
+    // 1 - Toggle countries visible
+    if (ev.which === '1'.charCodeAt()) {
+      ui.setCountriesVisible(!ui.getCountriesVisible());
+    // 2 - Toggle graticule visible
+    } else if (ev.which === '2'.charCodeAt()) {
+      ui.setGraticuleVisible(!ui.getGraticuleVisible());
+    // 3 - Toggle raster visible
+    } else if (ev.which === '3'.charCodeAt()) {
+      ui.setRasterVisible(!ui.getRasterVisible());
+    }
+  });
 });

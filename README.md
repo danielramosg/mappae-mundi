@@ -15,6 +15,14 @@ yarn
 gulp
 ```
 
+## Advanced keyboard commands
+
+Some features are available as advanced commands using a keyboard:
+
+- **1**: Toggle country border visibility
+- **2**: Toggle graticule visibility
+- **3**: Toggle world terrain visibility
+
 ## License
 
 To Do

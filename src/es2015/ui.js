@@ -2,6 +2,10 @@ export default class UI {
   constructor() {
     this.language = 'en';
     this.helpFile = undefined;
+
+    this.isCountriesVisible = true;
+    this.isGraticuleVisible = true;
+    this.isRasterVisible = false;
   }
 
   setLanguage(langCode) {
@@ -24,4 +28,34 @@ export default class UI {
       this.helpFile = helpFileID;
     });
   }
+
+  getCountriesVisible() {
+    return this.isCountriesVisible;
+  }
+
+  getGraticuleVisible() {
+    return this.isGraticuleVisible;
+  }
+
+  getRasterVisible() {
+    return this.isRasterVisible;
+  }
+
+  setCountriesVisible(isVisible) {
+    this.isCountriesVisible = !!isVisible;
+    $('.boundary').css({ visibility: this.getCountriesVisible() ? 'visible' : 'hidden' });
+  }
+
+  setGraticuleVisible(isVisible) {
+    this.isGraticuleVisible = !!isVisible;
+    $('.graticule').css({ visibility: this.getGraticuleVisible() ? 'visible' : 'hidden' });
+  }
+
+  setRasterVisible(isVisible) {
+    this.isRasterVisible = !!isVisible;
+    $('.land').css({ visibility: !isVisible ? 'visible' : 'hidden' });
+    $('#map_tag canvas').css({ visibility: this.getRasterVisible() ? 'visible' : 'hidden' });
+  }
+
+
 }

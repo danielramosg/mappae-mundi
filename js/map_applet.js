@@ -322,7 +322,7 @@ function drawCanvas () {
     .attr("width", width)
     .attr("height", height);
 
-	canvas.style("visibility", d3.select("#rastervisible").node().checked ? "visible" : "hidden");
+	canvas.style("visibility", SoEUI.getRasterVisible() ? "visible" : "hidden");
 
 	var context = canvas.node().getContext("2d");
 
@@ -408,7 +408,7 @@ function drawSvg () {
 		.datum(graticule)
 		.attr("class", "graticule")
 		.attr("d", path)
-		.style("visibility", d3.select("#graticulevisible").node().checked ? "visible" : "hidden");
+		.style("visibility", SoEUI.getGraticuleVisible() ? "visible" : "hidden");
 
 	svg.insert("path", ".graticule")
 		.datum(topojson.feature(world, world.objects.land))
@@ -419,7 +419,7 @@ function drawSvg () {
 		.datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
 		.attr("class", "boundary")
 		.attr("d", path)
-		.style("visibility", d3.select("#countriesvisible").node().checked ? "visible" : "hidden");
+		.style("visibility", SoEUI.getCountriesVisible()  ? "visible" : "hidden");
 
 	indicatrix = svg.append("ellipse")
 		.attr("id","indicatrix")

@@ -1,0 +1,25 @@
+.graticule {
+  fill: none;
+  stroke: $color-map-light;
+  stroke-width: .5px;
+  stroke-opacity: 1;
+}
+
+.land {
+  fill: $color-map;
+  fill-opacity: 1;
+}
+
+.boundary {
+  fill: none;
+  stroke: $color-black;
+  stroke-width: .5px;
+}
+
+
+.map_tag {
+  position: relative;
+  margin-right:45%;
+  border: none;
+  height: 600px;
+}

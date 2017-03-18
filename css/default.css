@@ -20,4 +20,30 @@
 .clearfix {
   *zoom: 1; }
 
+body {
+  color: #fff;
+  background-color: #000;
+  -webkit-font-smoothing: antialiased !important; }
+
+.graticule {
+  fill: none;
+  stroke: #3f5f60;
+  stroke-width: .5px;
+  stroke-opacity: 1; }
+
+.land {
+  fill: #2e4e4e;
+  fill-opacity: 1; }
+
+.boundary {
+  fill: none;
+  stroke: #000;
+  stroke-width: .5px; }
+
+.map_tag {
+  position: relative;
+  margin-right: 45%;
+  border: none;
+  height: 600px; }
+
 /*# sourceMappingURL=default.css.map */
