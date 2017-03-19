@@ -135,14 +135,14 @@ defineProjections();
 
 
 
-var element = document.getElementById("map_tag")
+var element = document.getElementById("map_tag");
+
 new ResizeSensor(element, function() {
-    //console.log('Changed to ' + element.clientWidth);
+    //console.log('Changed to ' + element.clientWidth)
 	defineProjections();
 	updateMap();
 	//console.log(width);
-	});
-
+});
 
 
 var menu = d3.select("#projection-menu");
@@ -238,7 +238,7 @@ function updateMap() {
 			break;
 		};
 
-	SoEUI.displayHelpFile(shortname);
+	// SoEUI.displayHelpFile(shortname);
 };
 
 

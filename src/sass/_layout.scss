@@ -6,6 +6,8 @@
   height: 13.5%;
 }
 
+$dock-animation-duration: 0.2s;
+
 .map_tag {
 
   position: absolute;
@@ -13,4 +15,47 @@
   top: 13.5%;
   height: 65%;
   width: 100%;
+  transition: width $dock-animation-duration, margin-left $dock-animation-duration;
+  margin-left: 0;
+
+  &.docked-left {
+    width: 66%;
+  }
+
+  &.docked-right {
+    width: 66%;
+    margin-left: 33%;
+  }
+}
+
+.info_pane {
+  position: absolute;
+  width: 33%;
+  top: 13.5%;
+  height: 100% - 13.5%;
+  overflow: scroll;
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  transition: left 0.5s;
+}
+
+.info_pane-left {
+  left: -33%;
+
+  &.visible {
+    left: 0;
+  }
+}
+
+.info_pane-right {
+  left: 100%;
+
+  &.visible {
+    left: 66%;
+  }
+}
+
+.controls_tag {
+  margin-top: 100%;
 }

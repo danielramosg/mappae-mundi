@@ -23,8 +23,13 @@ $(() => {
     ev.preventDefault();
     ev.stopPropagation();
   });
-  // Load default help file
-  ui.displayHelpFile('info_map');
+
+  // Hook info pane close buttons
+  $('.info_pane-close').click((ev) => {
+    ui.hideInfo();
+    ev.preventDefault();
+    ev.stopPropagation();
+  });
 
   // Set keyboard commands
   $(window).on('keypress', (ev) => {

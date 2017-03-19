@@ -45,7 +45,7 @@ export default class UI {
   displayHelpFile(helpFileID = this.helpFile) {
     d3.text(`./txt/${this.getLanguage()}/${helpFileID}.html`, (error, text) => {
       if (error) throw error;
-      document.getElementById('text_tag').innerHTML = text;
+      this.displayInfoRight(text);
       this.helpFile = helpFileID;
     });
   }
@@ -85,5 +85,31 @@ export default class UI {
     }
     console.trace(`Requested undefined UI String '${identifier}'`);
     return '';
+  }
+
+  displayInfoLeft(content) {
+    $('.map_tag').removeClass('docked-left');
+    $('.map_tag').addClass('docked-right');
+
+    $('.info_pane-left .content').html(content);
+    $('.info_pane-right').removeClass('visible');
+    $('.info_pane-left').addClass('visible');
+  }
+
+  displayInfoRight(content) {
+    $('.map_tag').removeClass('docked-right');
+    $('.map_tag').addClass('docked-left');
+
+    $('.info_pane-right .content').html(content);
+    $('.info_pane-left').removeClass('visible');
+    $('.info_pane-right').addClass('visible');
+  }
+
+  hideInfo() {
+    $('.map_tag').removeClass('docked-right');
+    $('.map_tag').removeClass('docked-left');
+
+    $('.info_pane-left').removeClass('visible');
+    $('.info_pane-right').removeClass('visible');
   }
 }
