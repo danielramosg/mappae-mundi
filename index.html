@@ -15,16 +15,18 @@
   <script type='text/javascript' src="js/vendors.js"></script>
 </head>
 <body>
-<div style="float:right;">
-  <input type="checkbox" id="checktext" onclick="hideshowText()">
-  Info </input>
-  <button type="button" data-ui-help='info_map'>Start</button>
-  <button type="button" data-ui-help='about'>About</button>
-  <br>
-  <a href="#" data-ui-lang-set="en"> English </a>
-  <a href="#" data-ui-lang-set="pt"> Português </a>
+<div class="header">
+  <h1 data-ui-str="APP_TITLE"></h1>
+  <div style="float:right;">
+    <input type="checkbox" id="checktext" onclick="hideshowText()">
+    Info </input>
+    <button type="button" data-ui-help='info_map'>Start</button>
+    <button type="button" data-ui-help='about'>About</button>
+    <br>
+    <a href="#" data-ui-lang-set="en"> English </a>
+    <a href="#" data-ui-lang-set="pt"> Português </a>
+  </div>
 </div>
-<h1><span data-ui-str="APP_TITLE"></span></h1>
 <div id="text_tag" class="text_tag"></div>
 <div id="map_tag" class="map_tag">
   <div id="coords_tag" class="coords_tag"></div>

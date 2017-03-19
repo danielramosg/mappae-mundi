@@ -11,11 +11,17 @@ export default class UI {
   }
 
   init() {
-    this.injectStrings();
+    this.setLanguage('en');
   }
 
   setLanguage(langCode) {
     this.language = langCode;
+
+    // Sets a language class in the body
+    $('body').removeClass((index, className) => {
+      return (className.match(/(^|\s)lang-\S+/g) || []).join(' ');
+    });
+    $('body').addClass(`lang-${langCode}`);
 
     // Reload the current help file with the new language
     if (this.helpFile !== undefined) {

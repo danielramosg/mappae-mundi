@@ -46,4 +46,26 @@ body {
   border: none;
   height: 600px; }
 
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 13.5%; }
+  .header h1 {
+    display: block;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-size: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center; }
+
+.lang-en .header h1 {
+  background-image: url("../img/logo_en.png"); }
+
+.lang-pt .header h1 {
+  background-image: url("../img/logo_pt.png"); }
+
 /*# sourceMappingURL=default.css.map */
