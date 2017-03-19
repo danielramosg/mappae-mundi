@@ -5,6 +5,8 @@ const ui = new UI();
 window.SoEUI = ui;
 
 $(() => {
+  ui.init();
+
   // Hook language change links
   $('[data-ui-lang-set]').on('click', (ev) => {
     const $target = $(ev.target);

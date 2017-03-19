@@ -1,11 +1,17 @@
+import UIStrings from '../config/strings.json';
+
 export default class UI {
   constructor() {
     this.language = 'en';
-    this.helpFile = undefined;
-
     this.isCountriesVisible = true;
     this.isGraticuleVisible = true;
     this.isRasterVisible = false;
+
+    this.helpFile = undefined;
+  }
+
+  init() {
+    this.injectStrings();
   }
 
   setLanguage(langCode) {
@@ -15,6 +21,15 @@ export default class UI {
     if (this.helpFile !== undefined) {
       this.displayHelpFile();
     }
+
+    // Inject translatable strings
+    this.injectStrings();
+  }
+
+  injectStrings() {
+    $('[data-ui-str]').each((i, element) => {
+      $(element).html(this.str($(element).attr('data-ui-str')));
+    });
   }
 
   getLanguage() {
@@ -57,5 +72,12 @@ export default class UI {
     $('#map_tag canvas').css({ visibility: this.getRasterVisible() ? 'visible' : 'hidden' });
   }
 
-
+  str(identifier) {
+    if (UIStrings[identifier] !== undefined &&
+        UIStrings[identifier][this.getLanguage()] !== undefined) {
+      return UIStrings[identifier][this.getLanguage()];
+    }
+    console.trace(`Requested undefined UI String '${identifier}'`);
+    return '';
+  }
 }
