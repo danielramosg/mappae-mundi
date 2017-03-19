@@ -24,16 +24,16 @@ obtained with wget-->
 
 <div style="float:right;">
 
-<input type="checkbox" id="checktext" onclick="hideshowText()">Info </input>
+<input type="checkbox" id="checktext" onclick="hideshowText()" checked><label for="checktext">Info</label> </input>
 <button type="button" onclick='setText("info_map")'>Start </button>
 <button type="button" onclick='setText("about")'>About </button>
 <br>
-<a href="./index.html"> English </a>
+<a href="./index_pt.html"> English </a>
 <script> Language = "pt" </script>
 </div>
 
 
-<h1> Mapas da Terra </h1>
+<h1> Mapas da Terra</h1>
 
 
 
@@ -46,8 +46,8 @@ obtained with wget-->
 	<div id="coords_tag" class="coords_tag"> </div>
 
 	<div id="geo_tag" class="geo_tag"> geodesic: <span id="geolength_tag"> </span></div>
-	<div id="loxo_tag" class="loxo_tag">loxodrome: <span id="loxolength_tag"></span>
-	,azimuth: <span id="loxoazimuth_tag"> </span></div>
+	<div id="loxo_tag" class="loxo_tag">loxodrome: <span id="loxolength_tag"></span>, 
+	az: <span id="loxoazimuth_tag"> </span></div>
 </div>
 
 
@@ -71,7 +71,7 @@ obtained with wget-->
 <tr>
 
 <td> <input type="radio" id="radio_tissot" name="mode" value="tissot" checked onclick=
-"mode_tissot()"> Tissot's indicatrix </td> 
+"mode_tissot()"> <label for="radio_tissot">Tissot's indicatrix</label></td> 
 
 <td><button type="button" onclick='setText("info_tissot")'>
 <img src="./icons/info.svg" width="20px" > </button>
@@ -90,8 +90,7 @@ obtained with wget-->
 
 <tr>
 <td> <input type="radio" id="radio_geodesic" name="mode" value="move" onclick=
-"mode_geodesic()"> 
-Geodesic </td>
+"mode_geodesic()"> <label for="radio_geodesic">Geodesic</label> </td>
 
 <td> <button type="button" onclick='setText("info_geodesic")'>
 <img src="./icons/info.svg" width="20px" > </button>
@@ -99,13 +98,13 @@ Geodesic </td>
 <button type="button" onclick="clearGeodesic()"> 
 <img src="./icons/trash.svg" width="20px" > </button>
 
-<input type="checkbox" id="geoextended" onclick="geodesic_draw()"> Extend </input>
+<input type="checkbox" id="geoextended" onclick="geodesic_draw()"> <label for="geoextended">Extend</label> </input>
 
 </tr>
 
 <tr>
 <td> <input type="radio" id="radio_loxodrome" name="mode" value="move" onclick=
-"mode_loxodrome()">Loxodrome </td>
+"mode_loxodrome()"><label for="radio_loxodrome">Loxodrome</label> </td>
 
 <td> <button type="button" onclick='setText("info_loxodrome")'>
 <img src="./icons/info.svg" width="20px" > </button>
@@ -113,13 +112,13 @@ Geodesic </td>
 <button type="button" onclick="clearLoxodrome()">
 <img src="./icons/trash.svg" width="20px" > </button>
 
-<input type="checkbox" id="loxoextended" onclick="loxodrome_draw()"> Extend </input>
+<input type="checkbox" id="loxoextended" onclick="loxodrome_draw()"> <label for="loxoextended">Extend</label> </input>
 
 </tr>
 
 <tr>
 <td> <input type="radio" id="radio_move" name="mode" value="move" onclick=
-"mode_move()"> Aspect </td>
+"mode_move()"> <label for="radio_move">Aspect</label> </td>
 <td> 
 
 <button type="button" onclick='setText("info_rotate")'>
@@ -146,19 +145,19 @@ Geodesic </td>
 "document.getElementsByTagName('canvas')[0]
 .style.visibility = this.checked? 'visible':'hidden';
 document.getElementsByClassName('land')[0].style.visibility = this.checked? 'hidden':'visible'; "> 
-Terrain </input>
+<label for="rastervisible" style="width:70px;">Terrain</lable> </input>
 </td></tr>
 <tr><td>
 <input type="checkbox" id="countriesvisible" onclick=
 "document.getElementsByClassName('boundary')[0]
 .style.visibility = this.checked? 'visible':'hidden' "> 
-Countries </input>
+<label for="countriesvisible" style="width:70px;">Countries</label> </input>
 </td></tr>
 <tr><td>
 <input type="checkbox" id="graticulevisible" onclick=
 "document.getElementsByClassName('graticule')[0]
 .style.visibility = this.checked? 'visible':'hidden' "> 
-Graticule </input>
+<label for="graticulevisible" style="width:70px;">Graticule</label> </input>
 </td></tr>
 </table>
 <!-- End of Sub-Table of View-->

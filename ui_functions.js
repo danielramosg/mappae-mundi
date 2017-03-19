@@ -10,7 +10,7 @@ d3.text("./txt/"+Language+"/"+filename+".html", function(error, text) {
 
 function hideshowText() {
 if(document.getElementById("checktext").checked)	
- 	{d3.select("#map_tag").style("margin-right","35%");
+ 	{d3.select("#map_tag").style("margin-right","40%");
  	d3.select("#text_tag").style("display","block");}
  	else 
  	{d3.select("#text_tag").style("display","none");
