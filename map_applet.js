@@ -156,9 +156,10 @@ menu.selectAll("option")
 menu.node().value = "ortho"; //"Equirectangular (Plate Carrée)";    
 
 
-function proj_changed(){ updateMap(); setText(menu.node().value); };
-menu.on("change", proj_changed);
+menu.on("change", updateMap);
 
+function call_text() {setText(menu.node().value);};
+menu.on("click", call_text);
 
 
 var aspect = d3.select("#select-aspect");
