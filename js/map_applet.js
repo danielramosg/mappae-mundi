@@ -326,26 +326,36 @@ var geo_flip=true;
 var geo_ptA;
 var geo_ptB;
 var geodesic_data = {};
+var geodesic_ex_data = {};
 
 var loxo_flip=true;
 var loxo_ptA;
 var loxo_ptB;
 var loxodrome_data = {};
+var loxodrome_ex_data = {};
 
 function clearGeodesic() {  
-	geodesic_data = {}; 
-	d3.selectAll(".geodesic").remove(); 
-	geodesic = svg.insert("path", ".graticule")
- 					.attr("class", "geodesic");
+	geodesic_data = {};
+	geodesic_ex_data = {};
+	d3.selectAll(".geodesic").remove();
+  d3.selectAll(".geodesic_ex").remove();
+  geodesic_ex = svg.insert("path", ".graticule")
+ 					.attr("class", "geodesic_ex");
+  geodesic = svg.insert("path", ".graticule")
+    .attr("class", "geodesic");
 
-	document.getElementById("geo_tag").style.display = "none";		
+  document.getElementById("geo_tag").style.display = "none";
 				
  	};
 
 function clearLoxodrome() {  
-	loxodrome_data = {}; 
-	d3.selectAll(".loxodrome").remove(); 
- 	loxodrome = svg.insert("path", ".graticule")
+	loxodrome_data = {};
+  loxodrome_ex_data = {};
+  d3.selectAll(".loxodrome").remove();
+  d3.selectAll(".loxodrome_ex").remove();
+  loxodrome_ex = svg.insert("path", ".graticule")
+    .attr("class", "loxodrome_ex");
+  loxodrome = svg.insert("path", ".graticule")
  					.attr("class", "loxodrome");
  					
 	document.getElementById("loxo_tag").style.display = "none";		
@@ -475,11 +485,21 @@ function drawSvg () {
 		.attr("xlink:href", "#sphere")
 		.attr("style","visibility:hidden; pointer-events:fill;");
 
- 	geodesic = svg.insert("path", ".graticule")
+  geodesic_ex = svg.insert("path", ".graticule")
+    .attr("class", "geodesic_ex")
+    .datum(geodesic_ex_data)
+    .attr("d",path);
+
+  geodesic = svg.insert("path", ".graticule")
  		.attr("class", "geodesic")
  		.datum(geodesic_data)
  		.attr("d",path);
- 		
+
+  loxodrome_ex = svg.insert("path", ".graticule")
+    .attr("class", "loxodrome_ex")
+    .datum(loxodrome_ex_data)
+    .attr("d",path);
+
  	loxodrome = svg.insert("path", ".graticule")
  		.attr("class", "loxodrome")
  		.datum(loxodrome_data)
@@ -678,13 +698,17 @@ function geodesic_click() {
 };
 
 function geodesic_draw() {
-  arc=GeodesicArc(geo_ptA[0], geo_ptA[1] , geo_ptB[0], geo_ptB[1] ,50 ,
-  document.getElementById("geoextended").checked);
+  arc=GeodesicArc(geo_ptA[0], geo_ptA[1] , geo_ptB[0], geo_ptB[1] ,50 , false);
+  arc_ex=GeodesicArc(geo_ptA[0], geo_ptA[1] , geo_ptB[0], geo_ptB[1] ,50 , true);
   dist=arc[0]
   geodesic_data=arc[1]
+  geodesic_ex_data=arc_ex[1]
 
   geodesic.datum(geodesic_data)
       .attr("d",path);
+
+  geodesic_ex.datum(geodesic_ex_data)
+    .attr("d",path);
 
   document.getElementById("geolength_tag").innerHTML =
   (d3.geo.length(geodesic_data)*6366.197723675814).toFixed(0) + " km";
@@ -720,13 +744,20 @@ function loxodrome_click() {
 };
 
 function loxodrome_draw() {
-		arc=LoxodromeArc(loxo_ptA[0], loxo_ptA[1] , loxo_ptB[0], loxo_ptB[1] ,100 , 
-		document.getElementById("loxoextended").checked);
-		az=arc[0]
-		loxodrome_data=arc[1]
+		arc=LoxodromeArc(loxo_ptA[0], loxo_ptA[1] , loxo_ptB[0], loxo_ptB[1] ,100 , false);
+    arc_full=LoxodromeArc(loxo_ptA[0], loxo_ptA[1] , loxo_ptB[0], loxo_ptB[1] ,100 , true);
 
-		loxodrome.datum(loxodrome_data)
-				.attr("d",path);
+		az=arc[0];
+		loxodrome_data=arc[1];
+    loxodrome_ex_data = arc_full[1];
+
+    loxodrome_ex
+      .datum(loxodrome_ex_data)
+      .attr("d", path);
+
+		loxodrome
+      .datum(loxodrome_data)
+      .attr("d", path);
 				
 		document.getElementById("loxolength_tag").innerHTML = 
 		document.getElementById("loxoextended").checked ?

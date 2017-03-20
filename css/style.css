@@ -45,12 +45,25 @@ body {
   stroke-width: 2px;
 }
 
+.geodesic_ex {
+	fill: none;
+	stroke: #ff6c6c;
+	opacity: 0.3;
+	stroke-width: 2px;
+}
+
 .loxodrome {
   fill: none;
   stroke: #00f;
   stroke-width: 2px;
-}  
+}
 
+.loxodrome_ex {
+	fill: none;
+	stroke: #6caeff;
+	opacity: 0.3;
+	stroke-width: 2px;
+}
 
 .map_tag {
 	/*float: left;*/
