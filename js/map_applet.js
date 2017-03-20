@@ -16,8 +16,8 @@ function defineProjections() {
 	  {
       shortname: "platecarre",
 		  name: {
-			  en: "Equirectangular (Plate Carrée)",
-			  pt: "Equiretangular (Plate Carrée)"
+			  en: "Plate Carrée",
+			  pt: "Cilíndrica Equidistante"
       },
 		  projection: d3.geo.equirectangular()
 			  .scale(0.15*Math.min(width,2*height))
@@ -38,7 +38,7 @@ function defineProjections() {
       shortname: "gallpeters",
 		  name: {
 			  en: "Gall-Peters",
-			  pt: "Gall-Peters",
+			  pt: "Cilíndrica Equivalente",
       },
 		  projection: d3.geo.cylindricalEqualArea().parallel(45)
 			  .scale(0.2*Math.min(width, 1.571*height))
@@ -72,7 +72,7 @@ function defineProjections() {
       shortname: "gnomo",
 		  name: {
 			  en: "Gnomonic",
-			  pt: "Gnomônica",
+			  pt: "Gnomónica",
       },
 		  projection: d3.geo.gnomonic()
 			  .clipAngle(90 - 1e-3)

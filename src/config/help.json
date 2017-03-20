@@ -34,42 +34,42 @@
       "file": "platecarre",
       "name": {
         "en": "the Plate Carrée projection",
-        "pt": "projeção Equirectangular"
+        "pt": "projeção cilíndrica Equidistante"
       }
     },
     "mercator": {
       "file": "mercator",
       "name": {
         "en": "the Mercator projection",
-        "pt": "projecção de Mercator"
+        "pt": "projeção de Mercator"
       }
     },
     "gallpeters": {
       "file": "gallpeters",
       "name": {
         "en": "the Gall-Peters projection",
-        "pt": "projecção de Gall-Peters"
+        "pt": "projeção cilíndrica Equivalente"
       }
     },
     "mollweide": {
       "file": "mollweide",
       "name": {
         "en": "the Mollweide projection",
-        "pt": "projecção de Mollweide"
+        "pt": "projeção de Mollweide"
       }
     },
     "aziequi": {
       "file": "aziequi",
       "name": {
         "en": "the Azimuthal equidistant projection",
-        "pt": "projecção azimutal equidistante"
+        "pt": "projeção azimutal equidistante"
       }
     },
     "gnomo": {
       "file": "gnomo",
       "name": {
         "en": "the Gnomonic projection",
-        "pt": "projecção gnomônica"
+        "pt": "projeção gnomónica"
       }
     },
     "stereo": {
@@ -83,7 +83,7 @@
       "file": "ortho",
       "name": {
         "en": "the Orthographic projection",
-        "pt": "projecção ortográfic"
+        "pt": "projeção ortográfic"
       }
     }
   }
