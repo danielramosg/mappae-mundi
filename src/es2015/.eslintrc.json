@@ -17,7 +17,8 @@
     "updateMap": true,
     "clearGeodesic": true,
     "clearLoxodrome": true,
-    "clearEllipses": true
+    "clearEllipses": true,
+    "undoCommand": true
   },
   "rules": {
   }

@@ -223,6 +223,6 @@ export default class UI {
   }
 
   undoMark() {
-
+    undoCommand();
   }
 }
