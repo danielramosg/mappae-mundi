@@ -8,10 +8,16 @@ export default class UI {
     this.isRasterVisible = false;
 
     this.helpFile = undefined;
+    this.tool = 'rotate';
+    this.projection = 'platecarre';
   }
 
   init() {
     this.setLanguage('en');
+    this.setTool('rotate');
+    this.setProjection('platecarre');
+    this.initToolButtons();
+    this.initProjectionButtons();
   }
 
   setLanguage(langCode) {
@@ -111,5 +117,43 @@ export default class UI {
 
     $('.info_pane-left').removeClass('visible');
     $('.info_pane-right').removeClass('visible');
+  }
+
+  initToolButtons() {
+    $('[data-ui-tool]').on('click', (ev) => {
+      this.setTool($(ev.target).attr('data-ui-tool'));
+      ev.preventDefault();
+      ev.stopPropagation();
+    });
+  }
+
+  getTool() {
+    return this.tool;
+  }
+
+  setTool(aTool) {
+    this.tool = aTool;
+    $('[data-ui-tool]').removeClass('active');
+    $(`[data-ui-tool=${aTool}]`).addClass('active');
+    updateMap();
+  }
+
+  initProjectionButtons() {
+    $('[data-ui-projection]').on('click', (ev) => {
+      this.setProjection($(ev.target).attr('data-ui-projection'));
+      ev.preventDefault();
+      ev.stopPropagation();
+    });
+  }
+
+  getProjection() {
+    return this.projection;
+  }
+
+  setProjection(aProjection) {
+    this.projection = aProjection;
+    $('[data-ui-projection]').removeClass('active');
+    $(`[data-ui-projection=${aProjection}]`).addClass('active');
+    updateMap();
   }
 }

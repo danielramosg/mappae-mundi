@@ -11,83 +11,106 @@ function defineProjections() {
 	width = document.getElementById("map_tag").clientWidth;
 	height = document.getElementById("map_tag").clientHeight;
 
-	projectionslist = [
-	  {	shortname: "platecarre",
-		name: {
-			en: "Equirectangular (Plate Carrée)",
-			pt: "Equiretangular (Plate Carrée)" },
-		projection: d3.geo.equirectangular()
-			.scale(0.15*Math.min(width,2*height))
-			.translate([width / 2, height / 2])},
-	  {	shortname: "mercator",
-		name: {
-			en: "Mercator",
-			pt: "Mercator", },
-		projection: d3.geo.mercator()
-			.scale(0.15*Math.min(width,1.1*height))
-			.translate([width / 2, height / 2])
-			.clipExtent([[0,0],[width,height]])},
-	  {	shortname: "gallpeters",
-		name: {
-			en: "Gall-Peters",
-			pt: "Gall-Peters", },
-		projection: d3.geo.cylindricalEqualArea().parallel(45)
-			.scale(0.2*Math.min(width, 1.571*height))
-			.translate([width / 2, height / 2])},
-	//  {name: "Lambert cylindrical equal-area", projection: d3.geo.cylindricalEqualArea()},
-	  {	shortname: "mollweide",
-		name: {
-			en: "Mollweide",
-			pt: "Mollweide", },
-		projection: d3.geo.mollweide()
-			.scale(0.155*Math.min(width, 2*height))
-			.translate([width / 2, height / 2])
-			.precision(0.2)},
-	  {	shortname: "aziequi",
-		name: {
-			en: "Azimuthal Equidistant",
-			pt: "Azimutal Equidistante", },
-		projection: d3.geo.azimuthalEquidistant()
-			.scale(0.15*Math.min(width,height))
-			.translate([width / 2, height / 2])
-			.clipAngle(180 - 1e-3)
-			.clipExtent([[0,0],[width,height]])
-			.precision(.1)
-			.rotate(rotateToCurrentLocation)  },
-	  {	shortname: "gnomo",
-		name: {
-			en: "Gnomonic",
-			pt: "Gnomônica", },
-		projection: d3.geo.gnomonic()
-			.clipAngle(90 - 1e-3)
-			.scale(120)
-			.translate([width / 2, height / 2])
-			.precision(.1)
-			.clipExtent([[0,0],[width,height]])
-			.rotate(rotateToCurrentLocation)	}, 
-	  {	shortname: "stereo",
-		name: {
-			en: "Stereographic",
-			pt: "Estereográfica", },
-		projection: d3.geo.stereographic()
-			.scale(280)
-			.translate([width / 2, height / 2])
-			//.clipAngle(90)
-			.clipAngle(130 - 1e-3)
-			.precision(.1)
-			.clipExtent([[0,0],[width,height]])},
-	  {	shortname: "ortho",
-		name: {
-			en: "Orthographic",
-			pt: "Ortográfica", },
-		projection: d3.geo.orthographic()
-			.scale(0.45*Math.min(width,height))
-			.translate([width / 2, height / 2])
-			.clipAngle(90)
-			.clipExtent([[0,0],[width,height]])
-			.precision(.1)
-			.rotate(rotateToCurrentLocation) }
-
+	projectionslist =
+  [
+	  {
+      shortname: "platecarre",
+		  name: {
+			  en: "Equirectangular (Plate Carrée)",
+			  pt: "Equiretangular (Plate Carrée)"
+      },
+		  projection: d3.geo.equirectangular()
+			  .scale(0.15*Math.min(width,2*height))
+			  .translate([width / 2, height / 2])
+	  },
+	  {
+      shortname: "mercator",
+		  name: {
+			  en: "Mercator",
+			  pt: "Mercator",
+      },
+		  projection: d3.geo.mercator()
+			  .scale(0.15*Math.min(width,1.1*height))
+			  .translate([width / 2, height / 2])
+			  .clipExtent([[0,0],[width,height]])
+	  },
+	  {
+      shortname: "gallpeters",
+		  name: {
+			  en: "Gall-Peters",
+			  pt: "Gall-Peters",
+      },
+		  projection: d3.geo.cylindricalEqualArea().parallel(45)
+			  .scale(0.2*Math.min(width, 1.571*height))
+			  .translate([width / 2, height / 2])
+	  },
+	  {
+	    shortname: "mollweide",
+		  name: {
+  			en: "Mollweide",
+	  		pt: "Mollweide",
+      },
+  		projection: d3.geo.mollweide()
+	  		.scale(0.155*Math.min(width, 2*height))
+  			.translate([width / 2, height / 2])
+  			.precision(0.2)
+	  },
+	  {
+      shortname: "aziequi",
+		  name: {
+			  en: "Azimuthal Equidistant",
+			  pt: "Azimutal Equidistante", },
+		  projection: d3.geo.azimuthalEquidistant()
+			  .scale(0.15*Math.min(width,height))
+			  .translate([width / 2, height / 2])
+			  .clipAngle(180 - 1e-3)
+			  .clipExtent([[0,0],[width,height]])
+			  .precision(.1)
+			  .rotate(rotateToCurrentLocation)
+	  },
+	  {
+      shortname: "gnomo",
+		  name: {
+			  en: "Gnomonic",
+			  pt: "Gnomônica",
+      },
+		  projection: d3.geo.gnomonic()
+			  .clipAngle(90 - 1e-3)
+			  .scale(120)
+			  .translate([width / 2, height / 2])
+			  .precision(.1)
+			  .clipExtent([[0,0],[width,height]])
+			  .rotate(rotateToCurrentLocation)
+	  },
+	  {
+      shortname: "stereo",
+		  name: {
+			  en: "Stereographic",
+			  pt: "Estereográfica",
+      },
+		  projection: d3.geo.stereographic()
+			  .scale(280)
+			  .translate([width / 2, height / 2])
+        //.clipAngle(90)
+        .clipAngle(130 - 1e-3)
+        .precision(.1)
+        .clipExtent([[0,0],[width,height]])
+	  },
+	  {
+	    shortname: "ortho",
+		  name: {
+  			en: "Orthographic",
+  			pt: "Ortográfica",
+      },
+		  projection: d3.geo.orthographic()
+			  .scale(0.45*Math.min(width,height))
+        .translate([width / 2, height / 2])
+        .clipAngle(90)
+        .clipExtent([[0,0],[width,height]])
+        .precision(.1)
+        .rotate(rotateToCurrentLocation)
+	  }
+  //  {name: "Lambert cylindrical equal-area", projection: d3.geo.cylindricalEqualArea()},
 	//   {name: "Aitoff", projection: d3.geo.aitoff()},
 	//   {name: "Albers", projection: d3.geo.albers().scale(145).parallels([20, 50])},
 	//   {name: "August", projection: d3.geo.august().scale(60)},
@@ -129,6 +152,11 @@ function defineProjections() {
 	//   {name: "Wagner VII", projection: d3.geo.wagner7()},
 	//   {name: "Winkel Tripel", projection: d3.geo.winkel3()}
 	];
+
+  projectionsDict = {};
+  for (var i=0; i!= projectionslist.length ; i++) {
+    projectionsDict[projectionslist[i].shortname] = projectionslist[i];
+  }
 };
 
 defineProjections();
@@ -192,33 +220,21 @@ function changeAspect() {
 	drawCanvas();
 	};
 
-
-function hideshowText() {
-if(document.getElementById("checktext").checked)	
- 	{d3.select("#map_tag").style("margin-right","45%");
- 	d3.select("#text_tag").style("display","block");}
- 	else 
- 	{d3.select("#text_tag").style("display","none");
- 	d3.select("#map_tag").style("margin-right","0");}
- };
-
-
-
 function updateMap() {
 
-	projection=projectionslist[menu.node().selectedIndex].projection;
+	projection = projectionsDict[SoEUI.getProjection()].projection;
+	shortname = SoEUI.getProjection();
 
-	shortname = projectionslist[menu.node().selectedIndex].shortname;
 	d3.select("svg").remove();
 	d3.select("canvas").remove();
 	drawCanvas();
 	drawSvg();
 	drawEllipses();
-	if (document.getElementById("radio_tissot").checked) {mode_tissot(); };
-	if (document.getElementById("radio_move").checked) {mode_move(); };
-	if (document.getElementById("radio_geodesic").checked) {mode_geodesic(); };
-	if (document.getElementById("radio_loxodrome").checked) {mode_loxodrome(); };
 
+	if (SoEUI.getTool() === 'indicatrix') { mode_tissot(); }
+	else if (SoEUI.getTool() === 'rotate' ) { mode_move(); }
+  else if (SoEUI.getTool() === 'geodesic' ) { mode_geodesic(); }
+  else if (SoEUI.getTool() === 'loxodrome' ) { mode_loxodrome(); }
 
 	switch (projection.rotate().toString()) { //Can't compare arrays directly
 		case "0,0,0":
@@ -707,4 +723,3 @@ function mode_loxodrome() {
 
 
 updateMap();
-hideshowText();
