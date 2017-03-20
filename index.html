@@ -73,32 +73,40 @@ obtained with wget-->
 <td> <input type="radio" id="radio_tissot" name="mode" value="tissot" checked onclick=
 "mode_tissot()"> <label for="radio_tissot">Tissot's indicatrix</label></td> 
 
-<td><button type="button" onclick='setText("info_tissot")'>
+<td><button type="button" onclick='setText("info_tissot")' class="tooltip">
+<span class="tooltiptext">Info</span>
 <img src="./icons/info.svg" width="20px" > </button>
 
-<button type="button" onclick="clearEllipses()">
+<button type="button" onclick="clearEllipses()" class="tooltip">
+<span class="tooltiptext">Clear</span>
 <img src="./icons/trash.svg" width="20px" > </button>
 
-<button type="button" onclick="popEllipse()">
+<button type="button" onclick="popEllipse()" class="tooltip">
+<span class="tooltiptext">Undo</span>
 <img src="./icons/undo.svg" width="20px" > </button>
 
-<button type="button" onclick="sampleEllipses()">
+<button type="button" onclick="sampleEllipses()" class="tooltip">
+<span class="tooltiptext">Sample</span>
 <img src="./icons/tissotsample2.svg" width="20px" > </button> 
 
-<input type="number" id="ellipradius" min="0" max="20000" step="100" value="1000" style="width:50px; margin:0.5em;" onchange="removeEllipses(); drawEllipses();">km</td>
+<span class="tooltip"><input type="number" id="ellipradius" min="0" max="20000" step="100" value="1000" style="width:50px; margin:0.5em;" onchange="removeEllipses(); drawEllipses();">km <span class="tooltiptext">Radius</span></span></td>
 </tr>
 
 <tr>
 <td> <input type="radio" id="radio_geodesic" name="mode" value="move" onclick=
 "mode_geodesic()"> <label for="radio_geodesic">Geodesic</label> </td>
 
-<td> <button type="button" onclick='setText("info_geodesic")'>
+<td> <button type="button" onclick='setText("info_geodesic")' class="tooltip">
+<span class="tooltiptext">Info</span>
 <img src="./icons/info.svg" width="20px" > </button>
 
-<button type="button" onclick="clearGeodesic()"> 
+<button type="button" onclick="clearGeodesic()" class="tooltip">
+<span class="tooltiptext">Clear</span>
 <img src="./icons/trash.svg" width="20px" > </button>
 
-<input type="checkbox" id="geoextended" onclick="geodesic_draw()"> <label for="geoextended">Extend</label> </input>
+<input type="checkbox" id="geoextended" onclick="geodesic_draw()"> <label for="geoextended" class="tooltip">
+<span class="tooltiptext">Extend</span>
+<img src="./icons/extend.svg" width="20px" ></label> </input>
 
 </tr>
 
@@ -106,13 +114,17 @@ obtained with wget-->
 <td> <input type="radio" id="radio_loxodrome" name="mode" value="move" onclick=
 "mode_loxodrome()"><label for="radio_loxodrome">Loxodrome</label> </td>
 
-<td> <button type="button" onclick='setText("info_loxodrome")'>
+<td> <button type="button" onclick='setText("info_loxodrome")' class="tooltip">
+<span class="tooltiptext">Info</span>
 <img src="./icons/info.svg" width="20px" > </button>
 
-<button type="button" onclick="clearLoxodrome()">
+<button type="button" onclick="clearLoxodrome()" class="tooltip">
+<span class="tooltiptext">Clear</span>
 <img src="./icons/trash.svg" width="20px" > </button>
 
-<input type="checkbox" id="loxoextended" onclick="loxodrome_draw()"> <label for="loxoextended">Extend</label> </input>
+<input type="checkbox" id="loxoextended" onclick="loxodrome_draw()"> <label for="loxoextended" class="tooltip">
+<span class="tooltiptext">Extend</span>
+<img src="./icons/extend.svg" width="20px" ></label> </input>
 
 </tr>
 
@@ -121,15 +133,17 @@ obtained with wget-->
 "mode_move()"> <label for="radio_move">Aspect</label> </td>
 <td> 
 
-<button type="button" onclick='setText("info_rotate")'>
-<img src="./icons/info.svg" width="20px" > </button>
+<button type="button" onclick='setText("info_rotate")' class="tooltip">
+<span class="tooltiptext">Info</span><img src="./icons/info.svg" width="20px" > </button>
 
+<span class="tooltip"><span class="tooltiptext">Fix aspect</span>
 <select id="select-aspect"> 
 <option value=equatorial> Equatorial </option>
 <option value=polar_north> Polar (North) </option>
 <option value=polar_south> Polar (South) </option>
 <option value=oblique_yourlocation> Oblique (Your Location) </option>
 <option value=oblique_other> Oblique (Other) </option>
+</span>
 </select>
 </td>
 </tr>
@@ -145,19 +159,22 @@ obtained with wget-->
 "document.getElementsByTagName('canvas')[0]
 .style.visibility = this.checked? 'visible':'hidden';
 document.getElementsByClassName('land')[0].style.visibility = this.checked? 'hidden':'visible'; "> 
-<label for="rastervisible" style="width:70px;">Terrain</lable> </input>
+<label for="rastervisible" class="tooltip">
+<span class="tooltiptext">Terrain</span><img src="./icons/terrain.svg" width="20px" ></lable> </input>
 </td></tr>
 <tr><td>
 <input type="checkbox" id="countriesvisible" onclick=
 "document.getElementsByClassName('boundary')[0]
 .style.visibility = this.checked? 'visible':'hidden' "> 
-<label for="countriesvisible" style="width:70px;">Countries</label> </input>
+<label for="countriesvisible" class="tooltip">
+<span class="tooltiptext">Country borders</span><img src="./icons/border.svg" width="20px" ></label> </input>
 </td></tr>
 <tr><td>
 <input type="checkbox" id="graticulevisible" onclick=
 "document.getElementsByClassName('graticule')[0]
 .style.visibility = this.checked? 'visible':'hidden' "> 
-<label for="graticulevisible" style="width:70px;">Graticule</label> </input>
+<label for="graticulevisible" class="tooltip">
+<span class="tooltiptext">Graticule</span><img src="./icons/graticule.svg" width="20px" ></label> </input>
 </td></tr>
 </table>
 <!-- End of Sub-Table of View-->
