@@ -18,7 +18,7 @@ $control-height-small: 5vh;
   top: 13.5%;
   height: 65%;
   width: 100%;
-  transition: width $dock-animation-duration, margin-left $dock-animation-duration;
+  //transition: width $dock-animation-duration, margin-left $dock-animation-duration;
   margin-left: 0;
 
   &.docked-left {
