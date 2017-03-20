@@ -19,6 +19,7 @@ export default class UI {
     this.setProjection('platecarre');
     this.initToolButtons();
     this.initProjectionButtons();
+    this.initCommandButtons();
     this.initHelpBanners();
   }
 
@@ -199,5 +200,29 @@ export default class UI {
 
   hideHelpBanner(bannerID) {
     $(`.help-banner-${bannerID}`).fadeOut();
+  }
+
+  initCommandButtons() {
+    $('[data-ui-command=clear]').on('click', (ev) => {
+      this.clearMarks();
+      ev.preventDefault();
+      ev.stopPropagation();
+    });
+
+    $('[data-ui-command=undo]').on('click', (ev) => {
+      this.undoMark();
+      ev.preventDefault();
+      ev.stopPropagation();
+    });
+  }
+
+  clearMarks() {
+    clearGeodesic();
+    clearLoxodrome();
+    clearEllipses();
+  }
+
+  undoMark() {
+
   }
 }

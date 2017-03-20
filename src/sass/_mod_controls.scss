@@ -41,19 +41,21 @@
     }
   }
 
-  .controls-tools-aux {
-    [data-ui-tool] {
+  .controls-commands {
+    [data-ui-command] {
+      display: inline-block;
+      background-repeat: no-repeat;
       width: $control-height-small;
       height: $control-height-small;
     }
   }
 
-  [data-ui-tool=undo] {
+  [data-ui-command=undo] {
     background-image: url('../img/ic_undo.png');
     background-size: contain;
   }
 
-  [data-ui-tool=clear] {
+  [data-ui-command=clear] {
     background-image: url('../img/ic_clear.png');
     background-size: contain;
   }

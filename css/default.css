@@ -201,7 +201,7 @@ body {
     width: 50%;
     height: 100%;
     float: left; }
-    .controls .controls-tools .controls-tools-aux {
+    .controls .controls-tools .controls-commands {
       display: inline-block;
       margin-left: 2vw; }
   .controls .controls-projections {
@@ -321,15 +321,17 @@ body {
   .controls-tools [data-ui-tool=geodesic].active, .controls-tools [data-ui-tool=geodesic]:hover {
     background-position: 100% 100%; }
 
-.controls-tools .controls-tools-aux [data-ui-tool] {
+.controls-tools .controls-commands [data-ui-command] {
+  display: inline-block;
+  background-repeat: no-repeat;
   width: 5vh;
   height: 5vh; }
 
-.controls-tools [data-ui-tool=undo] {
+.controls-tools [data-ui-command=undo] {
   background-image: url("../img/ic_undo.png");
   background-size: contain; }
 
-.controls-tools [data-ui-tool=clear] {
+.controls-tools [data-ui-command=clear] {
   background-image: url("../img/ic_clear.png");
   background-size: contain; }
 

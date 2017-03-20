@@ -14,7 +14,10 @@
   },
   "globals": {
     "d3": true,
-    "updateMap": true
+    "updateMap": true,
+    "clearGeodesic": true,
+    "clearLoxodrome": true,
+    "clearEllipses": true
   },
   "rules": {
   }
