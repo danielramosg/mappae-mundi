@@ -1,3 +1,8 @@
+$dock-animation-duration: 0.2s;
+
+$control-height-large: 8vh;
+$control-height-small: 5vh;
+
 .header {
   position: absolute;
   top: 0;
@@ -5,8 +10,6 @@
   width: 100%;
   height: 13.5%;
 }
-
-$dock-animation-duration: 0.2s;
 
 .map_tag {
 
@@ -53,6 +56,43 @@ $dock-animation-duration: 0.2s;
 
   &.visible {
     left: 66%;
+  }
+}
+
+.help-banner-left {
+  position: absolute;
+  bottom: 13vh;
+  left: 0;
+}
+
+.help-banner-right {
+  position: absolute;
+  bottom: 13vh;
+  right: 0;
+}
+
+.controls {
+  position: absolute;
+  bottom: 3vh;
+  width: 100%;
+  height: $control-height-large;
+  padding: 0 30px;
+
+  .controls-tools {
+    width: 50%;
+    height: 100%;
+    float: left;
+
+    .controls-tools-aux {
+      display: inline-block;
+      margin-left: 2vw;
+    }
+  }
+
+  .controls-projections {
+    width: 50%;
+    float: left;
+    text-align: right;
   }
 }
 

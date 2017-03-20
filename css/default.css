@@ -1,3 +1,111 @@
+@font-face {
+  font-family: "fira-sans-condensed";
+  font-style: normal;
+  font-weight: 100;
+  src: url("../fonts/Fira_Sans_Condensed/FiraSansCondensed-Thin.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "fira-sans-condensed";
+  font-style: italic;
+  font-weight: 100;
+  src: url("../fonts/Fira_Sans_Condensed/FiraSansCondensed-ThinItalic.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "fira-sans-condensed";
+  font-style: normal;
+  font-weight: 200;
+  src: url("../fonts/Fira_Sans_Condensed/FiraSansCondensed-ExtraLight.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "fira-sans-condensed";
+  font-style: italic;
+  font-weight: 200;
+  src: url("../fonts/Fira_Sans_Condensed/FiraSansCondensed-ExtraLightItalic.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "fira-sans-condensed";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/Fira_Sans_Condensed/FiraSansCondensed-Light.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "fira-sans-condensed";
+  font-style: italic;
+  font-weight: 300;
+  src: url("../fonts/Fira_Sans_Condensed/FiraSansCondensed-LightItalic.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "fira-sans-condensed";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "fira-sans-condensed";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/Fira_Sans_Condensed/FiraSansCondensed-Italic.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "fira-sans-condensed";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/Fira_Sans_Condensed/FiraSansCondensed-Medium.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "fira-sans-condensed";
+  font-style: italic;
+  font-weight: 500;
+  src: url("../fonts/Fira_Sans_Condensed/FiraSansCondensed-MediumItalic.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "fira-sans-condensed";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/Fira_Sans_Condensed/FiraSansCondensed-SemiBold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "fira-sans-condensed";
+  font-style: italic;
+  font-weight: 600;
+  src: url("../fonts/Fira_Sans_Condensed/FiraSansCondensed-SemiBoldItalic.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "fira-sans-condensed";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/Fira_Sans_Condensed/FiraSansCondensed-Bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "fira-sans-condensed";
+  font-style: italic;
+  font-weight: 700;
+  src: url("../fonts/Fira_Sans_Condensed/FiraSansCondensed-BoldItalic.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "fira-sans-condensed";
+  font-style: normal;
+  font-weight: 800;
+  src: url("../fonts/Fira_Sans_Condensed/FiraSansCondensed-ExtraBold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "fira-sans-condensed";
+  font-style: italic;
+  font-weight: 800;
+  src: url("../fonts/Fira_Sans_Condensed/FiraSansCondensed-ExtraBoldItalic.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "fira-sans-condensed";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/Fira_Sans_Condensed/FiraSansCondensed-Black.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "fira-sans-condensed";
+  font-style: italic;
+  font-weight: 900;
+  src: url("../fonts/Fira_Sans_Condensed/FiraSansCondensed-BlackItalic.ttf") format("truetype"); }
+
 /* http://sonspring.com/journal/clearing-floats */
 .clear {
   clear: both;
@@ -21,9 +129,11 @@
   *zoom: 1; }
 
 body {
+  font-family: 'fira-sans-condensed', 'sans-serif';
   color: #fff;
   background-color: #000;
-  -webkit-font-smoothing: antialiased !important; }
+  -webkit-font-smoothing: antialiased !important;
+  overflow: hidden; }
 
 .header {
   position: absolute;
@@ -66,6 +176,34 @@ body {
   .info_pane-right.visible {
     left: 66%; }
 
+.help-banner-left {
+  position: absolute;
+  bottom: 13vh;
+  left: 0; }
+
+.help-banner-right {
+  position: absolute;
+  bottom: 13vh;
+  right: 0; }
+
+.controls {
+  position: absolute;
+  bottom: 3vh;
+  width: 100%;
+  height: 8vh;
+  padding: 0 30px; }
+  .controls .controls-tools {
+    width: 50%;
+    height: 100%;
+    float: left; }
+    .controls .controls-tools .controls-tools-aux {
+      display: inline-block;
+      margin-left: 2vw; }
+  .controls .controls-projections {
+    width: 50%;
+    float: left;
+    text-align: right; }
+
 .controls_tag {
   margin-top: 100%; }
 
@@ -97,6 +235,34 @@ body {
   background-repeat: no-repeat;
   background-position: center center; }
 
+.header .info {
+  display: block;
+  position: absolute;
+  top: 5.8vh;
+  right: 9.5vw;
+  width: 5vh;
+  height: 5vh;
+  background-image: url("../img/ic_info.png");
+  background-repeat: no-repeat;
+  background-size: contain; }
+
+.header ul.lang-selector {
+  position: absolute;
+  right: 2.3vw;
+  top: 4.2vh;
+  margin: 0;
+  padding: 0; }
+  .header ul.lang-selector li {
+    line-height: 3.5vh;
+    list-style: none; }
+    .header ul.lang-selector li a {
+      color: #373737;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 2.7vh; }
+      .header ul.lang-selector li a:hover {
+        color: #fff; }
+
 .lang-en .header h1 {
   background-image: url("../img/logo_en.png"); }
 
@@ -117,5 +283,99 @@ body {
   background-repeat: no-repeat; }
   .info_pane-close:hover {
     background-position: 0 100%; }
+
+.controls {
+  box-sizing: border-box; }
+
+.controls-tools [data-ui-tool] {
+  display: inline-block;
+  background-image: url("../img/ic_tools.png");
+  width: 8vh;
+  height: 8vh;
+  background-repeat: no-repeat;
+  background-size: 400% 200%; }
+
+.controls-tools [data-ui-tool=rotate] {
+  background-position: 0 0;
+  margin-right: 0.6vh; }
+  .controls-tools [data-ui-tool=rotate].active, .controls-tools [data-ui-tool=rotate]:hover {
+    background-position: 0 100%; }
+
+.controls-tools [data-ui-tool=indicatrix] {
+  background-position: 33.33% 0; }
+  .controls-tools [data-ui-tool=indicatrix].active, .controls-tools [data-ui-tool=indicatrix]:hover {
+    background-position: 33.33% 100%; }
+
+.controls-tools [data-ui-tool=loxodrome] {
+  background-position: 66.66% 0; }
+  .controls-tools [data-ui-tool=loxodrome].active, .controls-tools [data-ui-tool=loxodrome]:hover {
+    background-position: 66.66% 100%; }
+
+.controls-tools [data-ui-tool=geodesic] {
+  background-position: 100% 0; }
+  .controls-tools [data-ui-tool=geodesic].active, .controls-tools [data-ui-tool=geodesic]:hover {
+    background-position: 100% 100%; }
+
+.controls-tools .controls-tools-aux [data-ui-tool] {
+  width: 5vh;
+  height: 5vh; }
+
+.controls-tools [data-ui-tool=undo] {
+  background-image: url("../img/ic_undo.png");
+  background-size: contain; }
+
+.controls-tools [data-ui-tool=clear] {
+  background-image: url("../img/ic_clear.png");
+  background-size: contain; }
+
+.controls-projections {
+  padding-top: 3vh; }
+  .controls-projections [data-ui-projection] {
+    display: inline-block;
+    background-color: #808080;
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 2.5vh;
+    line-height: 5vh;
+    font-weight: 300;
+    text-decoration: none;
+    color: #000;
+    margin-left: 0.2vw; }
+    .controls-projections [data-ui-projection].active, .controls-projections [data-ui-projection]:hover {
+      background-color: #e0ad00; }
+
+.help-banner {
+  position: absolute;
+  display: inline-block;
+  height: 5vh;
+  padding: 0 3vh;
+  line-height: 5vh;
+  font-size: 3vh;
+  color: #000; }
+  .help-banner:before {
+    z-index: -1;
+    content: " ";
+    display: block;
+    transform: rotate(45deg);
+    position: absolute;
+    width: 3.5vh;
+    height: 3.5vh;
+    top: 0.75vh; }
+
+.help-banner-left {
+  background-color: #007d96;
+  margin-left: 2.5vh; }
+  .help-banner-left:before {
+    left: -1.7vh;
+    background-color: #007d96; }
+
+.help-banner-right {
+  background-color: #b68c00;
+  margin-right: 2.5vh; }
+  .help-banner-right:before {
+    right: -1.7vh;
+    background-color: #b68c00; }
 
 /*# sourceMappingURL=default.css.map */

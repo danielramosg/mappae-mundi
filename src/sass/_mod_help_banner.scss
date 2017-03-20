@@ -1,0 +1,38 @@
+.help-banner {
+  position: absolute;
+  display: inline-block;
+  height: 5vh;
+  padding: 0 3vh;
+  line-height: 5vh;
+  font-size: 3vh;
+  color: $color-black;
+
+  &:before {
+    z-index: -1;
+    content: " ";
+    display: block;
+    transform: rotate(45deg);
+    position: absolute;
+    width: 3.5vh;
+    height: 3.5vh;
+    top: 0.75vh;
+  }
+}
+
+.help-banner-left {
+  background-color: $color-blue-dim;
+  margin-left: 2.5vh;
+  &:before {
+    left: -1.7vh;
+    background-color: $color-blue-dim;
+  }
+}
+
+.help-banner-right {
+  background-color: $color-orange-dim;
+  margin-right: 2.5vh;
+  &:before {
+    right: -1.7vh;
+    background-color: $color-orange-dim;
+  }
+}

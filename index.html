@@ -17,15 +17,18 @@
 <body>
 <div class="header">
   <h1 data-ui-str="APP_TITLE"></h1>
-  <div style="position: absolute; right: 0; top: 0;">
-    <input type="checkbox" id="checktext" onclick="hideshowText()">
-    Info </input>
-    <button type="button" data-ui-help='info_map'>Start</button>
-    <button type="button" data-ui-help='about'>About</button>
-    <br>
-    <a href="#" data-ui-lang-set="en"> English </a>
-    <a href="#" data-ui-lang-set="pt"> Português </a>
-  </div>
+  <!--<div style="position: absolute; right: 0; top: 0;">-->
+    <!--<input type="checkbox" id="checktext" onclick="hideshowText()">-->
+    <!--Info </input>-->
+    <!--<button type="button" data-ui-help='info_map'>Start</button>-->
+    <!--<button type="button" data-ui-help='about'>About</button>-->
+    <!--<br>-->
+  <!--</div>-->
+  <a href="#" class="info" data-ui-help="about"></a>
+  <ul class="lang-selector">
+    <li><a href="#" data-ui-lang-set="en"> English </a></li>
+    <li><a href="#" data-ui-lang-set="pt"> Português </a></li>
+  </ul>
 </div>
 
 <div id="text_tag" class="text_tag"></div>
@@ -42,6 +45,31 @@
 <div class="info_pane info_pane-right">
   <div class="content"></div>
   <a href='#' class="info_pane-close"></a>
+</div>
+<div class="help-banner help-banner-left">Learn more about Lexodromes</div>
+<div class="help-banner help-banner-right">Learn more about the Plate Carrée projection</div>
+
+<div class="controls">
+  <div class="controls-tools">
+    <a href="#" data-ui-tool="rotate"></a>
+    <a href="#" data-ui-tool="indicatrix"></a>
+    <a href="#" data-ui-tool="geodesic"></a>
+    <a href="#" data-ui-tool="loxodrome"></a>
+    <div class="controls-tools-aux">
+      <a href="#" data-ui-tool="undo"></a>
+      <a href="#" data-ui-tool="clear"></a>
+    </div>
+  </div>
+  <div class="controls-projections">
+    <a href="#" data-ui-projection="platecarre">Pl</a>
+    <a href="#" data-ui-projection="mercator">Me</a>
+    <a href="#" data-ui-projection="gallpeters">Ga</a>
+    <a href="#" data-ui-projection="mollweide">Mw</a>
+    <a href="#" data-ui-projection="aziequi">Az</a>
+    <a href="#" data-ui-projection="gnomo">Gn</a>
+    <a href="#" data-ui-projection="stereo">St</a>
+    <a href="#" data-ui-projection="ortho">Or</a>
+  </div>
 </div>
 
 <div class="controls_tag">

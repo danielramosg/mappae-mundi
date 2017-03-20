@@ -1,0 +1,84 @@
+.controls {
+  box-sizing: border-box;
+}
+
+.controls-tools {
+  [data-ui-tool] {
+    display: inline-block;
+    background-image: url('../img/ic_tools.png');
+    width: $control-height-large;
+    height: $control-height-large;
+    background-repeat: no-repeat;
+    background-size: 400% 200%;
+  }
+
+  [data-ui-tool=rotate] {
+    background-position: 0 0;
+    margin-right: 0.6vh;
+    &.active, &:hover {
+      background-position: 0 100%;
+    }
+  }
+
+  [data-ui-tool=indicatrix] {
+    background-position: 33.33% 0;
+    &.active, &:hover {
+      background-position: 33.33% 100%;
+    }
+  }
+
+  [data-ui-tool=loxodrome] {
+    background-position: 66.66% 0;
+    &.active, &:hover {
+      background-position: 66.66% 100%;
+    }
+  }
+
+  [data-ui-tool=geodesic] {
+    background-position: 100% 0;
+    &.active, &:hover {
+      background-position: 100% 100%;
+    }
+  }
+
+  .controls-tools-aux {
+    [data-ui-tool] {
+      width: $control-height-small;
+      height: $control-height-small;
+    }
+  }
+
+  [data-ui-tool=undo] {
+    background-image: url('../img/ic_undo.png');
+    background-size: contain;
+  }
+
+  [data-ui-tool=clear] {
+    background-image: url('../img/ic_clear.png');
+    background-size: contain;
+  }
+}
+
+.controls-projections {
+
+  padding-top: $control-height-large - $control-height-small;
+
+  [data-ui-projection] {
+    display: inline-block;
+    background-color: $color-gray;
+    width: $control-height-small;
+    height: $control-height-small;
+    border-radius: 50%;
+    text-align: center;
+    font-size: $control-height-small / 2;
+    line-height: $control-height-small;
+    font-weight: 300;
+    text-decoration: none;
+    color: $color-black;
+    margin-left: 0.2vw;
+
+    &.active, &:hover {
+      background-color: $color-orange-lit;
+    }
+  }
+}

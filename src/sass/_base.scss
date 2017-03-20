@@ -1,5 +1,7 @@
 body {
+  @include FiraSansCondensed;
   color: $color-white;
   background-color: $color-black;
   @include neg;
+  overflow: hidden;
 }
