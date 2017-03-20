@@ -19,7 +19,7 @@ $(() => {
 
   // Hook help files
   $('[data-ui-help]').on('click', (ev) => {
-    ui.displayHelpFile($(ev.target).attr('data-ui-help'));
+    ui.displayHelpFile($(ev.target).attr('data-ui-help'), 'right');
     ev.preventDefault();
     ev.stopPropagation();
   });

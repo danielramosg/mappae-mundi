@@ -1,11 +1,12 @@
 .help-banner {
   position: absolute;
-  display: inline-block;
   height: 5vh;
   padding: 0 3vh;
   line-height: 5vh;
   font-size: 3vh;
   color: $color-black;
+  text-decoration: none;
+  display: none;
 
   &:before {
     z-index: -1;
@@ -26,6 +27,12 @@
     left: -1.7vh;
     background-color: $color-blue-dim;
   }
+  &:hover {
+    background-color: $color-blue-lit;
+    &:before {
+      background-color: $color-blue-lit;
+    }
+  }
 }
 
 .help-banner-right {
@@ -34,5 +41,11 @@
   &:before {
     right: -1.7vh;
     background-color: $color-orange-dim;
+  }
+  &:hover {
+    background-color: $color-orange-lit;
+    &:before {
+      background-color: $color-orange-lit;
+    }
   }
 }

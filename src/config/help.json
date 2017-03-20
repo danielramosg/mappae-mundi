@@ -1,0 +1,90 @@
+{
+  "tools": {
+    "rotate": {
+      "name": {
+        "en": "rotating the globe",
+        "pt": "girar o globo"
+      },
+      "file": "info_rotate"
+    },
+    "indicatrix": {
+      "name": {
+        "en": "the Tissot indicatrix",
+        "pt": "a indicatriz de Tissot"
+      },
+      "file": "info_tissot"
+    },
+    "geodesic": {
+      "name": {
+        "en": "geodesics",
+        "pt": "geodésicas"
+      },
+      "file": "info_geodesic"
+    },
+    "loxodrome": {
+      "name": {
+        "en": "loxodromes",
+        "pt": "loxodrómias"
+      },
+      "file": "info_loxodrome"
+    }
+  },
+  "projections": {
+    "platecarre": {
+      "file": "platecarre",
+      "name": {
+        "en": "the Plate Carrée projection",
+        "pt": "projeção Equirectangular"
+      }
+    },
+    "mercator": {
+      "file": "mercator",
+      "name": {
+        "en": "the Mercator projection",
+        "pt": "projecção de Mercator"
+      }
+    },
+    "gallpeters": {
+      "file": "gallpeters",
+      "name": {
+        "en": "the Gall-Peters projection",
+        "pt": "projecção de Gall-Peters"
+      }
+    },
+    "mollweide": {
+      "file": "mollweide",
+      "name": {
+        "en": "the Mollweide projection",
+        "pt": "projecção de Mollweide"
+      }
+    },
+    "aziequi": {
+      "file": "aziequi",
+      "name": {
+        "en": "the Azimuthal equidistant projection",
+        "pt": "projecção azimutal equidistante"
+      }
+    },
+    "gnomo": {
+      "file": "gnomo",
+      "name": {
+        "en": "the Gnomonic projection",
+        "pt": "projecção gnomônica"
+      }
+    },
+    "stereo": {
+      "file": "stereo",
+      "name": {
+        "en": "the Stereographic projection",
+        "pt": "projeção estereográfica"
+      }
+    },
+    "ortho": {
+      "file": "ortho",
+      "name": {
+        "en": "the Orthographic projection",
+        "pt": "projecção ortográfic"
+      }
+    }
+  }
+}

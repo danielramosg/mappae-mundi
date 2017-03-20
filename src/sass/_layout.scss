@@ -18,14 +18,14 @@ $control-height-small: 5vh;
   top: 13.5%;
   height: 65%;
   width: 100%;
-  //transition: width $dock-animation-duration, margin-left $dock-animation-duration;
+  transition: width $dock-animation-duration, margin-left $dock-animation-duration;
   margin-left: 0;
 
-  &.docked-left {
+  &.docked-right {
     width: 66%;
   }
 
-  &.docked-right {
+  &.docked-left {
     width: 66%;
     margin-left: 33%;
   }
@@ -35,7 +35,7 @@ $control-height-small: 5vh;
   position: absolute;
   width: 33%;
   top: 13.5%;
-  height: 100% - 13.5%;
+  height: 66.6%;
   overflow: scroll;
   padding: 0 20px;
   box-sizing: border-box;

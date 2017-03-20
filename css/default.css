@@ -153,10 +153,11 @@ body {
   top: 13.5%;
   height: 65%;
   width: 100%;
+  transition: width 0.2s, margin-left 0.2s;
   margin-left: 0; }
-  .map_tag.docked-left {
-    width: 66%; }
   .map_tag.docked-right {
+    width: 66%; }
+  .map_tag.docked-left {
     width: 66%;
     margin-left: 33%; }
 
@@ -164,7 +165,7 @@ body {
   position: absolute;
   width: 33%;
   top: 13.5%;
-  height: 86.5%;
+  height: 66.6%;
   overflow: scroll;
   padding: 0 20px;
   box-sizing: border-box;
@@ -352,12 +353,13 @@ body {
 
 .help-banner {
   position: absolute;
-  display: inline-block;
   height: 5vh;
   padding: 0 3vh;
   line-height: 5vh;
   font-size: 3vh;
-  color: #000; }
+  color: #000;
+  text-decoration: none;
+  display: none; }
   .help-banner:before {
     z-index: -1;
     content: " ";
@@ -374,6 +376,10 @@ body {
   .help-banner-left:before {
     left: -1.7vh;
     background-color: #007d96; }
+  .help-banner-left:hover {
+    background-color: #02accd; }
+    .help-banner-left:hover:before {
+      background-color: #02accd; }
 
 .help-banner-right {
   background-color: #b68c00;
@@ -381,5 +387,9 @@ body {
   .help-banner-right:before {
     right: -1.7vh;
     background-color: #b68c00; }
+  .help-banner-right:hover {
+    background-color: #e0ad00; }
+    .help-banner-right:hover:before {
+      background-color: #e0ad00; }
 
 /*# sourceMappingURL=default.css.map */

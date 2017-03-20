@@ -1,4 +1,5 @@
 import UIStrings from '../config/strings.json';
+import HelpCfg from '../config/help.json';
 
 export default class UI {
   constructor() {
@@ -18,6 +19,7 @@ export default class UI {
     this.setProjection('platecarre');
     this.initToolButtons();
     this.initProjectionButtons();
+    this.initHelpBanners();
   }
 
   setLanguage(langCode) {
@@ -48,11 +50,12 @@ export default class UI {
     return this.language;
   }
 
-  displayHelpFile(helpFileID = this.helpFile) {
+  displayHelpFile(helpFileID = this.helpFile, pane = this.helpPane) {
     d3.text(`./txt/${this.getLanguage()}/${helpFileID}.html`, (error, text) => {
       if (error) throw error;
-      this.displayInfoRight(text);
+      this.displayInfo(text, pane);
       this.helpFile = helpFileID;
+      this.helpPane = pane;
     });
   }
 
@@ -93,22 +96,15 @@ export default class UI {
     return '';
   }
 
-  displayInfoLeft(content) {
-    $('.map_tag').removeClass('docked-left');
-    $('.map_tag').addClass('docked-right');
-
-    $('.info_pane-left .content').html(content);
-    $('.info_pane-right').removeClass('visible');
-    $('.info_pane-left').addClass('visible');
-  }
-
-  displayInfoRight(content) {
+  displayInfo(content, pane) {
+    console.log(pane);
     $('.map_tag').removeClass('docked-right');
-    $('.map_tag').addClass('docked-left');
+    $('.map_tag').removeClass('docked-left');
+    $('.map_tag').addClass(`docked-${pane}`);
 
-    $('.info_pane-right .content').html(content);
-    $('.info_pane-left').removeClass('visible');
-    $('.info_pane-right').addClass('visible');
+    $(`.info_pane-${pane} .content`).html(content);
+    $('.info_pane').removeClass('visible');
+    $(`.info_pane-${pane}`).addClass('visible');
   }
 
   hideInfo() {
@@ -116,6 +112,16 @@ export default class UI {
     $('.map_tag').removeClass('docked-left');
 
     $('.info_pane-left').removeClass('visible');
+    $('.info_pane-right').removeClass('visible');
+  }
+
+  hideInfoLeft() {
+    $('.map_tag').removeClass('docked-left');
+    $('.info_pane-left').removeClass('visible');
+  }
+
+  hideInfoRight() {
+    $('.map_tag').removeClass('docked-right');
     $('.info_pane-right').removeClass('visible');
   }
 
@@ -136,6 +142,8 @@ export default class UI {
     $('[data-ui-tool]').removeClass('active');
     $(`[data-ui-tool=${aTool}]`).addClass('active');
     updateMap();
+    this.hideInfoLeft();
+    this.showHelpBanner('left', 'tools', aTool);
   }
 
   initProjectionButtons() {
@@ -155,5 +163,41 @@ export default class UI {
     $('[data-ui-projection]').removeClass('active');
     $(`[data-ui-projection=${aProjection}]`).addClass('active');
     updateMap();
+    this.hideInfoRight();
+    this.showHelpBanner('right', 'projections', aProjection);
+  }
+
+  initHelpBanners() {
+    $('.help-banner-left').on('click', (ev) => {
+      this.displayHelpFile($(ev.target).attr('data-ui-banner-help'), 'left');
+      ev.preventDefault();
+      ev.stopPropagation();
+    });
+
+    $('.help-banner-right').on('click', (ev) => {
+      this.displayHelpFile($(ev.target).attr('data-ui-banner-help'), 'right');
+      ev.preventDefault();
+      ev.stopPropagation();
+    });
+  }
+
+  getHelpBannerText(category, item) {
+    return `${this.str('MORE_ABOUT')} ${HelpCfg[category][item].name[this.getLanguage()]}`;
+  }
+
+  getHelpBannerPage(category, item) {
+    return HelpCfg[category][item].file;
+  }
+
+  showHelpBanner(bannerID, category, item) {
+    $(`.help-banner-${bannerID}`)
+      .html(this.getHelpBannerText(category, item))
+      .attr('data-ui-banner-help', this.getHelpBannerPage(category, item))
+      .fadeIn()
+      .css('display', 'inline-block');
+  }
+
+  hideHelpBanner(bannerID) {
+    $(`.help-banner-${bannerID}`).fadeOut();
   }
 }
