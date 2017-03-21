@@ -25,3 +25,17 @@
     fill: none;
   }
 }
+
+.coords_tag, .loxo_tag, .geo_tag {
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 0px 5px;
+}
+
+.geo_tag {
+  bottom: 32px;
+}
+
+.coords_tag {
+  font-size: 16px;
+}
