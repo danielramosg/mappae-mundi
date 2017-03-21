@@ -22,6 +22,10 @@ Some features are available as advanced commands using a keyboard:
 - **1**: Toggle country border visibility
 - **2**: Toggle graticule visibility
 - **3**: Toggle world terrain visibility
+- **N**: Center projection in North pole
+- **S**: Center projection in South pole
+- **E**: Center projection in Equator
+- **L**: Center projection in the current location
 
 ## License
 

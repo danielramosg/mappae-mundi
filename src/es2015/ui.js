@@ -250,4 +250,17 @@ export default class UI {
   undoMark() {
     undoCommand();
   }
+
+  centerMap(position) {
+    if (position === 'north') {
+      projection.rotate([0, -90]);
+    } else if (position === 'south') {
+      projection.rotate([0, 90]);
+    } else if (position === 'equator') {
+      projection.rotate([0, 0]);
+    } else if (position === 'location') {
+      projection.rotate(rotateToCurrentLocation);
+    }
+    updateMap();
+  }
 }

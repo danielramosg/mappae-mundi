@@ -42,6 +42,14 @@ $(() => {
     // 3 - Toggle raster visible
     } else if (ev.which === '3'.charCodeAt()) {
       ui.setRasterVisible(!ui.getRasterVisible());
+    } else if (ev.which === 'n'.charCodeAt() || ev.which === 'N'.charCodeAt()) {
+      ui.centerMap('north');
+    } else if (ev.which === 's'.charCodeAt() || ev.which === 'S'.charCodeAt()) {
+      ui.centerMap('south');
+    } else if (ev.which === 'e'.charCodeAt() || ev.which === 'E'.charCodeAt()) {
+      ui.centerMap('equator');
+    } else if (ev.which === 'l'.charCodeAt() || ev.which === 'L'.charCodeAt()) {
+      ui.centerMap('location');
     }
   });
 });

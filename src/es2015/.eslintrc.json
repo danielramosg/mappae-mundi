@@ -18,7 +18,9 @@
     "clearGeodesic": true,
     "clearLoxodrome": true,
     "clearEllipses": true,
-    "undoCommand": true
+    "undoCommand": true,
+    "projection": true,
+    "rotateToCurrentLocation": true
   },
   "rules": {
   }
