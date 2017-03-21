@@ -243,6 +243,12 @@ body {
   background-repeat: no-repeat;
   background-position: center center; }
 
+.header .intro {
+  display: block;
+  height: 100%;
+  width: 60%;
+  margin: 0 auto; }
+
 .header .info {
   display: block;
   position: absolute;
