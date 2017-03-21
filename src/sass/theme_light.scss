@@ -1,0 +1,116 @@
+/**
+Theme Light: A high contrast black-on-white theme for projectors
+ */
+
+$color-white: #fff;
+$color-black: #000;
+$color-gray-dark: #333;
+$color-gray: #808080;
+$color-gray-light: #adadad;
+
+$color-water: #d2f1fc;
+$color-land: #246f6f;
+$color-graticule: #164646;
+
+$color-orange-dim: #f3c36a;
+$color-orange-lit: #ffaf1c;
+
+$color-blue-dim: #90d1de;
+$color-blue-lit: #02accd;
+
+body {
+  background-color: $color-white;
+  color: $color-black;
+}
+
+.lang-en .header h1 {
+  background-image: url('../img/light/logo_en_light.png');
+}
+
+.lang-pt .header h1 {
+  background-image: url('../img/light/logo_pt_light.png');
+}
+
+.header {
+  ul.lang-selector {
+    li {
+      a {
+        color: $color-gray;
+        &:hover {
+          color: $color-gray-dark;
+        }
+      }
+    }
+  }
+
+  .info {
+    background-image: url('../img/light/ic_info_light.png');
+  }
+}
+
+.info_pane-close {
+  background-image: url('../img/light/ic_close_light.png');
+}
+
+.graticule {
+  stroke: $color-graticule;
+}
+
+.land {
+  fill: $color-land;
+}
+
+.boundary {
+  stroke: $color-water;
+}
+
+.stroke {
+  fill: $color-water;
+  stroke: $color-gray-dark;
+  stroke-width: 0.5px;
+}
+
+.controls-tools {
+  [data-ui-command=undo] {
+    background-image: url('../img/light/ic_undo_light.png');
+  }
+
+  [data-ui-command=clear] {
+    background-image: url('../img/light/ic_clear_light.png');
+  }
+}
+
+.controls-projections [data-ui-projection] {
+  font-weight: 400;
+  background-color: $color-gray-light;
+
+  &.active, &:hover {
+    background-color: $color-orange-lit;
+  }
+}
+
+.help-banner-left {
+  background-color: $color-blue-dim;
+  &:before {
+    background-color: $color-blue-dim;
+  }
+  &:hover {
+    background-color: $color-blue-lit;
+    &:before {
+      background-color: $color-blue-lit;
+    }
+  }
+}
+
+.help-banner-right {
+  background-color: $color-orange-dim;
+  &:before {
+    background-color: $color-orange-dim;
+  }
+  &:hover {
+    background-color: $color-orange-lit;
+    &:before {
+      background-color: $color-orange-lit;
+    }
+  }
+}

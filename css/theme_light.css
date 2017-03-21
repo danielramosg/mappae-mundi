@@ -1,0 +1,69 @@
+/**
+Theme Light: A high contrast black-on-white theme for projectors
+ */
+body {
+  background-color: #fff;
+  color: #000; }
+
+.lang-en .header h1 {
+  background-image: url("../img/light/logo_en_light.png"); }
+
+.lang-pt .header h1 {
+  background-image: url("../img/light/logo_pt_light.png"); }
+
+.header ul.lang-selector li a {
+  color: #808080; }
+  .header ul.lang-selector li a:hover {
+    color: #333; }
+
+.header .info {
+  background-image: url("../img/light/ic_info_light.png"); }
+
+.info_pane-close {
+  background-image: url("../img/light/ic_close_light.png"); }
+
+.graticule {
+  stroke: #164646; }
+
+.land {
+  fill: #246f6f; }
+
+.boundary {
+  stroke: #d2f1fc; }
+
+.stroke {
+  fill: #d2f1fc;
+  stroke: #333;
+  stroke-width: 0.5px; }
+
+.controls-tools [data-ui-command=undo] {
+  background-image: url("../img/light/ic_undo_light.png"); }
+
+.controls-tools [data-ui-command=clear] {
+  background-image: url("../img/light/ic_clear_light.png"); }
+
+.controls-projections [data-ui-projection] {
+  font-weight: 400;
+  background-color: #adadad; }
+  .controls-projections [data-ui-projection].active, .controls-projections [data-ui-projection]:hover {
+    background-color: #ffaf1c; }
+
+.help-banner-left {
+  background-color: #90d1de; }
+  .help-banner-left:before {
+    background-color: #90d1de; }
+  .help-banner-left:hover {
+    background-color: #02accd; }
+    .help-banner-left:hover:before {
+      background-color: #02accd; }
+
+.help-banner-right {
+  background-color: #f3c36a; }
+  .help-banner-right:before {
+    background-color: #f3c36a; }
+  .help-banner-right:hover {
+    background-color: #ffaf1c; }
+    .help-banner-right:hover:before {
+      background-color: #ffaf1c; }
+
+/*# sourceMappingURL=theme_light.css.map */
