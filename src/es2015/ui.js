@@ -127,6 +127,7 @@ export default class UI {
   }
 
   hideInfo() {
+    this.helpFile = null;
     $('.map_tag').removeClass('docked-right');
     $('.map_tag').removeClass('docked-left');
 
@@ -135,11 +136,13 @@ export default class UI {
   }
 
   hideInfoLeft() {
+    this.helpFile = null;
     $('.map_tag').removeClass('docked-left');
     $('.info_pane-left').removeClass('visible');
   }
 
   hideInfoRight() {
+    this.helpFile = null;
     $('.map_tag').removeClass('docked-right');
     $('.info_pane-right').removeClass('visible');
   }
