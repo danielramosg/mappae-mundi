@@ -11,6 +11,8 @@ export default class UI {
     this.helpFile = undefined;
     this.tool = 'rotate';
     this.projection = 'platecarre';
+
+    this.helpBanners = {};
   }
 
   init() {
@@ -35,6 +37,17 @@ export default class UI {
     // Reload the current help file with the new language
     if (this.helpFile !== undefined) {
       this.displayHelpFile();
+    }
+
+    // Reload the help banners
+    for (const bannerID of Object.keys(this.helpBanners)) {
+      if (this.helpBanners[bannerID]) {
+        this.showHelpBanner(
+          bannerID,
+          this.helpBanners[bannerID].category,
+          this.helpBanners[bannerID].item
+        );
+      }
     }
 
     // Inject translatable strings
@@ -196,6 +209,9 @@ export default class UI {
   }
 
   showHelpBanner(bannerID, category, item) {
+
+    this.helpBanners[bannerID] = { category, item };
+
     $(`.help-banner-${bannerID}`)
       .html(this.getHelpBannerText(category, item))
       .attr('data-ui-banner-help', this.getHelpBannerPage(category, item))
@@ -204,6 +220,7 @@ export default class UI {
   }
 
   hideHelpBanner(bannerID) {
+    this.helpBanners[bannerID] = null;
     $(`.help-banner-${bannerID}`).fadeOut();
   }
 
