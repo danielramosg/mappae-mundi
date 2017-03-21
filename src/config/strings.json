@@ -7,6 +7,38 @@
     "en": "More about",
     "pt": "Mais sobre"
   },
+  "PR_ABBR_PLATECARRE": {
+    "en": "Pl",
+    "pt": "CEd"
+  },
+  "PR_ABBR_MERCATOR": {
+    "en": "Me",
+    "pt": "Mer"
+  },
+  "PR_ABBR_GALLPETERS": {
+    "en": "Ga",
+    "pt": "CEv"
+  },
+  "PR_ABBR_MOLLWEIDE": {
+    "en": "Mw",
+    "pt": "Mlw"
+  },
+  "PR_ABBR_AZIEQUI": {
+    "en": "Az",
+    "pt": "AzE"
+  },
+  "PR_ABBR_GNOMO": {
+    "en": "Gn",
+    "pt": "Gno"
+  },
+  "PR_ABBR_STEREO": {
+    "en": "St",
+    "pt": "Est"
+  },
+  "PR_ABBR_ORTHO": {
+    "en": "Or",
+    "pt": "Ort"
+  },
   "": {
     "en": "",
     "pt": ""

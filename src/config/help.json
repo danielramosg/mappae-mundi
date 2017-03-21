@@ -34,7 +34,7 @@
       "file": "platecarre",
       "name": {
         "en": "the Plate Carrée projection",
-        "pt": "projeção cilíndrica Equidistante"
+        "pt": "projeção Cilíndrica equidistante"
       }
     },
     "mercator": {
@@ -48,7 +48,7 @@
       "file": "gallpeters",
       "name": {
         "en": "the Gall-Peters projection",
-        "pt": "projeção cilíndrica Equivalente"
+        "pt": "projeção Cilíndrica equivalente"
       }
     },
     "mollweide": {
@@ -62,28 +62,28 @@
       "file": "aziequi",
       "name": {
         "en": "the Azimuthal equidistant projection",
-        "pt": "projeção azimutal equidistante"
+        "pt": "projeção Azimutal equidistante"
       }
     },
     "gnomo": {
       "file": "gnomo",
       "name": {
         "en": "the Gnomonic projection",
-        "pt": "projeção gnomónica"
+        "pt": "projeção Gnomónica"
       }
     },
     "stereo": {
       "file": "stereo",
       "name": {
         "en": "the Stereographic projection",
-        "pt": "projeção estereográfica"
+        "pt": "projeção Estereográfica"
       }
     },
     "ortho": {
       "file": "ortho",
       "name": {
         "en": "the Orthographic projection",
-        "pt": "projeção ortográfic"
+        "pt": "projeção Ortográfica"
       }
     }
   }
