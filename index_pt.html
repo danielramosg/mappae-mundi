@@ -25,15 +25,22 @@ obtained with wget-->
 <div style="float:right;">
 
 <input type="checkbox" id="checktext" onclick="hideshowText()" checked><label for="checktext">Info</label> </input>
-<button type="button" onclick='setText("info_map")'>Start </button>
-<button type="button" onclick='setText("about")'>About </button>
+
+<input type="button" id="button_start" onclick='setText("info_map")'> 
+<label for="button_start">
+Start</label> 
+
+<input type="button" id="button_about" onclick='setText("about")'> 
+<label for="button_about">
+About</label> 
+
 <br>
 <a href="./index.html"> English </a>
 <script> Language = "pt" </script>
 </div>
 
 
-<h1>Mappae mundi</h1>
+<h1> Mappae mundi </h1>
 
 
 
@@ -71,38 +78,48 @@ obtained with wget-->
 <tr>
 
 <td> <input type="radio" id="radio_tissot" name="mode" value="tissot" checked onclick=
-"mode_tissot()"> <label for="radio_tissot">Tissot's indicatrix</label></td> 
+"mode_tissot()"> <label for="radio_tissot" style="width:130px;">Tissot's indicatrix</label></td> 
 
-<td><button type="button" onclick='setText("info_tissot")' class="tooltip">
+<td> <input type="button" id="info_tissot" onclick='setText("info_tissot")'> 
+<label for="info_tissot" class="tooltip">
 <span class="tooltiptext">Info</span>
-<img src="./icons/info.svg" width="20px" > </button>
+<img src="./icons/info.svg" width="20px" ></label> 
 
-<button type="button" onclick="clearEllipses()" class="tooltip">
+
+<input type="button" id="clear_ellipses" onclick="clearEllipses()" >
+<label for="clear_ellipses" class="tooltip">
 <span class="tooltiptext">Clear</span>
-<img src="./icons/trash.svg" width="20px" > </button>
+<img src="./icons/trash.svg" width="20px" ></label>
 
-<button type="button" onclick="popEllipse()" class="tooltip">
+
+<input type="button" id="pop_ellipses" onclick="popEllipse()" >
+<label for="pop_ellipses" class="tooltip">
 <span class="tooltiptext">Undo</span>
-<img src="./icons/undo.svg" width="20px" > </button>
+<img src="./icons/undo.svg" width="20px" ></label>
 
-<button type="button" onclick="sampleEllipses()" class="tooltip">
+
+<input type="button" id="sample_ellipses" onclick="sampleEllipses()" >
+<label for="sample_ellipses" class="tooltip">
 <span class="tooltiptext">Sample</span>
-<img src="./icons/tissotsample2.svg" width="20px" > </button> 
+<img src="./icons/tissotsample2.svg" width="20px" ></label>
+
 
 <span class="tooltip"><input type="number" id="ellipradius" min="0" max="20000" step="100" value="1000" style="width:50px; margin:0.5em;" onchange="removeEllipses(); drawEllipses();">km <span class="tooltiptext">Radius</span></span></td>
 </tr>
 
 <tr>
 <td> <input type="radio" id="radio_geodesic" name="mode" value="move" onclick=
-"mode_geodesic()"> <label for="radio_geodesic">Geodesic</label> </td>
+"mode_geodesic()"> <label for="radio_geodesic" style="width:130px;">Geodesic</label> </td>
 
-<td> <button type="button" onclick='setText("info_geodesic")' class="tooltip">
+<td> <input type="button" id="info_geodesic" onclick='setText("info_geodesic")'> 
+<label for="info_geodesic" class="tooltip">
 <span class="tooltiptext">Info</span>
-<img src="./icons/info.svg" width="20px" > </button>
+<img src="./icons/info.svg" width="20px" ></label> 
 
-<button type="button" onclick="clearGeodesic()" class="tooltip">
+<input type="button" id="clear_geodesic" onclick="clearGeodesic()" >
+<label for="clear_geodesic" class="tooltip">
 <span class="tooltiptext">Clear</span>
-<img src="./icons/trash.svg" width="20px" > </button>
+<img src="./icons/trash.svg" width="20px" ></label>
 
 <input type="checkbox" id="geoextended" onclick="geodesic_draw()"> <label for="geoextended" class="tooltip">
 <span class="tooltiptext">Extend</span>
@@ -112,29 +129,34 @@ obtained with wget-->
 
 <tr>
 <td> <input type="radio" id="radio_loxodrome" name="mode" value="move" onclick=
-"mode_loxodrome()"><label for="radio_loxodrome">Loxodrome</label> </td>
+"mode_loxodrome()"><label for="radio_loxodrome" style="width:130px;">Loxodrome</label> </td>
 
-<td> <button type="button" onclick='setText("info_loxodrome")' class="tooltip">
+<td> <input type="button" id="info_loxodrome" onclick='setText("info_loxodrome")'> 
+<label for="info_loxodrome" class="tooltip">
 <span class="tooltiptext">Info</span>
-<img src="./icons/info.svg" width="20px" > </button>
+<img src="./icons/info.svg" width="20px" ></label> 
 
-<button type="button" onclick="clearLoxodrome()" class="tooltip">
+<input type="button" id="clear_loxodrome" onclick="clearLoxodrome()" >
+<label for="clear_loxodrome" class="tooltip">
 <span class="tooltiptext">Clear</span>
-<img src="./icons/trash.svg" width="20px" > </button>
+<img src="./icons/trash.svg" width="20px" ></label>
 
 <input type="checkbox" id="loxoextended" onclick="loxodrome_draw()"> <label for="loxoextended" class="tooltip">
 <span class="tooltiptext">Extend</span>
-<img src="./icons/extend.svg" width="20px" ></label> </input>
+<img src="./icons/extend.svg" width="20px" ></label>
 
 </tr>
 
 <tr>
 <td> <input type="radio" id="radio_move" name="mode" value="move" onclick=
-"mode_move()"> <label for="radio_move">Aspect</label> </td>
+"mode_move()"> <label for="radio_move" style="width:130px;">Aspect</label> </td>
 <td> 
 
-<button type="button" onclick='setText("info_rotate")' class="tooltip">
-<span class="tooltiptext">Info</span><img src="./icons/info.svg" width="20px" > </button>
+<input type="button" id="info_rotate" onclick='setText("info_rotate")'> 
+<label for="info_rotate" class="tooltip">
+<span class="tooltiptext">Info</span>
+<img src="./icons/info.svg" width="20px" ></label> 
+
 
 <span class="tooltip"><span class="tooltiptext">Fix aspect</span>
 <select id="select-aspect"> 
@@ -161,15 +183,13 @@ obtained with wget-->
 document.getElementsByClassName('land')[0].style.visibility = this.checked? 'hidden':'visible'; "> 
 <label for="rastervisible" class="tooltip">
 <span class="tooltiptext">Terrain</span><img src="./icons/terrain.svg" width="20px" ></lable> </input>
-</td></tr>
-<tr><td>
+</td><td>
 <input type="checkbox" id="countriesvisible" onclick=
 "document.getElementsByClassName('boundary')[0]
 .style.visibility = this.checked? 'visible':'hidden' "> 
 <label for="countriesvisible" class="tooltip">
 <span class="tooltiptext">Country borders</span><img src="./icons/border.svg" width="20px" ></label> </input>
-</td></tr>
-<tr><td>
+</td><td>
 <input type="checkbox" id="graticulevisible" onclick=
 "document.getElementsByClassName('graticule')[0]
 .style.visibility = this.checked? 'visible':'hidden' "> 

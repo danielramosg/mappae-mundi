@@ -18,13 +18,13 @@ body {
 .graticule {
   fill: none;
   stroke: #000;
-  stroke-width: .5px;
-  stroke-opacity: .3;
+  stroke-width: 1px;
+  stroke-opacity: .6;
 }
 
 .land {
-  fill: #222;
-  fill-opacity:0.2;
+  fill: #444;
+  fill-opacity:1;
 }
 
 .boundary {
@@ -56,7 +56,7 @@ body {
 	/*float: left;*/
 	position: relative;
 	/*margin-right:45%;*/
-    border: 3px solid #73AD21;
+    border: 3px solid; /*#73AD21;*/
     /*max-width: 55%;*/
 /* 	width: 960px; */
 	height: 60vh;
@@ -75,13 +75,15 @@ body {
 	right:10px;
 	color: #f00;
 	display: none;
+	z-index: 1;
 }
 .loxo_tag {
 	position: absolute; 
 	bottom: 10px; 
 	right:10px;
 	color: #00f;
-	display: none;	
+	display: none;
+	z-index: 1;	
 }
 
 
@@ -138,13 +140,15 @@ td {
 }
 
 /*http://viralpatel.net/blogs/css-radio-button-checkbox-background/ */
-input[type=radio] {
+
+
+input[type=radio], input[type=checkbox], input[type=button] {
 		display:none;
 	}
 
-	input[type=radio] + label {
-		width:150px; /* width only for this program */
+	input[type=radio] + label, input[type=checkbox] + label, input[type=button] + label {
 		display:inline-block;
+		height: 23px;
 		margin:-2px;
 		padding: 4px 12px;
 		margin-bottom: 0;
@@ -173,51 +177,7 @@ input[type=radio] {
 		box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
 	}
 
-	input[type=radio]:checked + label {
-		   background-image: none;
-		outline: 0;
-		-webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
-		-moz-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
-		box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
-			background-color:#e0e0e0;
-	}
-
-
-input[type=checkbox] {
-		display:none;
-	}
-
-	input[type=checkbox] + label {
-		display:inline-block;
-		margin:-2px;
-		padding: 4px 12px;
-		margin-bottom: 0;
-		font-size: 14px;
-		line-height: 20px;
-		color: #333;
-		text-align: center;
-		text-shadow: 0 1px 1px rgba(255,255,255,0.75);
-		vertical-align: middle;
-		cursor: pointer;
-		background-color: #f5f5f5;
-		background-image: -moz-linear-gradient(top,#fff,#e6e6e6);
-		background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e6e6e6));
-		background-image: -webkit-linear-gradient(top,#fff,#e6e6e6);
-		background-image: -o-linear-gradient(top,#fff,#e6e6e6);
-		background-image: linear-gradient(to bottom,#fff,#e6e6e6);
-		background-repeat: repeat-x;
-		border: 1px solid #ccc;
-		border-color: #e6e6e6 #e6e6e6 #bfbfbf;
-		border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
-		border-bottom-color: #b3b3b3;
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',endColorstr='#ffe6e6e6',GradientType=0);
-		filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-		-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
-		-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
-		box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
-	}
-
-	input[type=checkbox]:checked + label {
+	input[type=radio]:checked + label, input[type=checkbox]:checked + label, input[type=button]:checked + label {
 		   background-image: none;
 		outline: 0;
 		-webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
