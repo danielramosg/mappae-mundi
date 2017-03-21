@@ -230,6 +230,9 @@ body {
 .map_tag {
   border: none; }
 
+.raster-visible .stroke {
+  fill: none; }
+
 .header h1 {
   display: block;
   height: 100%;

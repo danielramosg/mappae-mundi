@@ -86,6 +86,11 @@ export default class UI {
     this.isRasterVisible = !!isVisible;
     $('.land').css({ visibility: !isVisible ? 'visible' : 'hidden' });
     $('#map_tag canvas').css({ visibility: this.getRasterVisible() ? 'visible' : 'hidden' });
+    if (isVisible) {
+      $('.map_tag').addClass('raster-visible');
+    } else {
+      $('.map_tag').removeClass('raster-visible');
+    }
   }
 
   str(identifier) {

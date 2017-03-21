@@ -64,6 +64,12 @@ body {
   stroke: $color-water;
 }
 
+.raster-visible {
+  .boundary {
+    stroke: $color-black;
+  }
+}
+
 .stroke {
   fill: $color-water;
   stroke: $color-gray-dark;

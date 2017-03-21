@@ -31,6 +31,9 @@ body {
 .boundary {
   stroke: #d2f1fc; }
 
+.raster-visible .boundary {
+  stroke: #000; }
+
 .stroke {
   fill: #d2f1fc;
   stroke: #333;

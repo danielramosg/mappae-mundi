@@ -16,7 +16,12 @@
   stroke-width: .5px;
 }
 
-
 .map_tag {
   border: none;
+}
+
+.raster-visible {
+  .stroke {
+    fill: none;
+  }
 }
