@@ -320,7 +320,7 @@ function sampleEllipses() {
 			listellip.push([i,j]);
 	}};
 	removeEllipses(); drawEllipses();	
-	};
+};
 
 var geo_flip=true;
 var geo_ptA;

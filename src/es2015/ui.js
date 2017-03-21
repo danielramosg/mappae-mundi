@@ -153,6 +153,20 @@ export default class UI {
       ev.preventDefault();
       ev.stopPropagation();
     });
+
+    let indicatrixTimer = null;
+    $('[data-ui-tool=indicatrix]').on('mousedown', () => {
+      indicatrixTimer = setTimeout(() => {
+        sampleEllipses();
+      }, 1000);
+    });
+
+    $(document).on('mouseup', () => {
+      if (indicatrixTimer !== null) {
+        window.clearTimeout(indicatrixTimer);
+        indicatrixTimer = null;
+      }
+    });
   }
 
   getTool() {

@@ -20,7 +20,8 @@
     "clearEllipses": true,
     "undoCommand": true,
     "projection": true,
-    "rotateToCurrentLocation": true
+    "rotateToCurrentLocation": true,
+    "sampleEllipses": true
   },
   "rules": {
   }
