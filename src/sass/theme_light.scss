@@ -13,10 +13,10 @@ $color-land: #246f6f;
 $color-graticule: #164646;
 
 $color-orange-dim: #f3c36a;
-$color-orange-lit: #ffaf1c;
+$color-orange-lit: #f3c36a;
 
-$color-blue-dim: #90d1de;
-$color-blue-lit: #02accd;
+$color-blue-dim: #a6dae4;
+$color-blue-lit: #a6dae4;
 
 body {
   background-color: $color-white;
@@ -83,6 +83,21 @@ body {
 
   [data-ui-command=clear] {
     background-image: url('../img/light/ic_clear_light.png');
+  }
+}
+
+.controls-tools {
+  [data-ui-tool] {
+    &.active {
+      &:before {
+        background-color: $color-blue-dim;
+      }
+    }
+    &:hover {
+      &:before {
+        background-color: $color-blue-lit;
+      }
+    }
   }
 }
 

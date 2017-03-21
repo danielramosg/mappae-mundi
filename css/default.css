@@ -310,36 +310,40 @@ body {
     background-position: 0 100%; }
 
 .controls {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  left: 0; }
 
 .controls-tools [data-ui-tool] {
+  position: relative;
   display: inline-block;
-  background-image: url("../img/ic_tools.png");
   width: 8vh;
   height: 8vh;
   background-repeat: no-repeat;
-  background-size: 400% 200%; }
+  background-size: contain;
+  margin-right: 1.5vh; }
+  .controls-tools [data-ui-tool]:hover:before, .controls-tools [data-ui-tool].active:before {
+    content: " ";
+    display: block;
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    z-index: -1;
+    top: -10%;
+    left: -10%;
+    border-radius: 50%;
+    background-color: #007d96; }
 
 .controls-tools [data-ui-tool=rotate] {
-  background-position: 0 0;
-  margin-right: 0.6vh; }
-  .controls-tools [data-ui-tool=rotate].active, .controls-tools [data-ui-tool=rotate]:hover {
-    background-position: 0 100%; }
+  background-image: url("../img/ic_rotate.png"); }
 
 .controls-tools [data-ui-tool=indicatrix] {
-  background-position: 33.33% 0; }
-  .controls-tools [data-ui-tool=indicatrix].active, .controls-tools [data-ui-tool=indicatrix]:hover {
-    background-position: 33.33% 100%; }
+  background-image: url("../img/ic_indicatrix.png"); }
 
 .controls-tools [data-ui-tool=loxodrome] {
-  background-position: 66.66% 0; }
-  .controls-tools [data-ui-tool=loxodrome].active, .controls-tools [data-ui-tool=loxodrome]:hover {
-    background-position: 66.66% 100%; }
+  background-image: url("../img/ic_loxodrome.png"); }
 
 .controls-tools [data-ui-tool=geodesic] {
-  background-position: 100% 0; }
-  .controls-tools [data-ui-tool=geodesic].active, .controls-tools [data-ui-tool=geodesic]:hover {
-    background-position: 100% 100%; }
+  background-image: url("../img/ic_geodesic.png"); }
 
 .controls-tools .controls-commands [data-ui-command] {
   display: inline-block;
