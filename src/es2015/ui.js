@@ -34,6 +34,10 @@ export default class UI {
     });
     $('body').addClass(`lang-${langCode}`);
 
+    // Activate the selected language
+    $('.lang-selector li a[data-ui-lang-set]').removeClass('active');
+    $(`.lang-selector li a[data-ui-lang-set=${langCode}]`).addClass('active');
+
     // Reload the current help file with the new language
     if (this.helpFile !== undefined) {
       this.displayHelpFile();

@@ -50,6 +50,23 @@
       }
     }
   }
+
+  .menu {
+    position: absolute;
+    right: 2.3vw;
+    top: 4.2vh;
+    ul.lang-selector {
+      display: inline-block;
+      position: static;
+      li {
+        margin: 0;
+        display: inline-block;
+        a.active {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
 .lang-en .header h1 {

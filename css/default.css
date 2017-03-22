@@ -212,6 +212,18 @@ body {
 .controls_tag {
   margin-top: 100%; }
 
+.menu li {
+  display: inline-block;
+  margin-left: 1vw; }
+  .menu li a {
+    display: block;
+    color: #808080;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 2.7vh; }
+    .menu li a:hover {
+      color: #000; }
+
 .graticule {
   fill: none;
   stroke: #3f5f60;
@@ -287,6 +299,19 @@ body {
       font-size: 2.7vh; }
       .header ul.lang-selector li a:hover {
         color: #fff; }
+
+.header .menu {
+  position: absolute;
+  right: 2.3vw;
+  top: 4.2vh; }
+  .header .menu ul.lang-selector {
+    display: inline-block;
+    position: static; }
+    .header .menu ul.lang-selector li {
+      margin: 0;
+      display: inline-block; }
+      .header .menu ul.lang-selector li a.active {
+        display: none; }
 
 .lang-en .header h1 {
   background-image: url("../img/logo_en.png"); }
