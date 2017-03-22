@@ -2,8 +2,8 @@
   "tools": {
     "rotate": {
       "name": {
-        "en": "rotating the globe",
-        "pt": "girar o globo"
+        "en": "the aspect of the map",
+        "pt": "aspecto do mapa"
       },
       "file": "info_rotate"
     },
@@ -34,56 +34,56 @@
       "file": "platecarre",
       "name": {
         "en": "the Plate Carrée projection",
-        "pt": "projeção Cilíndrica equidistante"
+        "pt": "a projeção Cilíndrica equidistante"
       }
     },
     "mercator": {
       "file": "mercator",
       "name": {
         "en": "the Mercator projection",
-        "pt": "projeção de Mercator"
+        "pt": "a projeção de Mercator"
       }
     },
     "gallpeters": {
       "file": "gallpeters",
       "name": {
         "en": "the Gall-Peters projection",
-        "pt": "projeção Cilíndrica equivalente"
+        "pt": "a projeção Cilíndrica equivalente"
       }
     },
     "mollweide": {
       "file": "mollweide",
       "name": {
         "en": "the Mollweide projection",
-        "pt": "projeção de Mollweide"
+        "pt": "a projeção de Mollweide"
       }
     },
     "aziequi": {
       "file": "aziequi",
       "name": {
         "en": "the Azimuthal equidistant projection",
-        "pt": "projeção Azimutal equidistante"
+        "pt": "a projeção Azimutal equidistante"
       }
     },
     "gnomo": {
       "file": "gnomo",
       "name": {
         "en": "the Gnomonic projection",
-        "pt": "projeção Gnomónica"
+        "pt": "a projeção Gnomónica"
       }
     },
     "stereo": {
       "file": "stereo",
       "name": {
         "en": "the Stereographic projection",
-        "pt": "projeção Estereográfica"
+        "pt": "a projeção Estereográfica"
       }
     },
     "ortho": {
       "file": "ortho",
       "name": {
         "en": "the Orthographic projection",
-        "pt": "projeção Ortográfica"
+        "pt": "a projeção Ortográfica"
       }
     }
   }
