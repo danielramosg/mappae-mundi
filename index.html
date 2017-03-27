@@ -22,7 +22,7 @@ obtained with wget-->
 
 
 
-<div style="float:right;">
+<div style="float:right; position:absolute; right:0;">
 
 <input type="checkbox" id="checktext" onclick="hideshowText()" checked><label for="checktext">Info</label> </input>
 
@@ -40,7 +40,7 @@ About</label>
 </div>
 
 
-<h1> Mappae mundi </h1>
+<h1> <img src="./txt/common/title.png" height="55px"> </h1>
 
 
 
@@ -78,7 +78,7 @@ About</label>
 <tr>
 
 <td> <input type="radio" id="radio_tissot" name="mode" value="tissot" checked onclick=
-"mode_tissot()"> <label for="radio_tissot" style="width:130px;">Tissot's indicatrix</label></td> 
+"mode_tissot()"> <label for="radio_tissot" style="width:140px;">Tissot's indicatrix</label></td> 
 
 <td> <input type="button" id="info_tissot" onclick='setText("info_tissot")'> 
 <label for="info_tissot" class="tooltip">
@@ -109,7 +109,7 @@ About</label>
 
 <tr>
 <td> <input type="radio" id="radio_geodesic" name="mode" value="move" onclick=
-"mode_geodesic()"> <label for="radio_geodesic" style="width:130px;">Geodesic</label> </td>
+"mode_geodesic()"> <label for="radio_geodesic" style="width:140px;">Geodesic</label> </td>
 
 <td> <input type="button" id="info_geodesic" onclick='setText("info_geodesic")'> 
 <label for="info_geodesic" class="tooltip">
@@ -129,7 +129,7 @@ About</label>
 
 <tr>
 <td> <input type="radio" id="radio_loxodrome" name="mode" value="move" onclick=
-"mode_loxodrome()"><label for="radio_loxodrome" style="width:130px;">Loxodrome</label> </td>
+"mode_loxodrome()"><label for="radio_loxodrome" style="width:140px;">Loxodrome</label> </td>
 
 <td> <input type="button" id="info_loxodrome" onclick='setText("info_loxodrome")'> 
 <label for="info_loxodrome" class="tooltip">
@@ -149,7 +149,7 @@ About</label>
 
 <tr>
 <td> <input type="radio" id="radio_move" name="mode" value="move" onclick=
-"mode_move()"> <label for="radio_move" style="width:130px;">Aspect</label> </td>
+"mode_move()"> <label for="radio_move" style="width:140px;">Aspect</label> </td>
 <td> 
 
 <input type="button" id="info_rotate" onclick='setText("info_rotate")'> 
@@ -183,13 +183,13 @@ About</label>
 document.getElementsByClassName('land')[0].style.visibility = this.checked? 'hidden':'visible'; "> 
 <label for="rastervisible" class="tooltip">
 <span class="tooltiptext">Terrain</span><img src="./icons/terrain.svg" width="20px" ></lable> </input>
-</td><td>
+</td></tr><tr><td>
 <input type="checkbox" id="countriesvisible" onclick=
 "document.getElementsByClassName('boundary')[0]
 .style.visibility = this.checked? 'visible':'hidden' "> 
 <label for="countriesvisible" class="tooltip">
 <span class="tooltiptext">Country borders</span><img src="./icons/border.svg" width="20px" ></label> </input>
-</td><td>
+</td></tr><tr><td>
 <input type="checkbox" id="graticulevisible" onclick=
 "document.getElementsByClassName('graticule')[0]
 .style.visibility = this.checked? 'visible':'hidden' "> 
