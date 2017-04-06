@@ -1,9 +1,33 @@
 
+//CurrentLocation = [-9.136500,38.707718];  //Lisbon
 
-CurrentLocation = [-9.136500,38.707718];  //Lisbon
+function getLocation() {
+    if (navigator.geolocation) {
+        coords = navigator.geolocation.getCurrentPosition(setPosition);
+    } else { 
+    	console.log("Geolocation is not supported by this browser. Location set to 0,0 .");
+    }
+}
+
+function setPosition(position) {
+    CurrentLocation = [position.coords.longitude, position.coords.latitude];
+    console.log("Coordinates set to: " + CurrentLocation);
+    
+    rotateToCurrentLocation = [-CurrentLocation[0],-CurrentLocation[1]];
+    defineProjections();
+    updateMap();
+}
 
 
+CurrentLocation = [0,0];
 rotateToCurrentLocation = [-CurrentLocation[0],-CurrentLocation[1]];
+
+getLocation(); 
+// The getLocation works asynchronously, so we start with the default location,
+// and if getLocation is successful, maps are updated.
+
+
+
 
 
 function defineProjections() {
