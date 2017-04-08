@@ -1,22 +1,22 @@
-Projections-----
-Tools-----
-View-----
-Tissot's indicatrix-----
-Geodesic-----
-Loxodrome-----
-Aspect-----
-Info-----
-Clear-----
-Undo-----
-Sample-----
-Extend-----
-Terrain-----
-Country borders-----
-Graticule-----
-Equatorial-----
-Polar (North)-----
-Polar (South)-----
-Oblique (Your location)-----
-Oblique (Other)-----
-Start-----
-About-----
+Projections-----Projections
+Tools-----Outils
+View-----Voir
+Tissot's indicatrix-----Indicatrice de Tissot
+Geodesic-----G&eacute;od&eacute;sique
+Loxodrome-----Loxodromie
+Aspect-----Point fondamental
+Info-----Info
+Clear-----Effacer
+Undo-----Annuler
+Sample-----Eacute;chantillon
+Extend-----Eacute;tendre
+Terrain-----Terrain
+Country borders-----Fronti&egrave;res des pays
+Graticule-----Graticule
+Equatorial-----Eacute;quatorial
+Polar (North)-----Polaire (Nord)
+Polar (South)-----Polaire (Sud)
+Oblique (Your location)-----Oblique (Votre position)
+Oblique (Other)-----Oblique (Autre position)
+Start-----D&eacute;marrer
+About-----&Agrave propos
