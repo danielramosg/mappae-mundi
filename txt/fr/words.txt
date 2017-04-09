@@ -2,21 +2,21 @@ Projections-----Projections
 Tools-----Outils
 View-----Voir
 Tissot's indicatrix-----Indicatrice de Tissot
-Geodesic-----G&eacute;od&eacute;sique
+Geodesic-----Géodésique
 Loxodrome-----Loxodromie
-Aspect-----Point fondamental
+Aspect-----Aspect
 Info-----Info
 Clear-----Effacer
 Undo-----Annuler
-Sample-----Eacute;chantillon
-Extend-----Eacute;tendre
+Sample-----Échantillon
+Extend-----Étendre
 Terrain-----Terrain
-Country borders-----Fronti&egrave;res des pays
+Country borders-----Frontières des pays
 Graticule-----Graticule
-Equatorial-----Eacute;quatorial
+Equatorial-----Équatorial
 Polar (North)-----Polaire (Nord)
 Polar (South)-----Polaire (Sud)
 Oblique (Your location)-----Oblique (Votre position)
 Oblique (Other)-----Oblique (Autre position)
-Start-----D&eacute;marrer
-About-----&Agrave propos
+Start-----Démarrer
+About-----À propos
