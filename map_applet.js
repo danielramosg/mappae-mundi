@@ -39,14 +39,16 @@ function defineProjections() {
 	  {	shortname: "platecarre",
 		name: {
 			en: "Plate Carrée",
-			pt: "Cilíndrica Equidistante" },
+			pt: "Cilíndrica Equidistante",
+			fr: "Plate Carrée", },
 		projection: d3.geo.equirectangular()
 			.scale(0.15*Math.min(width,2*height))
 			.translate([width / 2, height / 2])},
 	  {	shortname: "mercator",
 		name: {
 			en: "Mercator",
-			pt: "Mercator", },
+			pt: "Mercator", 
+			fr: "Mercator", },
 		projection: d3.geo.mercator()
 			.scale(0.15*Math.min(width,1.1*height))
 			.translate([width / 2, height / 2])
@@ -54,7 +56,8 @@ function defineProjections() {
 	  {	shortname: "gallpeters",
 		name: {
 			en: "Gall-Peters",
-			pt: "Cilíndrica Equivalente", },
+			pt: "Cilíndrica Equivalente", 
+			fr: "Gall-Peters", },
 		projection: d3.geo.cylindricalEqualArea().parallel(45)
 			.scale(0.2*Math.min(width, 1.571*height))
 			.translate([width / 2, height / 2])},
@@ -62,7 +65,8 @@ function defineProjections() {
 	  {	shortname: "mollweide",
 		name: {
 			en: "Mollweide",
-			pt: "Mollweide", },
+			pt: "Mollweide", 
+			fr: "Mollweide", },
 		projection: d3.geo.mollweide()
 			.scale(0.155*Math.min(width, 2*height))
 			.translate([width / 2, height / 2])
@@ -70,7 +74,8 @@ function defineProjections() {
 	  {	shortname: "aziequi",
 		name: {
 			en: "Azimuthal Equidistant",
-			pt: "Azimutal Equidistante", },
+			pt: "Azimutal Equidistante", 
+			fr: "Postel", },
 		projection: d3.geo.azimuthalEquidistant()
 			.scale(0.15*Math.min(width,height))
 			.translate([width / 2, height / 2])
@@ -81,7 +86,8 @@ function defineProjections() {
 	  {	shortname: "gnomo",
 		name: {
 			en: "Gnomonic",
-			pt: "Gnomónica", },
+			pt: "Gnomónica", 
+			fr: "Gnomonique", },
 		projection: d3.geo.gnomonic()
 			.clipAngle(90 - 1e-3)
 			.scale(120)
@@ -92,7 +98,8 @@ function defineProjections() {
 	  {	shortname: "stereo",
 		name: {
 			en: "Stereographic",
-			pt: "Estereográfica", },
+			pt: "Estereográfica", 
+			fr: "Stéréographique", },
 		projection: d3.geo.stereographic()
 			.scale(280)
 			.translate([width / 2, height / 2])
@@ -103,7 +110,8 @@ function defineProjections() {
 	  {	shortname: "ortho",
 		name: {
 			en: "Orthographic",
-			pt: "Ortográfica", },
+			pt: "Ortográfica", 
+			fr: "Orthographique", },
 		projection: d3.geo.orthographic()
 			.scale(0.45*Math.min(width,height))
 			.translate([width / 2, height / 2])
