@@ -1,54 +1,67 @@
 {
   "APP_TITLE": {
     "en": "Mappae Mundi",
-    "pt": "Mappae Mundi"
+    "pt": "Mappae Mundi",
+    "fr": "Mappae Mundi"
   },
   "INTRO": {
     "en": "Intro",
-    "pt": "Intro"
+    "pt": "Intro",
+    "fr": "Intro"
   },
   "CREDITS": {
     "en": "Credits",
-    "pt": "Créditos"
+    "pt": "Créditos",
+    "fr": "Crédits"
   },
   "MORE_ABOUT": {
     "en": "About",
-    "pt": "Sobre"
+    "pt": "Sobre",
+    "fr": "À propos"
   },
   "PR_ABBR_PLATECARRE": {
     "en": "Pl",
-    "pt": "CEd"
+    "pt": "CEd",
+    "fr": "Pl"
   },
   "PR_ABBR_MERCATOR": {
     "en": "Me",
-    "pt": "Mer"
+    "pt": "Mer",
+    "fr": "Me"
   },
   "PR_ABBR_GALLPETERS": {
     "en": "Ga",
-    "pt": "CEv"
+    "pt": "CEv",
+    "fr": "Ga"
   },
   "PR_ABBR_MOLLWEIDE": {
     "en": "Mw",
-    "pt": "Mlw"
+    "pt": "Mlw",
+    "fr": "Mw"
   },
   "PR_ABBR_AZIEQUI": {
     "en": "Az",
-    "pt": "AzE"
+    "pt": "AzE",
+    "fr": "Po"
   },
   "PR_ABBR_GNOMO": {
     "en": "Gn",
-    "pt": "Gno"
+    "pt": "Gno",
+    "fr": "Gn"
   },
   "PR_ABBR_STEREO": {
     "en": "St",
-    "pt": "Est"
+    "pt": "Est",
+    "fr": "St"
   },
   "PR_ABBR_ORTHO": {
     "en": "Or",
-    "pt": "Ort"
+    "pt": "Ort",
+    "fr": "Or"
   },
   "": {
     "en": "",
-    "pt": ""
+    "pt": "",
+    "fr": ""
   }
 }

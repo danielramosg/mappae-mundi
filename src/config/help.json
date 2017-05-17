@@ -3,28 +3,32 @@
     "rotate": {
       "name": {
         "en": "the aspect of the map",
-        "pt": "aspecto do mapa"
+        "pt": "o aspecto do mapa",
+        "fr": "de l'aspect d'une carte"
       },
       "file": "info_rotate"
     },
     "indicatrix": {
       "name": {
         "en": "the Tissot indicatrix",
-        "pt": "a indicatriz de Tissot"
+        "pt": "a indicatriz de Tissot",
+        "fr": "de l'indicatrice de Tissot"
       },
       "file": "info_tissot"
     },
     "geodesic": {
       "name": {
         "en": "geodesics",
-        "pt": "geodésicas"
+        "pt": "as geodésicas",
+        "fr": "des géodésiques"
       },
       "file": "info_geodesic"
     },
     "loxodrome": {
       "name": {
         "en": "loxodromes",
-        "pt": "loxodrómias"
+        "pt": "as loxodrómias",
+        "fr": "des loxodromies"
       },
       "file": "info_loxodrome"
     }
@@ -34,56 +38,64 @@
       "file": "platecarre",
       "name": {
         "en": "the Plate Carrée projection",
-        "pt": "a projeção Cilíndrica equidistante"
+        "pt": "a projeção Cilíndrica equidistante",
+        "fr": "de la projection plate carrée"
       }
     },
     "mercator": {
       "file": "mercator",
       "name": {
         "en": "the Mercator projection",
-        "pt": "a projeção de Mercator"
+        "pt": "a projeção de Mercator",
+        "fr": "de la projection de Mercator"
       }
     },
     "gallpeters": {
       "file": "gallpeters",
       "name": {
         "en": "the Gall-Peters projection",
-        "pt": "a projeção Cilíndrica equivalente"
+        "pt": "a projeção Cilíndrica equivalente",
+        "fr": "de la projection de Gall-Peters"
       }
     },
     "mollweide": {
       "file": "mollweide",
       "name": {
         "en": "the Mollweide projection",
-        "pt": "a projeção de Mollweide"
+        "pt": "a projeção de Mollweide",
+        "fr": "de la projection de Mollweide"
       }
     },
     "aziequi": {
       "file": "aziequi",
       "name": {
         "en": "the Azimuthal equidistant projection",
-        "pt": "a projeção Azimutal equidistante"
+        "pt": "a projeção Azimutal equidistante",
+        "fr": "de la projection de Postel"
       }
     },
     "gnomo": {
       "file": "gnomo",
       "name": {
         "en": "the Gnomonic projection",
-        "pt": "a projeção Gnomónica"
+        "pt": "a projeção Gnomónica",
+        "fr": "de la projection gnomonique"
       }
     },
     "stereo": {
       "file": "stereo",
       "name": {
         "en": "the Stereographic projection",
-        "pt": "a projeção Estereográfica"
+        "pt": "a projeção Estereográfica",
+        "fr": "de la projection stéréographique"
       }
     },
     "ortho": {
       "file": "ortho",
       "name": {
         "en": "the Orthographic projection",
-        "pt": "a projeção Ortográfica"
+        "pt": "a projeção Ortográfica",
+        "fr": "de la projection orthograpique"
       }
     }
   }
