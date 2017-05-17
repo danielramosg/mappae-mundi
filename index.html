@@ -1,47 +1,53 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
 
 <head>
+<meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="./style.css">
-</head>
-
-
-<body>
-<!-- <script src="https://d3js.org/d3.v3.min.js"></script> 
-obtained with wget-->
 <script src="./d3.v3.min.js"></script>
 <script src="./d3.geo.projection.v0.min.js"></script>
 <script src="./topojson.v1.min.js"></script>
 <script src="./numeric-1.2.6.min.js"></script>
 <script src="./ResizeSensor.js"></script> <!--for Resize events-->
 <script src="./ElementQueries.js"></script> <!--for Resize events-->
+<script src="./jquery.min.js"/></script><!--for translations-->
+<script src="./jquery.translate.js"/></script><!--for translations-->
 
+
+<script src="./translations.js"/></script>
 <script src="./map_math.js"></script>
 <script src="./ui_functions.js"></script>
 
+</head>
 
+
+
+<body>
+<script> Language = "en" </script>
 
 
 <div style="float:right; position:absolute; right:0;">
-
-<input type="checkbox" id="checktext" onclick="hideshowText()" checked><label for="checktext">Info</label> </input>
+<input type="checkbox" id="checktext" onclick="hideshowText()" checked><label for="checktext" class="trn">Info</label> </input>
 
 <input type="button" id="button_start" onclick='setText("info_map")'> 
-<label for="button_start">
-Start</label> 
+<label for="button_start" class="trn">Start</label> 
 
 <input type="button" id="button_about" onclick='setText("about")'> 
-<label for="button_about">
-About</label> 
+<label for="button_about" class="trn">About</label> 
 
-<br>
-<a href="./index_pt.html"> Português </a>  
-<a href="./index_fr.html"> Français </a>  
-<script> Language = "en" </script>
+<div class="dropdown">
+<input type="button" id="lang_menu" onclick="showLangMenu()" class="dropbtn">
+<label for="lang_menu"> 설 ⇄ A </label>
+  	<div id="myDropdown" class="dropdown-content">
+    	<a href="#" onclick="Language='en'; translateAll();">English</a>
+    	<a href="#" onclick="Language='fr'; translateAll();">Français</a>
+    	<a href="#" onclick="Language='pt'; translateAll();">Português</a>
+  	</div>
+</div>
+
 </div>
 
 
-<h1> <img src="./txt/common/title.png" height="55px"> </h1>
+<h1> <img src="./txt/common/title.png" height="70px"> </h1>
 
 
 
@@ -53,9 +59,11 @@ About</label>
 <div id="map_tag" class="map_tag"> 
 	<div id="coords_tag" class="coords_tag"> </div>
 
-	<div id="geo_tag" class="geo_tag"> geodesic: <span id="geolength_tag"> </span></div>
-	<div id="loxo_tag" class="loxo_tag">loxodrome: <span id="loxolength_tag"></span>, 
-	az: <span id="loxoazimuth_tag"> </span></div>
+	<div id="geo_tag" class="geo_tag">
+	<span class="trn">Geodesic</span>: <span id="geolength_tag"></span></div>
+	<div id="loxo_tag" class="loxo_tag">
+	<span class="trn">Loxodrome</span>: <span id="loxolength_tag"></span>, 
+	Az: <span id="loxoazimuth_tag"> </span></div>
 </div>
 
 
@@ -63,9 +71,9 @@ About</label>
 <div class="controls_tag">
 <table>
 <tr>
-<th> Projections </th>
-<th> Tools </th>
-<th> View </th>
+<th> <span class="trn">Projections</span> </th>
+<th> <span class="trn">Tools</span> </th>
+<th> <span class="trn">View</span> </th>
 </tr>
 <tr>
 
@@ -79,93 +87,93 @@ About</label>
 <tr>
 
 <td> <input type="radio" id="radio_tissot" name="mode" value="tissot" checked onclick=
-"mode_tissot()"> <label for="radio_tissot" style="width:140px;">Tissot's indicatrix</label></td> 
+"mode_tissot()"> <label for="radio_tissot" style="width:150px;" class="trn">Tissot's indicatrix</label></td> 
 
 <td> <input type="button" id="info_tissot" onclick='setText("info_tissot")'> 
 <label for="info_tissot" class="tooltip">
-<span class="tooltiptext">Info</span>
+<span class="tooltiptext"><span class="trn">Info</span></span>
 <img src="./icons/info.svg" width="20px" ></label> 
 
 
 <input type="button" id="clear_ellipses" onclick="clearEllipses()" >
 <label for="clear_ellipses" class="tooltip">
-<span class="tooltiptext">Clear</span>
+<span class="tooltiptext"><span class="trn">Clear</span></span>
 <img src="./icons/trash.svg" width="20px" ></label>
 
 
 <input type="button" id="pop_ellipses" onclick="popEllipse()" >
 <label for="pop_ellipses" class="tooltip">
-<span class="tooltiptext">Undo</span>
+<span class="tooltiptext"><span class="trn">Undo</span></span>
 <img src="./icons/undo.svg" width="20px" ></label>
 
 
 <input type="button" id="sample_ellipses" onclick="sampleEllipses()" >
 <label for="sample_ellipses" class="tooltip">
-<span class="tooltiptext">Sample</span>
+<span class="tooltiptext"><span class="trn">Sample</span></span>
 <img src="./icons/tissotsample2.svg" width="20px" ></label>
 
 
-<span class="tooltip"><input type="number" id="ellipradius" min="0" max="20000" step="100" value="1000" style="width:50px; margin:0.5em;" onchange="removeEllipses(); drawEllipses();">km <span class="tooltiptext">Radius</span></span></td>
+<span class="tooltip"><input type="number" id="ellipradius" min="0" max="20000" step="100" value="1000" style="width:50px; margin:0.5em;" onchange="removeEllipses(); drawEllipses();">km <span class="tooltiptext"><span class="trn">Radius</span> </span></span></td>
 </tr>
 
 <tr>
 <td> <input type="radio" id="radio_geodesic" name="mode" value="move" onclick=
-"mode_geodesic()"> <label for="radio_geodesic" style="width:140px;">Geodesic</label> </td>
+"mode_geodesic()"> <label for="radio_geodesic" style="width:150px;" class="trn">Geodesic</label> </td>
 
 <td> <input type="button" id="info_geodesic" onclick='setText("info_geodesic")'> 
 <label for="info_geodesic" class="tooltip">
-<span class="tooltiptext">Info</span>
+<span class="tooltiptext"><span class="trn">Info</span></span>
 <img src="./icons/info.svg" width="20px" ></label> 
 
 <input type="button" id="clear_geodesic" onclick="clearGeodesic()" >
 <label for="clear_geodesic" class="tooltip">
-<span class="tooltiptext">Clear</span>
+<span class="tooltiptext"><span class="trn">Clear</span></span>
 <img src="./icons/trash.svg" width="20px" ></label>
 
 <input type="checkbox" id="geoextended" onclick="geodesic_draw()"> <label for="geoextended" class="tooltip">
-<span class="tooltiptext">Extend</span>
+<span class="tooltiptext"><span class="trn">Extend</span></span>
 <img src="./icons/extend.svg" width="20px" ></label> </input>
 
 </tr>
 
 <tr>
 <td> <input type="radio" id="radio_loxodrome" name="mode" value="move" onclick=
-"mode_loxodrome()"><label for="radio_loxodrome" style="width:140px;">Loxodrome</label> </td>
+"mode_loxodrome()"><label for="radio_loxodrome" style="width:150px;" class="trn">Loxodrome</label> </td>
 
 <td> <input type="button" id="info_loxodrome" onclick='setText("info_loxodrome")'> 
 <label for="info_loxodrome" class="tooltip">
-<span class="tooltiptext">Info</span>
+<span class="tooltiptext"><span class="trn">Info</span></span>
 <img src="./icons/info.svg" width="20px" ></label> 
 
 <input type="button" id="clear_loxodrome" onclick="clearLoxodrome()" >
 <label for="clear_loxodrome" class="tooltip">
-<span class="tooltiptext">Clear</span>
+<span class="tooltiptext"><span class="trn">Clear</span></span>
 <img src="./icons/trash.svg" width="20px" ></label>
 
 <input type="checkbox" id="loxoextended" onclick="loxodrome_draw()"> <label for="loxoextended" class="tooltip">
-<span class="tooltiptext">Extend</span>
+<span class="tooltiptext"><span class="trn">Extend</span></span>
 <img src="./icons/extend.svg" width="20px" ></label>
 
 </tr>
 
 <tr>
 <td> <input type="radio" id="radio_move" name="mode" value="move" onclick=
-"mode_move()"> <label for="radio_move" style="width:140px;">Aspect</label> </td>
+"mode_move()"> <label for="radio_move" style="width:150px;" class="trn">Aspect</label> </td>
 <td> 
 
 <input type="button" id="info_rotate" onclick='setText("info_rotate")'> 
 <label for="info_rotate" class="tooltip">
-<span class="tooltiptext">Info</span>
+<span class="tooltiptext"><span class="trn">Info</span></span>
 <img src="./icons/info.svg" width="20px" ></label> 
 
 
-<span class="tooltip"><span class="tooltiptext">Fix aspect</span>
+<span class="tooltip"><span class="tooltiptext"><span class="trn">Fix aspect</span></span>
 <select id="select-aspect"> 
-<option value=equatorial> Equatorial </option>
-<option value=polar_north> Polar (North) </option>
-<option value=polar_south> Polar (South) </option>
-<option value=oblique_yourlocation> Oblique (Your Location) </option>
-<option value=oblique_other> Oblique (Other) </option>
+<option value=equatorial class="trn">Equatorial</option>
+<option value=polar_north class="trn">Polar (North)</option>
+<option value=polar_south class="trn">Polar (South)</option>
+<option value=oblique_yourlocation class="trn">Oblique (Your location)</option>
+<option value=oblique_other class="trn">Oblique (Other)</option>
 </span>
 </select>
 </td>
@@ -183,19 +191,19 @@ About</label>
 .style.visibility = this.checked? 'visible':'hidden';
 document.getElementsByClassName('land')[0].style.visibility = this.checked? 'hidden':'visible'; "> 
 <label for="rastervisible" class="tooltip">
-<span class="tooltiptext">Terrain</span><img src="./icons/terrain.svg" width="20px" ></lable> </input>
+<span class="tooltiptext"><span class="trn">Terrain</span></span><img src="./icons/terrain.svg" width="20px" ></lable> </input>
 </td></tr><tr><td>
 <input type="checkbox" id="countriesvisible" onclick=
 "document.getElementsByClassName('boundary')[0]
 .style.visibility = this.checked? 'visible':'hidden' "> 
 <label for="countriesvisible" class="tooltip">
-<span class="tooltiptext">Country borders</span><img src="./icons/border.svg" width="20px" ></label> </input>
+<span class="tooltiptext"><span class="trn">Country borders</span></span><img src="./icons/border.svg" width="20px" ></label> </input>
 </td></tr><tr><td>
 <input type="checkbox" id="graticulevisible" onclick=
 "document.getElementsByClassName('graticule')[0]
 .style.visibility = this.checked? 'visible':'hidden' "> 
 <label for="graticulevisible" class="tooltip">
-<span class="tooltiptext">Graticule</span><img src="./icons/graticule.svg" width="20px" ></label> </input>
+<span class="tooltiptext"><span class="trn">Graticule</span></span><img src="./icons/graticule.svg" width="20px" ></label> </input>
 </td></tr>
 </table>
 <!-- End of Sub-Table of View-->
@@ -207,6 +215,10 @@ document.getElementsByClassName('land')[0].style.visibility = this.checked? 'hid
 
 
 <script src="./map_applet.js"></script>
+
+<script> 
+var translator = $('body').translate({lang: Language, t: dict}); //initial translation 
+</script>
 
 </body>
 </html>

@@ -177,7 +177,7 @@ new ResizeSensor(element, function() {
 
 
 
-var menu = d3.select("#projection-menu");
+menu = d3.select("#projection-menu");
     
 menu.selectAll("option")
     .data(projectionslist)
