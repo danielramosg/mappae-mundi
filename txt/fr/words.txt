@@ -1,0 +1,22 @@
+Projections-----Projections
+Tools-----Outils
+View-----Voir
+Tissot's indicatrix-----Indicatrice de Tissot
+Geodesic-----Géodésique
+Loxodrome-----Loxodromie
+Aspect-----Aspect
+Info-----Info
+Clear-----Effacer
+Undo-----Annuler
+Sample-----Échantillon
+Extend-----Étendre
+Terrain-----Terrain
+Country borders-----Frontières des pays
+Graticule-----Graticule
+Equatorial-----Équatorial
+Polar (North)-----Polaire (Nord)
+Polar (South)-----Polaire (Sud)
+Oblique (Your location)-----Oblique (Votre position)
+Oblique (Other)-----Oblique (Autre position)
+Start-----Démarrer
+About-----À propos
