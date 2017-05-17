@@ -106,7 +106,7 @@ body {
   background-color: $color-gray-light;
 
   &.active, &:hover {
-    background-color: $color-orange-lit;
+    background-color: $color-water; //$color-orange-lit;
   }
 }
 
@@ -124,14 +124,14 @@ body {
 }
 
 .help-banner-right {
-  background-color: $color-orange-dim;
+  background-color: $color-water; //$color-orange-dim;
   &:before {
-    background-color: $color-orange-dim;
+    background-color: $color-water; //$color-orange-dim;
   }
   &:hover {
-    background-color: $color-orange-lit;
+    background-color: $color-water; //$color-orange-lit;
     &:before {
-      background-color: $color-orange-lit;
+      background-color: $color-water; //$color-orange-lit;
     }
   }
 }

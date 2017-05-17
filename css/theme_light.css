@@ -55,7 +55,7 @@ body {
   font-weight: 400;
   background-color: #adadad; }
   .controls-projections [data-ui-projection].active, .controls-projections [data-ui-projection]:hover {
-    background-color: #f3c36a; }
+    background-color: #d2f1fc; }
 
 .help-banner-left {
   background-color: #a6dae4; }
@@ -67,12 +67,12 @@ body {
       background-color: #a6dae4; }
 
 .help-banner-right {
-  background-color: #f3c36a; }
+  background-color: #d2f1fc; }
   .help-banner-right:before {
-    background-color: #f3c36a; }
+    background-color: #d2f1fc; }
   .help-banner-right:hover {
-    background-color: #f3c36a; }
+    background-color: #d2f1fc; }
     .help-banner-right:hover:before {
-      background-color: #f3c36a; }
+      background-color: #d2f1fc; }
 
 /*# sourceMappingURL=theme_light.css.map */
