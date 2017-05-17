@@ -1,0 +1,22 @@
+Projections-----
+Tools-----
+View-----
+Tissot's indicatrix-----
+Geodesic-----
+Loxodrome-----
+Aspect-----
+Info-----
+Clear-----
+Undo-----
+Sample-----
+Extend-----
+Terrain-----
+Country borders-----
+Graticule-----
+Equatorial-----
+Polar (North)-----
+Polar (South)-----
+Oblique (Your location)-----
+Oblique (Other)-----
+Start-----
+About-----
