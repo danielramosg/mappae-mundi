@@ -597,6 +597,12 @@ function mode_tissot() {
 	maparea.on('click', tissot_click);
 	maparea.on('mouseleave', tissot_mouseleave);
 	document.getElementById("sphere").style.cursor = 'crosshair';
+	
+	document.getElementById("tissot_tools").style.display = 'inline';
+	document.getElementById("geodesic_tools").style.display = 'none';
+	document.getElementById("loxodrome_tools").style.display = 'none';
+	document.getElementById("aspect_tools").style.display = 'none';
+
 };
 
 
@@ -648,6 +654,11 @@ function mode_move() {
 	maparea.call(move_drag);
 	document.getElementById("sphere").style.cursor = 'move';
 
+	document.getElementById("tissot_tools").style.display = 'none';
+	document.getElementById("geodesic_tools").style.display = 'none';
+	document.getElementById("loxodrome_tools").style.display = 'none';
+	document.getElementById("aspect_tools").style.display = 'inline';
+
 };
 
 
@@ -687,6 +698,12 @@ function mode_geodesic() {
 	maparea.on('click', geodesic_click);
 	maparea.on('mouseleave', default_mouseleave);
 	document.getElementById("sphere").style.cursor = 'crosshair';
+
+	document.getElementById("tissot_tools").style.display = 'none';
+	document.getElementById("geodesic_tools").style.display = 'inline';
+	document.getElementById("loxodrome_tools").style.display = 'none';
+	document.getElementById("aspect_tools").style.display = 'none';
+	
 };
 
 
@@ -730,6 +747,12 @@ function mode_loxodrome() {
 	maparea.on('click', loxodrome_click);
 	maparea.on('mouseleave', default_mouseleave);
 	document.getElementById("sphere").style.cursor = 'crosshair';
+	
+	document.getElementById("tissot_tools").style.display = 'none';
+	document.getElementById("geodesic_tools").style.display = 'none';
+	document.getElementById("loxodrome_tools").style.display = 'inline';
+	document.getElementById("aspect_tools").style.display = 'none';
+
 };
 
 

@@ -25,7 +25,7 @@
 <script> Language = "en" </script>
 
 
-<div style="float:right; position:absolute; right:0;">
+<div style="float:right; position:absolute; right:12px;">
 <input type="checkbox" id="checktext" onclick="hideshowText()" checked><label for="checktext" class="trn">Info</label> </input>
 
 <input type="button" id="button_start" onclick='setText("info_map")'> 
@@ -69,27 +69,52 @@
 
 
 <div class="controls_tag">
+
+
 <table>
 <tr>
-<th> <span class="trn">Projections</span> </th>
-<th> <span class="trn">Tools</span> </th>
-<th> <span class="trn">View</span> </th>
+<th><span class="trn">Projections</span></th>
+<th><span class="trn">Tools</span></th>
+<th><span class="trn">View</span></th>
 </tr>
+
 <tr>
 
 <td>
 <select id="projection-menu" style="display:inline; vertical-align:top; font-size:12pt" size=8></select>
 </td>
 
-<td>
-<!-- Sub-Table of tools-->
-<table style="display:inline"> 
-<tr>
 
-<td> <input type="radio" id="radio_tissot" name="mode" value="tissot" checked onclick=
-"mode_tissot()"> <label for="radio_tissot" style="width:150px;" class="trn">Tissot's indicatrix</label></td> 
+<td valign="top">
+<table> <!--Subtable tools-->
 
-<td> <input type="button" id="info_tissot" onclick='setText("info_tissot")'> 
+<tr><td>
+<input type="radio" id="radio_tissot" name="mode" value="tissot" checked onclick=
+"mode_tissot()"><label for="radio_tissot" style="width:150px;" class="trn">Tissot's indicatrix</label>
+</td></tr>
+
+<tr><td>
+<input type="radio" id="radio_geodesic" name="mode" value="move" onclick=
+"mode_geodesic()"><label for="radio_geodesic" style="width:150px;" class="trn">Geodesic</label>
+</td></tr>
+
+<tr><td>
+<input type="radio" id="radio_loxodrome" name="mode" value="move" onclick=
+"mode_loxodrome()"><label for="radio_loxodrome" style="width:150px;" class="trn">Loxodrome</label>
+</td></tr>
+
+<tr><td>
+<input type="radio" id="radio_move" name="mode" value="move" onclick=
+"mode_move()"><label for="radio_move" style="width:150px;" class="trn">Aspect</label>
+</td></tr>
+</table>
+
+</td><td valign="top">
+
+<table>
+<tr><td>
+<div id="tissot_tools" style="display:none">
+<input type="button" id="info_tissot" onclick='setText("info_tissot")'> 
 <label for="info_tissot" class="tooltip">
 <span class="tooltiptext"><span class="trn">Info</span></span>
 <img src="./icons/info.svg" width="20px" ></label> 
@@ -113,14 +138,12 @@
 <img src="./icons/tissotsample2.svg" width="20px" ></label>
 
 
-<span class="tooltip"><input type="number" id="ellipradius" min="0" max="20000" step="100" value="1000" style="width:50px; margin:0.5em;" onchange="removeEllipses(); drawEllipses();">km <span class="tooltiptext"><span class="trn">Radius</span> </span></span></td>
-</tr>
+<span class="tooltip"><input type="number" id="ellipradius" min="0" max="20000" step="100" value="1000" style="width:50px; margin:0.5em;" onchange="removeEllipses(); drawEllipses();">km <span class="tooltiptext"><span class="trn">Radius</span> </span></span>
+</div>
 
-<tr>
-<td> <input type="radio" id="radio_geodesic" name="mode" value="move" onclick=
-"mode_geodesic()"> <label for="radio_geodesic" style="width:150px;" class="trn">Geodesic</label> </td>
 
-<td> <input type="button" id="info_geodesic" onclick='setText("info_geodesic")'> 
+<div id="geodesic_tools" style="display:none">
+<input type="button" id="info_geodesic" onclick='setText("info_geodesic")'> 
 <label for="info_geodesic" class="tooltip">
 <span class="tooltiptext"><span class="trn">Info</span></span>
 <img src="./icons/info.svg" width="20px" ></label> 
@@ -133,14 +156,10 @@
 <input type="checkbox" id="geoextended" onclick="geodesic_draw()"> <label for="geoextended" class="tooltip">
 <span class="tooltiptext"><span class="trn">Extend</span></span>
 <img src="./icons/extend.svg" width="20px" ></label> </input>
+</div>
 
-</tr>
-
-<tr>
-<td> <input type="radio" id="radio_loxodrome" name="mode" value="move" onclick=
-"mode_loxodrome()"><label for="radio_loxodrome" style="width:150px;" class="trn">Loxodrome</label> </td>
-
-<td> <input type="button" id="info_loxodrome" onclick='setText("info_loxodrome")'> 
+<div id="loxodrome_tools" style="display:none">
+<input type="button" id="info_loxodrome" onclick='setText("info_loxodrome")'> 
 <label for="info_loxodrome" class="tooltip">
 <span class="tooltiptext"><span class="trn">Info</span></span>
 <img src="./icons/info.svg" width="20px" ></label> 
@@ -153,19 +172,13 @@
 <input type="checkbox" id="loxoextended" onclick="loxodrome_draw()"> <label for="loxoextended" class="tooltip">
 <span class="tooltiptext"><span class="trn">Extend</span></span>
 <img src="./icons/extend.svg" width="20px" ></label>
+</div>
 
-</tr>
-
-<tr>
-<td> <input type="radio" id="radio_move" name="mode" value="move" onclick=
-"mode_move()"> <label for="radio_move" style="width:150px;" class="trn">Aspect</label> </td>
-<td> 
-
+<div id="aspect_tools" style="display:none">
 <input type="button" id="info_rotate" onclick='setText("info_rotate")'> 
 <label for="info_rotate" class="tooltip">
 <span class="tooltiptext"><span class="trn">Info</span></span>
 <img src="./icons/info.svg" width="20px" ></label> 
-
 
 <span class="tooltip"><span class="tooltiptext"><span class="trn">Fix aspect</span></span>
 <select id="select-aspect"> 
@@ -174,42 +187,37 @@
 <option value=polar_south class="trn">Polar (South)</option>
 <option value=oblique_yourlocation class="trn">Oblique (Your location)</option>
 <option value=oblique_other class="trn">Oblique (Other)</option>
-</span>
 </select>
-</td>
-</tr>
-</table>
-<!-- End of Sub-Table of tools-->
+</span>
 
-</td><td>
+</td></tr>
 
-<!-- Sub-Table of View-->
-<table>
 <tr><td>
 <input type="checkbox" id="rastervisible" onclick=
 "document.getElementsByTagName('canvas')[0]
 .style.visibility = this.checked? 'visible':'hidden';
 document.getElementsByClassName('land')[0].style.visibility = this.checked? 'hidden':'visible'; "> 
 <label for="rastervisible" class="tooltip">
-<span class="tooltiptext"><span class="trn">Terrain</span></span><img src="./icons/terrain.svg" width="20px" ></lable> </input>
-</td></tr><tr><td>
+<span class="tooltiptext"><span class="trn">Terrain</span></span><img src="./icons/terrain.svg" width="20px" ></label> </input>
+
 <input type="checkbox" id="countriesvisible" onclick=
 "document.getElementsByClassName('boundary')[0]
 .style.visibility = this.checked? 'visible':'hidden' "> 
 <label for="countriesvisible" class="tooltip">
 <span class="tooltiptext"><span class="trn">Country borders</span></span><img src="./icons/border.svg" width="20px" ></label> </input>
-</td></tr><tr><td>
+
 <input type="checkbox" id="graticulevisible" onclick=
 "document.getElementsByClassName('graticule')[0]
 .style.visibility = this.checked? 'visible':'hidden' "> 
 <label for="graticulevisible" class="tooltip">
 <span class="tooltiptext"><span class="trn">Graticule</span></span><img src="./icons/graticule.svg" width="20px" ></label> </input>
 </td></tr>
-</table>
-<!-- End of Sub-Table of View-->
-</tr>
-</table> <!-- End of Table-->
 
+</td></tr>
+</table>
+
+</td></tr>
+</table>
 
 </div>
 
