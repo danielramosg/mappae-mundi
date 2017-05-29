@@ -39,20 +39,69 @@ function Tissot(projection,lp) {
 		{ v_0 = [ A[0][0]*A[1][0] + A[0][1]*A[1][1]  , Square(A[1][0]) + Square(A[1][1]) - sax_0_sq ]; //direction of minor semiaxis
 		  angle = Math.atan2(v_0[1],v_0[0]) * 180/Math.PI + 90 ;}
 
-	return {"sax0":sax_0 , "sax1":sax_1, "angle":angle};
+	return {"sax0":sax_0 , "sax1":sax_1, "angle":angle, "vec_par":[A[0][0],A[1][0]], "vec_mer":[A[0][1],A[1][1]] };
 };
 
-function TissotEllipse(proj,lp) {
-	elp = Tissot(proj,lp);
+
+
+function createTissotEllipse( proj, lp, scalefactor ) {
+	var grp = d3.select(document.createElementNS(d3.ns.prefix.svg, 'g'));
 	
-	if (Math.abs(elp.sax0 - elp.sax1) < 1e-2) { elp.strokecolor="green" }
-	else { elp.strokecolor="red" };
-
-	if (Math.abs(elp.sax0 * elp.sax1 - 1 ) < 1e-2) { elp.fillcolor="green" }
-	else { elp.fillcolor="red" };
-	return elp;
+	grp.append("ellipse")
+		.attr("cx",0)
+		.attr("cy",0)
+		.attr("stroke-width",2)
+		.attr("fill-opacity",0.5)
+				
+	grp.append("line")
+		.attr("class","vec_par")	
+		.attr("stroke-width",0.5)
+		
+	grp.append("line")
+		.attr("class","vec_mer")
+		.attr("stroke-width",0.5)
+				
+	grp.attr("class","listellip");
+	
+	updateTissotEllipse(proj, lp, scalefactor, grp );
+		
+	return grp;
 
 };
+
+function updateTissotEllipse( proj, lp, scalefactor, grp ) {
+	var props = Tissot(proj,lp);
+
+	var strokecolor = (Math.abs(props.sax0 - props.sax1) < 1e-2) ? "green" : "red" ;
+	var fillcolor = (Math.abs(props.sax0 * props.sax1 - 1 ) < 1e-2) ? "green" : "red" ;
+	
+	grp.select("ellipse")
+		.attr("rx",scalefactor *props.sax0)
+		.attr("ry",scalefactor *props.sax1)
+		.attr("stroke",	strokecolor)
+		.attr("fill", fillcolor)
+		.attr("transform","translate("+xy[0] +' '+ xy[1] +") "+ "rotate("+ props.angle+ ")");
+				
+ 	grp.select(".vec_par")
+ 		.attr("x1",-scalefactor *props.vec_par[0])
+		.attr("y1",-scalefactor *props.vec_par[1])
+ 		.attr("x2",scalefactor *props.vec_par[0])
+		.attr("y2",scalefactor *props.vec_par[1])
+		.attr("stroke", strokecolor)
+		.attr("transform","translate("+xy[0] +' '+ xy[1] +")" );
+		
+	grp.select(".vec_mer")
+		.attr("x1",-scalefactor *props.vec_mer[0])
+		.attr("y1",-scalefactor *props.vec_mer[1])
+ 		.attr("x2",scalefactor *props.vec_mer[0])
+		.attr("y2",scalefactor *props.vec_mer[1])
+		.attr("stroke", strokecolor)
+		.attr("transform","translate("+xy[0] +' '+ xy[1] +")" );
+	
+	return 0;
+
+};
+
 
 function GeodesicArc (lam1,phi1,lam2,phi2,pointsperdegree,complete) {
 	//"""Returns the geodesic arc in the sphere joining the point (lam1,phi1) and (lam2,phi2). lam=lon, phi=lat """

@@ -448,16 +448,22 @@ function drawSvg () {
 		.attr("d", path)
 		.style("visibility", d3.select("#countriesvisible").node().checked ? "visible" : "hidden");
 
-	indicatrix = svg.append("ellipse")
-		.attr("id","indicatrix")
-		.attr("cx",0)
-		.attr("cy",0)
-		//.attr("rx",1/R)
-		//.attr("ry",1/R)
-		.attr("stroke","red")
-		.attr("stroke-width",2)
-		.attr("fill","red")
-		.attr("fill-opacity",0.5);
+
+		xy=[0,0];
+		indicatrix = createTissotEllipse(projection,[0,0],0)
+						.classed("listellip",false);
+		svg.node().appendChild(indicatrix.node());
+
+	// indicatrix = svg.append("ellipse")
+// 		.attr("id","indicatrix")
+// 		.attr("cx",0)
+// 		.attr("cy",0)
+// 		//.attr("rx",100)
+// 		//.attr("ry",100)
+// 		.attr("stroke","red")
+// 		.attr("stroke-width",2)
+// 		.attr("fill","red")
+// 		.attr("fill-opacity",0.5);
 	
 	maparea = svg.append("use")
 		.attr("class", "maparea")
@@ -481,9 +487,7 @@ function drawSvg () {
 
 function drawEllipses () {
 	
-	var scalefactor = 
-	projection.scale() *
-	document.getElementById("ellipradius").value /6283.185 ;
+	var scalefactor = projection.scale() * document.getElementById("ellipradius").value /6283.185 ;
 	
 	for (i=0; i < listellip.length; i++) {
 		//verify that the point is on the map
@@ -498,30 +502,14 @@ function drawEllipses () {
 			(xy[0] > 30 ) && (xy[0] < width -30 ) &&
 			(xy[1] > 30 ) && (xy[1] < height -30 )		
 			) { 
-			// console.log( Math.abs(xy[1]))
-// 			console.log(height -30)
-			props = TissotEllipse(projection,listellip[i]);
-		
-			svg.append("ellipse")
-				.attr("class","listellip")
-				.attr("cx",0)
-				.attr("cy",0)
-				.attr("rx",scalefactor *props.sax0)
-				.attr("ry",scalefactor *props.sax1)
-				.attr("transform","translate("+xy[0] +' '+ xy[1] +") "+ "rotate("+ props.angle+ ")")
-				.attr("stroke",props.strokecolor)
-				.attr("stroke-width",2)
-				.attr("fill",props.fillcolor)
-				.attr("fill-opacity",0.5);
+					
+			ellip = createTissotEllipse(projection,listellip[i],scalefactor);
+
+			svg.node().appendChild(ellip.node());		
+
 			};
 		};	
 };
-
-//var R = Math.PI/180 * projection.scale();
-	
-	
-
-
 
 
 
@@ -553,18 +541,9 @@ function tissot_mousemove() {
 
 	updateCoordsTag(this);
 	
-	var scalefactor = 
-	projection.scale() *
-	document.getElementById("ellipradius").value /6283.185 ;		
+	var scalefactor = projection.scale() * document.getElementById("ellipradius").value /6283.185 ;		
 
-	ellip = TissotEllipse(projection,lp)
-	
-	indicatrix.attr("rx",scalefactor *ellip.sax0);
-	indicatrix.attr("ry",scalefactor *ellip.sax1);
-	indicatrix.attr("transform","translate("+xy[0] +' '+ xy[1] +") "+ "rotate("+ ellip.angle+ ")");
-
-	indicatrix.attr("stroke",ellip.strokecolor);
-	indicatrix.attr("fill",ellip.fillcolor);
+	updateTissotEllipse(projection,lp,scalefactor,indicatrix);
 
 };
 
@@ -574,28 +553,30 @@ function tissot_click() {
 
 	listellip.push( lp ); 
 
-	//console.log(indicatrix.attr()[0])
+	var scalefactor = projection.scale() * document.getElementById("ellipradius").value /6283.185 ;
+	
+	ellip = createTissotEllipse(projection,lp,scalefactor);
+	svg.node().appendChild(ellip.node());
 
-	newellip = svg.append("ellipse")
-		.attr("class","listellip");
-
-	for (at in {"cx":0,"cy":0,"rx":0,"ry":0,"transform":0,"stroke":0,"fill":0} ) {
-		newellip.attr(at,indicatrix.attr(at))
-		};
-		
 };
 
 function tissot_mouseleave() {
-	indicatrix.attr("rx",null);
-	indicatrix.attr("ry",null);
+	indicatrix.node().style.visibility = 'hidden';
 	default_mouseleave();
 };
+
+function tissot_mouseenter() {
+	indicatrix.node().style.visibility = 'visible';
+};
+
+
 
 function mode_tissot() {
 	maparea.on(".drag", null);
 	maparea.on('mousemove',tissot_mousemove);
 	maparea.on('click', tissot_click);
 	maparea.on('mouseleave', tissot_mouseleave);
+	maparea.on('mouseenter', tissot_mouseenter);
 	document.getElementById("sphere").style.cursor = 'crosshair';
 	
 	document.getElementById("tissot_tools").style.display = 'inline';
@@ -651,6 +632,7 @@ function mode_move() {
 	maparea.on('mousemove', default_mousemove);
 	maparea.on('click', null);
 	maparea.on('mouseleave', default_mouseleave);
+	maparea.on('mouseenter', null);
 	maparea.call(move_drag);
 	document.getElementById("sphere").style.cursor = 'move';
 
@@ -697,6 +679,7 @@ function mode_geodesic() {
 	maparea.on('mousemove',default_mousemove);
 	maparea.on('click', geodesic_click);
 	maparea.on('mouseleave', default_mouseleave);
+	maparea.on('mouseenter', null);
 	document.getElementById("sphere").style.cursor = 'crosshair';
 
 	document.getElementById("tissot_tools").style.display = 'none';
@@ -746,6 +729,7 @@ function mode_loxodrome() {
 	maparea.on('mousemove',default_mousemove);
 	maparea.on('click', loxodrome_click);
 	maparea.on('mouseleave', default_mouseleave);
+	maparea.on('mouseenter', null);	
 	document.getElementById("sphere").style.cursor = 'crosshair';
 	
 	document.getElementById("tissot_tools").style.display = 'none';
