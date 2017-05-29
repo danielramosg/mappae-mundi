@@ -15,6 +15,7 @@
 
 <script src="js/translations.js"/></script>
 <script src="js/map_math.js"></script>
+<script src="js/tools_tissot.js"></script>
 <script src="js/ui_functions.js"></script>
 
 </head>
@@ -138,7 +139,7 @@
 <img src="./icons/tissotsample2.svg" width="20px" ></label>
 
 
-<span class="tooltip"><input type="number" id="ellipradius" min="0" max="20000" step="100" value="1000" style="width:50px; margin:0.5em;" onchange="removeEllipses(); drawEllipses();">km <span class="tooltiptext"><span class="trn">Radius</span> </span></span>
+<span class="tooltip"><input type="number" id="ellipradius" min="0" max="20000" step="100" value="1000" style="width:50px; margin:0.5em;" onchange="ellipradiusChanged()">km <span class="tooltiptext"><span class="trn">Radius</span> </span></span>
 </div>
 
 

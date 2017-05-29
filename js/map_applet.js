@@ -233,6 +233,7 @@ function changeAspect() {
 function updateMap() {
 
 	projection=projectionslist[menu.node().selectedIndex].projection;
+	scalefactor = projection.scale() * document.getElementById("ellipradius").value /6283.185 ;
 
 	shortname = projectionslist[menu.node().selectedIndex].shortname;
 	d3.select("svg").remove();
@@ -292,24 +293,6 @@ var graticule = d3.geo.graticule();
 var listellip = [];
 
 
-function removeEllipses() { d3.selectAll(".listellip").remove(); };
-
-function clearEllipses() {  listellip = [];  removeEllipses(); };
-
-function popEllipse() { listellip.pop(); removeEllipses(); drawEllipses(); }; //TODO: remove only last ellipse
-
-function sampleEllipses() {
-	for (i=-120; i<=180; i+=60) {
-		for (j=-40; j<=40; j+=40) {
-			listellip.push([i,j]);
-	}};
-	
-	for (i=-150; i<180; i+=60) {
-		for (j=-60; j<=80; j+=40) {
-			listellip.push([i,j]);
-	}};
-	removeEllipses(); drawEllipses();	
-	};
 
 var geo_flip=true;
 var geo_ptA;
@@ -449,21 +432,10 @@ function drawSvg () {
 		.style("visibility", d3.select("#countriesvisible").node().checked ? "visible" : "hidden");
 
 
-		xy=[0,0];
-		indicatrix = createTissotEllipse(projection,[0,0],0)
-						.classed("listellip",false);
-		svg.node().appendChild(indicatrix.node());
-
-	// indicatrix = svg.append("ellipse")
-// 		.attr("id","indicatrix")
-// 		.attr("cx",0)
-// 		.attr("cy",0)
-// 		//.attr("rx",100)
-// 		//.attr("ry",100)
-// 		.attr("stroke","red")
-// 		.attr("stroke-width",2)
-// 		.attr("fill","red")
-// 		.attr("fill-opacity",0.5);
+	xy=[0,0];
+	indicatrix = createTissotEllipse(projection,[0,0],0)
+		.classed("listellip",false);
+	svg.node().appendChild(indicatrix.node());
 	
 	maparea = svg.append("use")
 		.attr("class", "maparea")
@@ -485,31 +457,6 @@ function drawSvg () {
 
 };
 
-function drawEllipses () {
-	
-	var scalefactor = projection.scale() * document.getElementById("ellipradius").value /6283.185 ;
-	
-	for (i=0; i < listellip.length; i++) {
-		//verify that the point is on the map
-		lp = listellip[i];
-		xy=projection(lp);
-		lp_vf = projection.invert(xy);
-		
-		var tolerance = 1;
-		if ( 
-  			(Math.abs(lp[0] - lp_vf[0]) < tolerance ) && 
- 			(Math.abs(lp[1] - lp_vf[1]) < tolerance ) &&		
-			(xy[0] > 30 ) && (xy[0] < width -30 ) &&
-			(xy[1] > 30 ) && (xy[1] < height -30 )		
-			) { 
-					
-			ellip = createTissotEllipse(projection,listellip[i],scalefactor);
-
-			svg.node().appendChild(ellip.node());		
-
-			};
-		};	
-};
 
 
 
@@ -532,59 +479,6 @@ function updateCoordsTag(obj) {
 	'</td></table>';	
 	
 	};
-
-
-function tissot_mousemove() {
-	//console.log("tissot_mousemove this: " + this);
-	xy = d3.mouse(this);
-	lp = projection.invert(xy); //lp = lambda, phi = lon, lat
-
-	updateCoordsTag(this);
-	
-	var scalefactor = projection.scale() * document.getElementById("ellipradius").value /6283.185 ;		
-
-	updateTissotEllipse(projection,lp,scalefactor,indicatrix);
-
-};
-
-function tissot_click() {
-	//xy = d3.mouse(this);
-	//lp = projection.invert(xy);
-
-	listellip.push( lp ); 
-
-	var scalefactor = projection.scale() * document.getElementById("ellipradius").value /6283.185 ;
-	
-	ellip = createTissotEllipse(projection,lp,scalefactor);
-	svg.node().appendChild(ellip.node());
-
-};
-
-function tissot_mouseleave() {
-	indicatrix.node().style.visibility = 'hidden';
-	default_mouseleave();
-};
-
-function tissot_mouseenter() {
-	indicatrix.node().style.visibility = 'visible';
-};
-
-
-
-function mode_tissot() {
-	maparea.on(".drag", null);
-	maparea.on('mousemove',tissot_mousemove);
-	maparea.on('click', tissot_click);
-	maparea.on('mouseleave', tissot_mouseleave);
-	maparea.on('mouseenter', tissot_mouseenter);
-	document.getElementById("sphere").style.cursor = 'crosshair';
-	
-	document.getElementById("tissot_tools").style.display = 'inline';
-	document.getElementById("geodesic_tools").style.display = 'none';
-	document.getElementById("loxodrome_tools").style.display = 'none';
-	document.getElementById("aspect_tools").style.display = 'none';
-
-};
 
 
 var move_drag = d3.behavior.drag()
