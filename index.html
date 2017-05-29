@@ -2,20 +2,20 @@
 
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="./style.css">
-<script src="./d3.v3.min.js"></script>
-<script src="./d3.geo.projection.v0.min.js"></script>
-<script src="./topojson.v1.min.js"></script>
-<script src="./numeric-1.2.6.min.js"></script>
-<script src="./ResizeSensor.js"></script> <!--for Resize events-->
-<script src="./ElementQueries.js"></script> <!--for Resize events-->
-<script src="./jquery.min.js"/></script><!--for translations-->
-<script src="./jquery.translate.js"/></script><!--for translations-->
+<link rel="stylesheet" type="text/css" href="css/style.css">
 
+<script type='text/javascript' src="vendor/d3/d3.v3.min.js"></script>
+<script type='text/javascript' src="vendor/d3-geo-projection/d3.geo.projection.v0.min.js"></script>
+<script type='text/javascript' src="vendor/topojson-client/topojson.v1.min.js"></script>
+<script type='text/javascript' src="vendor/numeric/numeric-1.2.6.min.js"></script>
+<script type='text/javascript' src="vendor/css-element-queries/ResizeSensor.js"></script> <!--for Resize events-->
+<script type='text/javascript' src="vendor/css-element-queries/ElementQueries.js"></script> <!--for Resize events-->
+<script type='text/javascript' src="vendor/jquery/jquery.min.js"/></script><!--for translations-->
+<script type='text/javascript' src="vendor/jquery/jquery.translate.js"/></script><!--for translations-->
 
-<script src="./translations.js"/></script>
-<script src="./map_math.js"></script>
-<script src="./ui_functions.js"></script>
+<script src="js/translations.js"/></script>
+<script src="js/map_math.js"></script>
+<script src="js/ui_functions.js"></script>
 
 </head>
 
@@ -222,7 +222,7 @@ document.getElementsByClassName('land')[0].style.visibility = this.checked? 'hid
 </div>
 
 
-<script src="./map_applet.js"></script>
+<script src="js/map_applet.js"></script>
 
 <script> 
 var translator = $('body').translate({lang: Language, t: dict}); //initial translation 
