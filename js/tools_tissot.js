@@ -81,7 +81,8 @@ function sampleEllipses() {
 
 
 function drawEllipses () {
-		
+
+	var rect=maparea.node().getBBox();
 	for (i=0; i < listellip.length; i++) {
 		//verify that the point is on the map
 		var lp = listellip[i];
@@ -92,8 +93,8 @@ function drawEllipses () {
 		if ( 
   			(Math.abs(lp[0] - lp_vf[0]) < tolerance ) && 
  			(Math.abs(lp[1] - lp_vf[1]) < tolerance ) &&		
-			(xy[0] > 30 ) && (xy[0] < width -30 ) &&
-			(xy[1] > 30 ) && (xy[1] < height -30 )		
+			(xy[0] > rect.x + 5 ) && (xy[0] < rect.x + rect.width -5 ) &&
+			(xy[1] > rect.y + 5 ) && (xy[1] < rect.y + rect.height -5 )
 			) { 
 					
 			var ellip = createTissotEllipse(projection,listellip[i],scalefactor);
