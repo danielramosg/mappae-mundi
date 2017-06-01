@@ -67,12 +67,12 @@ function popEllipse() { listellip.pop(); removeEllipses(); drawEllipses(); }; //
 function sampleEllipses() {
 	for (i=-120; i<=180; i+=60) {
 		for (j=-40; j<=40; j+=40) {
-			listellip.push([i,j]);
+			listellip.push([i-1e-3,j]);
 	}};
 	
 	for (i=-150; i<180; i+=60) {
 		for (j=-60; j<=80; j+=40) {
-			listellip.push([i,j]);
+			listellip.push([i-1e-3,j]);
 	}};
 	removeEllipses(); drawEllipses();	
 };
