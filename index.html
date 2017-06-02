@@ -138,6 +138,10 @@
 <span class="tooltiptext"><span class="trn">Sample</span></span>
 <img src="./icons/tissotsample2.svg" width="20px" ></label>
 
+<input type="checkbox" id="decorate_ellipses" onclick="d3.selectAll('.tissot_decoration').style('visibility', this.checked ? 'visible' : 'hidden')" >
+<label for="decorate_ellipses" class="tooltip">
+<span class="tooltiptext"><span class="trn">Goniometer</span></span>
+<img src="./icons/goniometer.svg" width="20px" ></label>
 
 <span class="tooltip"><input type="number" id="ellipradius" min="0" max="20000" step="100" value="1000" style="width:50px; margin:0.5em;" onchange="ellipradiusChanged()">km <span class="tooltiptext"><span class="trn">Radius</span> </span></span>
 </div>

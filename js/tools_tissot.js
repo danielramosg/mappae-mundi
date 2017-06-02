@@ -6,15 +6,19 @@ function createTissotEllipse( proj, lp, scalefactor ) {
 		.attr("cx",0)
 		.attr("cy",0)
 		.attr("stroke-width",2)
-		.attr("fill-opacity",0.5)
+		.attr("fill-opacity",0.3);
 				
 	grp.append("line")
-		.attr("class","vec_par")	
-		.attr("stroke-width",0.5)
+		.attr("class","vec_par tissot_decoration")
+		.attr("stroke-width",0.5);
 		
 	grp.append("line")
-		.attr("class","vec_mer")
-		.attr("stroke-width",0.5)
+		.attr("class","vec_mer tissot_decoration")
+		.attr("stroke-width",0.5);
+	
+	grp.append("path")
+		.attr("class","goniometer tissot_decoration")
+		.attr("stroke-width",1);	
 				
 	grp.attr("class","listellip");
 	
@@ -44,6 +48,7 @@ function updateTissotEllipse( proj, lp, scalefactor, grp ) {
  		.attr("x2",scalefactor *props.vec_par[0])
 		.attr("y2",scalefactor *props.vec_par[1])
 		.attr("stroke", strokecolor)
+		.style("visibility", d3.select("#decorate_ellipses").node().checked ? "visible" : "hidden")
 		.attr("transform","translate("+xy[0] +' '+ xy[1] +")" );
 		
 	grp.select(".vec_mer")
@@ -52,7 +57,23 @@ function updateTissotEllipse( proj, lp, scalefactor, grp ) {
  		.attr("x2",scalefactor *props.vec_mer[0])
 		.attr("y2",scalefactor *props.vec_mer[1])
 		.attr("stroke", strokecolor)
+		.style("visibility", d3.select("#decorate_ellipses").node().checked ? "visible" : "hidden")
 		.attr("transform","translate("+xy[0] +' '+ xy[1] +")" );
+	
+	var d = "";	
+	for (var i=0; i<360; i+=22.5) {
+		var ii = i * Math.PI /180;
+		var pt0 = scalefactor * (Math.cos(ii) * props.vec_mer[0] + Math.sin(ii) * props.vec_par[0] );
+		var pt1 = scalefactor * (Math.cos(ii) * props.vec_mer[1] + Math.sin(ii) * props.vec_par[1] );
+		d += "M" + pt0 + " " + pt1 + " " + "L" + 0.8*pt0 + " " + 0.8*pt1 + " ";
+	}
+		
+	grp.select(".goniometer")
+		.attr("d",d)
+		.attr("stroke", strokecolor)
+		.style("visibility", d3.select("#decorate_ellipses").node().checked ? "visible" : "hidden")
+		.attr("transform","translate("+xy[0] +' '+ xy[1] +")" );	
+		
 
 };
 
@@ -133,12 +154,12 @@ function tissot_click() {
 };
 
 function tissot_mouseleave() {
-	indicatrix.node().style.visibility = 'hidden';
+	indicatrix.style('display', 'none');
 	default_mouseleave();
 };
 
 function tissot_mouseenter() {
-	indicatrix.node().style.visibility = 'visible';
+	indicatrix.style('display', 'block');
 };
 
 

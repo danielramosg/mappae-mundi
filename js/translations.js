@@ -71,6 +71,13 @@ var dict = {
     pt: "Amostra",
     fr: "Échantillon"
   },
+  
+  "Goniometer": {
+    en: "Goniometer",
+    pt: "Goniómetro",
+    fr: "Goniomètre"
+  },
+  
   "Radius": {
     en: "Radius",
     pt: "Raio",
