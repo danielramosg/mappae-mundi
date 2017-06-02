@@ -156,6 +156,61 @@ var dict = {
     fr: "Échantillon"
   },
 
+// Projection names
 
+"Plate Carrée": {
+  	en: "Plate Carrée",
+	pt: "Cilíndrica Equidistante",
+	fr: "Plate Carrée", },
+
+"Mercator": {
+	en: "Mercator",
+	pt: "Mercator", 
+	fr: "Mercator", },
+
+"Gall-Peters": {
+	en: "Gall-Peters",
+	pt: "Cilíndrica Equivalente", 
+	fr: "Gall-Peters", },
+
+"Mollweide": {
+	en: "Mollweide",
+	pt: "Mollweide", 
+	fr: "Mollweide", },
+
+"Azimuthal Equidistant": {
+	en: "Azimuthal Equidistant",
+	pt: "Azimutal Equidistante", 
+	fr: "Postel", },
+	
+"Gnomonic": {
+	en: "Gnomonic",
+	pt: "Gnomónica", 
+	fr: "Gnomonique", },
+
+"Stereographic": {
+	en: "Stereographic",
+	pt: "Estereográfica", 
+	fr: "Stéréographique", },
+
+"Orthographic": {
+	en: "Orthographic",
+	pt: "Ortográfica", 
+	fr: "Orthographique", },
+
+
+
+
+	
+			
+			
+			
+			
+			
+			
+			
+			
+			
+  
 
 }

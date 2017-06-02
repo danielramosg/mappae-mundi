@@ -43,18 +43,8 @@ window.onclick = function(event) {
 
 
 function translateAll() {
-var menu = d3.select("#projection-menu");
-var ind = menu.node().selectedIndex;
-menu.selectAll("option").remove();
-
-menu.selectAll("option")
-    	.data(projectionslist)
-	  	.enter().append("option")	
-	  	.attr("value",function(d) { return d.shortname; })
-	    .text(function(d) { return d.name[Language]; });
-menu.node().selectedIndex = ind;
-
-translator.lang(Language);
-setText(currentText);
-
+	translator.lang(Language);
+	setText(currentText);
 }
+
+
