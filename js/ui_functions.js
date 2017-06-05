@@ -6,17 +6,32 @@ d3.text("./txt/"+Language+"/"+filename+".html", function(error, text) {
   		document.getElementById("text_tag").innerHTML = text;
 		});
 		
+//$("#text_tag").load("./txt/"+Language+"/"+filename+".html")		
+
+
+		
 currentText=filename
 };
 
+
 function hideshowText() {
-if(document.getElementById("checktext").checked)	
- 	{d3.select("#map_tag").style("margin-right","40%");
- 	d3.select("#text_tag").style("display","block");}
- 	else 
- 	{d3.select("#text_tag").style("display","none");
- 	d3.select("#map_tag").style("margin-right","0");}
+	var flag = document.getElementById("checktext").checked;
+	
+	d3.select("#map_tag").classed("texton",flag);
+	d3.select("#lateral_panel").classed("texton",flag);
+	d3.select("#text_tag").classed("texton",flag);
+	d3.select("#controls_tag").classed("texton",flag);
+	d3.selectAll(".control_block").classed("texton",flag);
+	
+	d3.select("#map_tag").classed("textoff",!flag);
+	d3.select("#lateral_panel").classed("textoff",!flag);
+	d3.select("#text_tag").classed("textoff",!flag);
+	d3.select("#controls_tag").classed("textoff",!flag);
+	d3.selectAll(".control_block").classed("textoff",!flag);
+	
+
  };
+
 
 
 /* Language menu */

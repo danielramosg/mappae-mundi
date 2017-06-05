@@ -1,0 +1,92 @@
+/* Vector and raster layers */
+svg {
+	position: absolute;
+	left: 0px;
+    top: 0px;
+}
+
+canvas {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: -1;
+}
+
+
+/* Elements on the map */
+.stroke {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1px;
+}
+
+.fill {
+  fill: #fff;
+  fill-opacity: 0;
+}
+
+.graticule {
+  fill: none;
+  stroke: #777;
+  stroke-width: .5px;
+  stroke-opacity: .6;
+}
+
+
+.land {
+  fill: #222;
+  fill-opacity:0.3;
+}
+
+.boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-width: .8px;
+}  
+  
+.listellip {
+	stroke-width:2px;
+	fill-opacity:0.5;
+	pointer-events:none;  
+}
+
+.geodesic {
+  fill: none;
+  stroke: #f00;
+  stroke-width: 2px;
+}
+
+.loxodrome {
+  fill: none;
+  stroke: #00f;
+  stroke-width: 2px;
+}  
+
+
+
+/* Texts on the map */
+.coords_tag {
+	position: absolute; 
+	bottom: 10px; 
+	left: 0px;
+	font-size: 12px;
+}
+
+.geo_tag {
+	position: absolute; 
+	bottom: 40px; 
+	right:10px;
+	color: #f00;
+	display: none;
+	z-index: 1;
+}
+.loxo_tag {
+	position: absolute; 
+	bottom: 10px; 
+	right:10px;
+	color: #00f;
+	display: none;
+	z-index: 1;	
+}
+
+

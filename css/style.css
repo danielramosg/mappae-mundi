@@ -1,147 +1,145 @@
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
 body {
-  background: #fcfcfa;
-      font-family: verdana;
-
+    height: 100%;
+    overflow: auto;
 }
 
-.stroke {
-  fill: none;
-  stroke: #000;
-  stroke-width: 1px;
-}
-
-.fill {
-  fill: #fff;
-  fill-opacity: 0;
-}
-
-.graticule {
-  fill: none;
-  stroke: #777;
-  stroke-width: .5px;
-  stroke-opacity: .6;
+body {
+  	background: #fcfcfa;
+    font-family: verdana;
 }
 
 
-.land {
-  fill: #222;
-  fill-opacity:0.3;
-}
-
-.boundary {
-  fill: none;
-  stroke: #fff;
-  stroke-width: .8px;
-}  
-  
-.listellip {
-	stroke-width:2px;
-	fill-opacity:0.5;
-	pointer-events:none;  
-}
-
-.geodesic {
-  fill: none;
-  stroke: #f00;
-  stroke-width: 2px;
-}
-
-.loxodrome {
-  fill: none;
-  stroke: #00f;
-  stroke-width: 2px;
-}  
 
 
-.map_tag {
-	/*float: left;*/
+#map_tag.texton {
 	position: relative;
-	/*margin-right:45%;*/
-    border: 3px solid; /*#73AD21;*/
-    /*max-width: 55%;*/
-/* 	width: 960px; */
-	height: 60vh;
+    border: 3px solid; 
+	height: 85vh;
+	width: 49vw;
+	display: inline-block;
 }
 
-.coords_tag {
-	position: absolute; 
-	bottom: 10px; 
-	left: 0px;
-	font-size: 12px;
+#lateral_panel.texton {
+	position: relative;
+	display: inline-block;	
+	height: 85vh;
+	width: 45vw;
 }
 
-.geo_tag {
-	position: absolute; 
-	bottom: 40px; 
-	right:10px;
-	color: #f00;
-	display: none;
-	z-index: 1;
-}
-.loxo_tag {
-	position: absolute; 
-	bottom: 10px; 
-	right:10px;
-	color: #00f;
-	display: none;
-	z-index: 1;	
-}
-
-
-svg {
+#text_tag.texton {
+	display: block;
 	position: absolute;
-	left: 0px;
-    top: 0px;
-}
-
-canvas {
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	z-index: -1;
-}
-
-.text_tag {
-	float: right;
-	max-width:35%;
-	/*max-width: 630px;*/
-	margin: 0.5em;
-    padding: 2em;
+	top: 0px;    
+	bottom: 200px;
+	width:100%;
+	padding-left: 2em;
+    padding-right: 2em;    
     font-size: 80%;
-    padding-top: 0px;
-    margin-top:0px;
-    /*border: 3px solid #23A3F1;*/
-    height: 80vh;
     overflow: scroll;
+	margin-bottom: 1em;
 }
 
-.controls_tag {
-	/*clear: right;*/
-	/*width: 55%;*/
-	/*border: 3px solid #F3A361;*/
-	margin-right:35%;
+#controls_tag.texton {
+	height: 200px;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+    padding-left: 2em;
+    padding-right: 2em;
+
+	border-top: 1px solid;
+	 
+	display: flex;
+    justify-content:space-between;
+}
+
+.control_block.texton {
+	max-width: 15vw;
+	display: inline-block;
+	vertical-align: top;
+}
+ 
+
+
+#map_tag.textoff {
+	position: relative;
+    border: 3px solid; 
+	height: 85vh;
+	width: 83vw;
+	display: inline-block;
+}
+
+#lateral_panel.textoff {
+	float: right;
+	position: relative;
+	display: inline-block;	
+	height: 85vh;
+	width: 15vw;
+}
+
+#text_tag.textoff {
+	display: none;
+}
+
+#controls_tag.textoff {
+	
+    padding-left: 2em;
+    padding-right: 2em;
+
+	border-top: 1px solid;
+	height: 85vh;	
+}
+
+.control_block.textoff {
+	max-width: 15vw;
+	display: block;
+	vertical-align: top;
+	margin-bottom: 3em;
 
 }
 
-h1 {
+
+
+.control_title {
 	text-align: center;
+	font-weight: bold;
+	margin: 5px;
 }
+
+
+
+
+
+
+
+#top_controls {
+	float:right;
+	position:absolute;
+	right:12px;
+}
+
+
+h2 {
+	margin-top: 0px;
+}
+
+select {
+outline: none;}
+
+
 
 button {
 	padding:0px;
 	margin:0px;
 }
 
-/*th {
-    text-align: left;
-}
-
-td {
-	vertical-align: top;
-}*/
 
 /*http://viralpatel.net/blogs/css-radio-button-checkbox-background/ */
-
 
 input[type=radio], input[type=checkbox], input[type=button] {
 		display:none;

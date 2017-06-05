@@ -4,6 +4,7 @@ function Square(x) {return x * x; };
 function Tissot(projection,lp) {
 	var H = 1e-5;	
 	var R = Math.PI/180 * projection.scale();
+	if (R==0) {return {"sax0":0 , "sax1":0, "angle":0, "vec_par":[0,0], "vec_mer":[0,0] } }
 
 	// Partial derivatives
 	var xy_A = projection([ lp[0] - H/2. , lp[1] ]);

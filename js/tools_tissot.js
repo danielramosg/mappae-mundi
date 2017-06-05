@@ -1,7 +1,7 @@
 
 function createTissotEllipse( proj, lp, scalefactor ) {
 	var grp = d3.select(document.createElementNS(d3.ns.prefix.svg, 'g'));
-	
+
 	grp.append("ellipse")
 		.attr("cx",0)
 		.attr("cy",0)
@@ -34,7 +34,7 @@ function updateTissotEllipse( proj, lp, scalefactor, grp ) {
 	var strokecolor = (Math.abs(props.sax0 - props.sax1) < 1e-2) ? "green" : "red" ;
 	var fillcolor = (Math.abs(props.sax0 * props.sax1 - 1 ) < 1e-2) ? "green" : "red" ;
 	var xy = projection(lp);
-	
+
 	grp.select("ellipse")
 		.attr("rx",scalefactor *props.sax0)
 		.attr("ry",scalefactor *props.sax1)
