@@ -7,15 +7,29 @@ d3.text("./txt/"+Language+"/"+filename+".html", function(error, text) {
 		});
 		
 //$("#text_tag").load("./txt/"+Language+"/"+filename+".html")		
-
-
 		
 currentText=filename
 };
 
 
+function updateText() {
+	if (d3.select("#radio_text_tool").node().checked ) {
+		setText("info_" + CurrentMode);	
+	};
+	
+	if (d3.select("#radio_text_proj").node().checked ) {
+		setText(menu.node().value);	
+	};
+
+
+
+};
+
+
 function hideshowText() {
 	var flag = document.getElementById("checktext").checked;
+	
+	d3.select("#text_controls").style("display", flag ? "block" : "none");
 	
 	d3.select("#map_tag").classed("texton",flag);
 	d3.select("#lateral_panel").classed("texton",flag);

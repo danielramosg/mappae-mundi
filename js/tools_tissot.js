@@ -165,6 +165,8 @@ function tissot_mouseenter() {
 
 
 function mode_tissot() {
+	CurrentMode = "tissot";
+	updateText();
 	maparea.on(".drag", null);
 	maparea.on('mousemove',tissot_mousemove);
 	maparea.on('click', tissot_click);

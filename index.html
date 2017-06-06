@@ -29,14 +29,8 @@
 <script> Language = "en" </script>
 
 
-<div id="top_controls">
-	<input type="checkbox" id="checktext" onclick="hideshowText()" checked><label for="checktext" class="trn">Info</label> </input>
-
-	<input type="button" id="button_start" onclick='setText("info_map")'> 
-	<label for="button_start" class="trn">Start</label> 
-
-	<input type="button" id="button_about" onclick='setText("about")'> 
-	<label for="button_about" class="trn">About</label> 
+<div id="top_controls" style="text-align:right;">
+	<input type="checkbox" id="checktext" onclick="hideshowText()" checked><label for="checktext" class="trn">Information</label> </input> 
 
 	<div class="dropdown">
 	<input type="button" id="lang_menu" onclick="showLangMenu()" class="dropbtn">
@@ -48,13 +42,21 @@
 		</div>
 	</div>
 
-<!-- 
 	<br>
-	<input type="radio" id="radio_text_tool" name="text_mode" value="tool">
+	
+	<div id="text_controls" style="margin-top:5px">
+	<input type="button" id="button_start" onclick='setText("info_map")'> 
+	<label for="button_start" class="trn">Start</label> 
+	
+	<input type="radio" id="radio_text_tool" name="text_mode" value="tool" onclick="updateText()">
 	<label for="radio_text_tool" class="trn">Tools</label>
-	<input type="radio" id="radio_text_proj" name="text_mode" value="proj" checked>
+	
+	<input type="radio" id="radio_text_proj" name="text_mode" value="proj" onclick="updateText()">
 	<label for="radio_text_proj" class="trn">Projections</label>
- -->
+	
+	<input type="button" id="button_about" onclick='setText("about")'> 
+	<label for="button_about" class="trn">About</label>
+	</div>
 	
 </div>
 
@@ -83,7 +85,7 @@
 <div id="controls_tag">
 
 <div id="control_tools" class="control_block">
-	<div class="control_title" class="trn">Tools</div> 
+	<div class="control_title trn">Tools</div> 
 
 	<div id="tool_buttons" style="max-width:380px;">
 		<div style="padding:2px">
@@ -102,22 +104,16 @@
 		</div>
 
 		<div style="padding:2px">
-		<input type="radio" id="radio_move" name="mode" value="move" onclick=
-		"mode_move()"><label for="radio_move" style="width:150px;" class="trn">Aspect</label>
+		<input type="radio" id="radio_aspect" name="mode" value="move" onclick=
+		"mode_aspect()"><label for="radio_aspect" style="width:150px;" class="trn">Aspect</label>
 		</div>
 	</div>	
 </div>
 
 <div id="control_view" class="control_block">
-	<div class="control_title" class="trn">View</div> 
+	<div class="control_title trn">View</div> 
 
-	<div id="tissot_tools" style="display:none; margin:2px">
-		<input type="button" id="info_tissot" onclick='setText("info_tissot")'> 
-		<label for="info_tissot" class="tooltip">
-		<span class="tooltiptext"><span class="trn">Info</span></span>
-		<img src="./icons/info.svg" width="20px" ></label> 
-
-
+	<div id="tissot_tools" style="display:none; margin:2px">		
 		<input type="button" id="clear_ellipses" onclick="clearEllipses()" >
 		<label for="clear_ellipses" class="tooltip">
 		<span class="tooltiptext"><span class="trn">Clear</span></span>
@@ -147,11 +143,6 @@
 	</div>
 
 	<div id="geodesic_tools" style="display:none; margin:2px">
-		<input type="button" id="info_geodesic" onclick='setText("info_geodesic")'> 
-		<label for="info_geodesic" class="tooltip">
-		<span class="tooltiptext"><span class="trn">Info</span></span>
-		<img src="./icons/info.svg" width="20px" ></label> 
-
 		<input type="button" id="clear_geodesic" onclick="clearGeodesic()" >
 		<label for="clear_geodesic" class="tooltip">
 		<span class="tooltiptext"><span class="trn">Clear</span></span>
@@ -163,11 +154,6 @@
 	</div>
 
 	<div id="loxodrome_tools" style="display:none; margin:2px">
-		<input type="button" id="info_loxodrome" onclick='setText("info_loxodrome")'> 
-		<label for="info_loxodrome" class="tooltip">
-		<span class="tooltiptext"><span class="trn">Info</span></span>
-		<img src="./icons/info.svg" width="20px" ></label> 
-
 		<input type="button" id="clear_loxodrome" onclick="clearLoxodrome()" >
 		<label for="clear_loxodrome" class="tooltip">
 		<span class="tooltiptext"><span class="trn">Clear</span></span>
@@ -179,11 +165,6 @@
 	</div>
 
 	<div id="aspect_tools" style="display:none; margin:2px">
-		<input type="button" id="info_rotate" onclick='setText("info_rotate")'> 
-		<label for="info_rotate" class="tooltip">
-		<span class="tooltiptext"><span class="trn">Info</span></span>
-		<img src="./icons/info.svg" width="20px" ></label> 
-
 		<span class="tooltip"><span class="tooltiptext"><span class="trn">Fix aspect</span></span>
 		<select id="select-aspect"> 
 		<option value=equatorial class="trn">Equatorial</option>
@@ -218,7 +199,7 @@
 </div>
 
 <div id="control_projections" class="control_block">
-	<div class="control_title" class="trn">Projections</div> 
+	<div class="control_title trn">Projections</div> 
 	<select id="projection-menu" style="display:inline; vertical-align:top; font-size:12pt" size=8></select>
 </div>
 

@@ -1,9 +1,9 @@
 var dict = {
   
-  "Info": {
-    en: "Info",
-    pt: "Info",
-    fr: "Info"
+  "Information": {
+    en: "Information",
+    pt: "Informação",
+    fr: "Information"
   },
   
   "Start": {

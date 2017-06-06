@@ -30,11 +30,11 @@ menu.selectAll("option")
     .attr("class","trn")
     .text(function(d) { return d.name; });
 
-menu.node().value = "ortho"; //"Equirectangular (Plate Carrée)";    
+menu.node().value = "ortho"; //Default projection
 
 
 function menu_changed () 
-	{  updateMap();   setText(menu.node().value); 	};
+	{  updateMap();   updateText(); 	};
 
 menu.on("change", menu_changed);
 
@@ -89,7 +89,7 @@ function updateMap() {
 	drawSvg();
 	drawEllipses();
 	if (document.getElementById("radio_tissot").checked) {mode_tissot(); };
-	if (document.getElementById("radio_move").checked) {mode_move(); };
+	if (document.getElementById("radio_aspect").checked) {mode_aspect(); };
 	if (document.getElementById("radio_geodesic").checked) {mode_geodesic(); };
 	if (document.getElementById("radio_loxodrome").checked) {mode_loxodrome(); };
 
@@ -369,7 +369,9 @@ function default_mouseleave(){
 	};
 
 
-function mode_move() {
+function mode_aspect() {
+	CurrentMode = "aspect";
+	updateText();
 	maparea.on('mousemove', default_mousemove);
 	maparea.on('click', null);
 	maparea.on('mouseleave', default_mouseleave);
@@ -416,6 +418,8 @@ function geodesic_draw() {
 
 
 function mode_geodesic() {
+	CurrentMode = "geodesic";
+	updateText();
 	maparea.on(".drag", null);
 	maparea.on('mousemove',default_mousemove);
 	maparea.on('click', geodesic_click);
@@ -466,6 +470,8 @@ function loxodrome_draw() {
 		};
 
 function mode_loxodrome() {
+	CurrentMode = "loxodrome";
+	updateText();
 	maparea.on(".drag", null);
 	maparea.on('mousemove',default_mousemove);
 	maparea.on('click', loxodrome_click);
