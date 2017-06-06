@@ -1,0 +1,17 @@
+figure{
+  	display: inline-table;
+  	width: 35%;
+  	text-align: center;
+  	margin: 1em;
+
+}
+
+figcaption{
+	display: table-caption;
+	caption-side: bottom;
+	font-size: smaller;
+}
+
+figure img {
+width: 80%;
+}
