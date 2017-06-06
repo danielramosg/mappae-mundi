@@ -114,11 +114,12 @@
 	<div class="control_title trn">View</div> 
 
 	<div id="tissot_tools" style="display:none; margin:2px">		
+<!-- 
 		<input type="button" id="clear_ellipses" onclick="clearEllipses()" >
 		<label for="clear_ellipses" class="tooltip">
 		<span class="tooltiptext"><span class="trn">Clear</span></span>
 		<img src="./icons/trash.svg" width="20px" ></label>
-
+ -->
 
 		<input type="button" id="pop_ellipses" onclick="popEllipse()" >
 		<label for="pop_ellipses" class="tooltip">
@@ -145,8 +146,8 @@
 	<div id="geodesic_tools" style="display:none; margin:2px">
 		<input type="button" id="clear_geodesic" onclick="clearGeodesic()" >
 		<label for="clear_geodesic" class="tooltip">
-		<span class="tooltiptext"><span class="trn">Clear</span></span>
-		<img src="./icons/trash.svg" width="20px" ></label>
+		<span class="tooltiptext"><span class="trn">Undo</span></span>
+		<img src="./icons/undo.svg" width="20px" ></label>
 
 		<input type="checkbox" id="geoextended" onclick="geodesic_draw()"> <label for="geoextended" class="tooltip">
 		<span class="tooltiptext"><span class="trn">Extend</span></span>
@@ -156,8 +157,8 @@
 	<div id="loxodrome_tools" style="display:none; margin:2px">
 		<input type="button" id="clear_loxodrome" onclick="clearLoxodrome()" >
 		<label for="clear_loxodrome" class="tooltip">
-		<span class="tooltiptext"><span class="trn">Clear</span></span>
-		<img src="./icons/trash.svg" width="20px" ></label>
+		<span class="tooltiptext"><span class="trn">Undo</span></span>
+		<img src="./icons/undo.svg" width="20px" ></label>
 
 		<input type="checkbox" id="loxoextended" onclick="loxodrome_draw()"> <label for="loxoextended" class="tooltip">
 		<span class="tooltiptext"><span class="trn">Extend</span></span>
@@ -176,7 +177,12 @@
 		</span>
 	</div>
 
-	<div id="common_tools" style="margin:2px">
+	<div id="common_tools" style="margin:2px; margin-top:1em;">
+		<input type="button" id="clear_all" onclick="clearEllipses(); clearGeodesic(); clearLoxodrome();" >
+		<label for="clear_all" class="tooltip">
+		<span class="tooltiptext"><span class="trn">Clear</span></span>
+		<img src="./icons/trash.svg" width="20px" ></label>
+	
 		<input type="checkbox" id="rastervisible" onclick=
 		"document.getElementsByTagName('canvas')[0]
 		.style.visibility = this.checked? 'visible':'hidden';

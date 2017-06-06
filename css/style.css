@@ -59,7 +59,7 @@ body {
 }
 
 .control_block.texton {
-	max-width: 15vw;
+	max-width: 20vw;
 	display: inline-block;
 	vertical-align: top;
 }
@@ -80,6 +80,7 @@ body {
 	display: inline-block;	
 	height: 85vh;
 	width: 15vw;
+	text-align:center;
 }
 
 #text_tag.textoff {
@@ -88,8 +89,8 @@ body {
 
 #controls_tag.textoff {
 	
-    padding-left: 2em;
-    padding-right: 2em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
 
 	border-top: 1px solid;
 	height: 85vh;	
