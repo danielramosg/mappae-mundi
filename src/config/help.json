@@ -4,7 +4,9 @@
       "name": {
         "en": "the aspect of the map",
         "pt": "o aspecto do mapa",
-        "fr": "de l'aspect d'une carte"
+        "fr": "de l'aspect d'une carte",
+        "es": "el aspecto de un mapa",
+        "ca": "l'aspecte d'un mapa"
       },
       "file": "info_rotate"
     },
@@ -12,7 +14,9 @@
       "name": {
         "en": "the Tissot indicatrix",
         "pt": "a indicatriz de Tissot",
-        "fr": "de l'indicatrice de Tissot"
+        "fr": "de l'indicatrice de Tissot",
+        "es": "de la indicatriz de Tissot",
+        "ca": "de l'indicatriu de Tissot"
       },
       "file": "info_tissot"
     },
@@ -20,7 +24,9 @@
       "name": {
         "en": "geodesics",
         "pt": "as geodésicas",
-        "fr": "des géodésiques"
+        "fr": "des géodésiques",
+        "es": "las geodésicas",
+        "ca": "les geodèsiques"
       },
       "file": "info_geodesic"
     },
@@ -28,7 +34,9 @@
       "name": {
         "en": "loxodromes",
         "pt": "as loxodrómias",
-        "fr": "des loxodromies"
+        "fr": "des loxodromies",
+        "es": "las loxodromas",
+        "ca": "les loxodromes"
       },
       "file": "info_loxodrome"
     }
@@ -39,7 +47,9 @@
       "name": {
         "en": "the Plate Carrée projection",
         "pt": "a projeção Cilíndrica equidistante",
-        "fr": "de la projection plate carrée"
+        "fr": "de la projection plate carrée",
+        "es": "la proyección Plate Carrée",
+        "ca": "la projecció Plate Carrée"
       }
     },
     "mercator": {
@@ -47,7 +57,9 @@
       "name": {
         "en": "the Mercator projection",
         "pt": "a projeção de Mercator",
-        "fr": "de la projection de Mercator"
+        "fr": "de la projection de Mercator",
+        "es": "la proyección de Mercator",
+        "ca": "la projecció de Mercator"
       }
     },
     "gallpeters": {
@@ -55,7 +67,9 @@
       "name": {
         "en": "the Gall-Peters projection",
         "pt": "a projeção Cilíndrica equivalente",
-        "fr": "de la projection de Gall-Peters"
+        "fr": "de la projection de Gall-Peters",
+        "es": "la proyección de Gall-Peters",
+        "ca": "la projecció de Gall-Peters"
       }
     },
     "mollweide": {
@@ -63,7 +77,9 @@
       "name": {
         "en": "the Mollweide projection",
         "pt": "a projeção de Mollweide",
-        "fr": "de la projection de Mollweide"
+        "fr": "de la projection de Mollweide",
+        "es": "la proyección de Mollweide",
+        "ca": "la projecció de Mollweide"
       }
     },
     "aziequi": {
@@ -71,7 +87,9 @@
       "name": {
         "en": "the Azimuthal equidistant projection",
         "pt": "a projeção Azimutal equidistante",
-        "fr": "de la projection de Postel"
+        "fr": "de la projection de Postel",
+        "es": "la proyección azimutal equidistante",
+        "ca": "la projecció azimutal equidistant"
       }
     },
     "gnomo": {
@@ -79,7 +97,9 @@
       "name": {
         "en": "the Gnomonic projection",
         "pt": "a projeção Gnomónica",
-        "fr": "de la projection gnomonique"
+        "fr": "de la projection gnomonique",
+        "es": "la proyección gnomónica",
+        "ca": "la projecció gnomònica"
       }
     },
     "stereo": {
@@ -87,7 +107,9 @@
       "name": {
         "en": "the Stereographic projection",
         "pt": "a projeção Estereográfica",
-        "fr": "de la projection stéréographique"
+        "fr": "de la projection stéréographique",
+        "es": "la proyección estereográfica",
+        "ca": "la projecció estereogràfica"
       }
     },
     "ortho": {
@@ -95,7 +117,9 @@
       "name": {
         "en": "the Orthographic projection",
         "pt": "a projeção Ortográfica",
-        "fr": "de la projection orthograpique"
+        "fr": "de la projection orthograpique",
+        "es": "la proyección ortográfica",
+        "ca": "la projecció ortogràfica"
       }
     }
   }

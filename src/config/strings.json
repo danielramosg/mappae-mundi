@@ -2,66 +2,92 @@
   "APP_TITLE": {
     "en": "Mappae Mundi",
     "pt": "Mappae Mundi",
-    "fr": "Mappae Mundi"
+    "fr": "Mappae Mundi",
+    "es": "Mappae Mundi",
+    "ca": "Mappae Mundi"
   },
   "INTRO": {
     "en": "Intro",
     "pt": "Intro",
-    "fr": "Intro"
+    "fr": "Intro",
+    "es": "Intro",
+    "ca": "Intro"
   },
   "CREDITS": {
     "en": "Credits",
     "pt": "Créditos",
-    "fr": "Crédits"
+    "fr": "Crédits",
+    "es": "Créditos",
+    "ca": "Crèdits"
   },
   "MORE_ABOUT": {
     "en": "About",
     "pt": "Sobre",
-    "fr": "À propos"
+    "fr": "À propos",
+    "es": "Acerca de",
+    "ca": "Sobre"
   },
   "PR_ABBR_PLATECARRE": {
     "en": "Pl",
     "pt": "CEd",
-    "fr": "Pl"
+    "fr": "Pl",
+    "es": "Pl",
+    "ca": "Pl"
   },
   "PR_ABBR_MERCATOR": {
     "en": "Me",
     "pt": "Mer",
-    "fr": "Me"
+    "fr": "Me",
+    "es": "Me",
+    "ca": "Me"
   },
   "PR_ABBR_GALLPETERS": {
     "en": "Ga",
     "pt": "CEv",
-    "fr": "Ga"
+    "fr": "Ga",
+    "es": "Ga",
+    "ca": "Ga"
   },
   "PR_ABBR_MOLLWEIDE": {
     "en": "Mw",
     "pt": "Mlw",
-    "fr": "Mw"
+    "fr": "Mw",
+    "es": "Mw",
+    "ca": "Mw"
   },
   "PR_ABBR_AZIEQUI": {
     "en": "Az",
     "pt": "AzE",
-    "fr": "Po"
+    "fr": "Po",
+    "es": "Az",
+    "ca": "Az"
   },
   "PR_ABBR_GNOMO": {
     "en": "Gn",
     "pt": "Gno",
-    "fr": "Gn"
+    "fr": "Gn",
+    "es": "Gn",
+    "ca": "Gn"
   },
   "PR_ABBR_STEREO": {
     "en": "St",
     "pt": "Est",
-    "fr": "St"
+    "fr": "St",
+    "es": "Es",
+    "ca": "Es"
   },
   "PR_ABBR_ORTHO": {
     "en": "Or",
     "pt": "Ort",
-    "fr": "Or"
+    "fr": "Or",
+    "es": "Or",
+    "ca": "Or"
   },
   "": {
     "en": "",
     "pt": "",
-    "fr": ""
+    "fr": "",
+    "es": "",
+    "ca": ""
   }
 }
