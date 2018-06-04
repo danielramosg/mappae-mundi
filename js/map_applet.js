@@ -137,9 +137,7 @@ var world = {"type":"Topology","objects":{"countries":{"type":"GeometryCollectio
 
 var graticule = d3.geo.graticule();
 
-
 var listellip = [];
-
 
 var geo_data = {
 		"buffer_point": null,
@@ -148,24 +146,18 @@ var geo_data = {
 			"type": "MultiLineString",
 			"coordinates": []}			// coordinates of points in the path, in format geojson
 	};	
-		
-		
-var loxo_flip=true;
-var loxo_ptA;
-var loxo_ptB;
-var loxodrome_data = {};
-
-
-
-function clearLoxodrome() {  
-	loxodrome_data = {}; 
-	d3.selectAll(".loxodrome").remove(); 
- 	loxodrome = svg.insert("path", ".graticule")
- 					.attr("class", "loxodrome");
- 					
-	document.getElementById("loxo_tag").style.display = "none";		
 				
-	};
+var loxo_data = {
+		"buffer_point": null,
+		"paths_endpoints": [],	//list of pairs of points.
+		"geojson": {
+			"type": "MultiLineString",
+			"coordinates": []}			// coordinates of points in the path, in format geojson
+	};	
+			
+
+
+
 
 
 
@@ -293,7 +285,7 @@ function drawSvg () {
  		
  	loxodrome = svg.insert("path", ".graticule")
  		.attr("class", "loxodrome")
- 		.datum(loxodrome_data)
+ 		.datum(loxo_data.geojson)
  		.attr("d",path);
  		
  	//d3.select(".land").style("visibility", d3.select("#rastervisible").node().checked ? "hidden" : "visible");	
@@ -330,9 +322,6 @@ function default_mousemove(){
 function default_mouseleave(){
 	document.getElementById("coords_tag").innerHTML =  "";
 	};
-
-
-
 
 
 
@@ -385,62 +374,7 @@ function mode_aspect() {
 
 };
 
-
-
-
-// Here were geodesic mouse interactions
-
-
-function loxodrome_click() {
-	xy = d3.mouse(this);
-	lp = projection.invert(xy);
-
-	if (loxo_flip) 
-		{ loxo_ptA = lp }
-	else 
-		{ loxo_ptB = lp; loxodrome_draw(); };
-		
-	loxo_flip = loxo_flip ? false : true;		
-};
-
-function loxodrome_draw() {
-		arc=LoxodromeArc(loxo_ptA[0], loxo_ptA[1] , loxo_ptB[0], loxo_ptB[1] ,100 , 
-		document.getElementById("loxoextended").checked);
-		az=arc[0]
-		loxodrome_data=arc[1]
-
-		loxodrome.datum(loxodrome_data)
-				.attr("d",path);
-				
-		document.getElementById("loxolength_tag").innerHTML = 
-		document.getElementById("loxoextended").checked ?
-		(Math.abs(20000/Math.cos(az*0.017453292519943295))).toFixed(0) + " km" :
-		(d3.geo.length(loxodrome_data)*6366.197723675814).toFixed(0) + " km";
-		
-		document.getElementById("loxoazimuth_tag").innerHTML = 
-		az.toFixed(2) + "\u00B0";
-		
-		document.getElementById("loxo_tag").style.display = "inline";		
-
-		};
-
-function mode_loxodrome() {
-	CurrentMode = "loxodrome";
-	updateText();
-	maparea.on(".drag", null);
-	maparea.on('mousemove',default_mousemove);
-	maparea.on('click', loxodrome_click);
-	maparea.on('mouseleave', default_mouseleave);
-	maparea.on('mouseenter', null);	
-	document.getElementById("sphere").style.cursor = 'crosshair';
-	
-	document.getElementById("tissot_tools").style.display = 'none';
-	document.getElementById("geodesic_tools").style.display = 'none';
-	document.getElementById("loxodrome_tools").style.display = 'inline';
-	document.getElementById("aspect_tools").style.display = 'none';
-
-};
-
+// Here there were geodesic & loxodrome mouse interactions
 
 updateMap();
 hideshowText();

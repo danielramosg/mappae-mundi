@@ -1,8 +1,4 @@
 
-
-// Mouse interactions
-
-
 function geodesic_click() {
 	xy = d3.mouse(this);
 	lp = projection.invert(xy);
