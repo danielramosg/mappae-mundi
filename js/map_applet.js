@@ -137,29 +137,25 @@ var world = {"type":"Topology","objects":{"countries":{"type":"GeometryCollectio
 
 var graticule = d3.geo.graticule();
 
+
 var listellip = [];
 
 
-
-var geo_flip=true;
-var geo_ptA;
-var geo_ptB;
-var geodesic_data = {};
-
+var geo_data = {
+		"buffer_point": null,
+		"paths_endpoints": [],	//list of pairs of points.
+		"geojson": {
+			"type": "MultiLineString",
+			"coordinates": []}			// coordinates of points in the path, in format geojson
+	};	
+		
+		
 var loxo_flip=true;
 var loxo_ptA;
 var loxo_ptB;
 var loxodrome_data = {};
 
-function clearGeodesic() {  
-	geodesic_data = {}; 
-	d3.selectAll(".geodesic").remove(); 
-	geodesic = svg.insert("path", ".graticule")
- 					.attr("class", "geodesic");
 
-	document.getElementById("geo_tag").style.display = "none";		
-				
- 	};
 
 function clearLoxodrome() {  
 	loxodrome_data = {}; 
@@ -239,6 +235,7 @@ function drawCanvas () {
 
 };
 
+
 // SVG Layer
 function drawSvg () {	
 	svg = d3.select("#map_tag").append("svg")
@@ -291,7 +288,7 @@ function drawSvg () {
 
  	geodesic = svg.insert("path", ".graticule")
  		.attr("class", "geodesic")
- 		.datum(geodesic_data)
+ 		.datum(geo_data.geojson)
  		.attr("d",path);
  		
  	loxodrome = svg.insert("path", ".graticule")
@@ -324,8 +321,19 @@ function updateCoordsTag(obj) {
 	'</td> <td style="width:70px; text-align:right;">' +
 	Math.abs(lp[0]).toFixed(2) + '\u00B0 ' + lsign +
 	'</td></table>';	
-	
 	};
+
+function default_mousemove(){
+	updateCoordsTag(this);
+	};
+	
+function default_mouseleave(){
+	document.getElementById("coords_tag").innerHTML =  "";
+	};
+
+
+
+
 
 
 var move_drag = d3.behavior.drag()
@@ -360,15 +368,6 @@ var move_drag = d3.behavior.drag()
 	 }) ;
 
 
-function default_mousemove(){
-	updateCoordsTag(this);
-	};
-	
-function default_mouseleave(){
-	document.getElementById("coords_tag").innerHTML =  "";
-	};
-
-
 function mode_aspect() {
 	CurrentMode = "aspect";
 	updateText();
@@ -389,51 +388,7 @@ function mode_aspect() {
 
 
 
-function geodesic_click() {
-	xy = d3.mouse(this);
-	lp = projection.invert(xy);
-
-	if (geo_flip) 
-		{ geo_ptA = lp }
-	else 
-		{ geo_ptB = lp;  geodesic_draw(); 	};
-		
-	geo_flip = geo_flip ? false : true;		
-};
-
-function geodesic_draw() {
-		arc=GeodesicArc(geo_ptA[0], geo_ptA[1] , geo_ptB[0], geo_ptB[1] ,50 , 
-		document.getElementById("geoextended").checked);
-		dist=arc[0]
-		geodesic_data=arc[1]
-
-		geodesic.datum(geodesic_data)
-				.attr("d",path);
-				
-		document.getElementById("geolength_tag").innerHTML = 
-		(d3.geo.length(geodesic_data)*6366.197723675814).toFixed(0) + " km";
-		
-		document.getElementById("geo_tag").style.display = "inline";		
-		};
-
-
-function mode_geodesic() {
-	CurrentMode = "geodesic";
-	updateText();
-	maparea.on(".drag", null);
-	maparea.on('mousemove',default_mousemove);
-	maparea.on('click', geodesic_click);
-	maparea.on('mouseleave', default_mouseleave);
-	maparea.on('mouseenter', null);
-	document.getElementById("sphere").style.cursor = 'crosshair';
-
-	document.getElementById("tissot_tools").style.display = 'none';
-	document.getElementById("geodesic_tools").style.display = 'inline';
-	document.getElementById("loxodrome_tools").style.display = 'none';
-	document.getElementById("aspect_tools").style.display = 'none';
-	
-};
-
+// Here were geodesic mouse interactions
 
 
 function loxodrome_click() {
