@@ -1,3 +1,9 @@
+@font-face {
+  font-family: JimNightshade;
+  src: url('JimNightshade-Regular.ttf') format('truetype');
+}
+
+
 html {
     overflow: hidden;
     height: 100%;
@@ -20,7 +26,10 @@ body {
 
 
 #title_banner {
+	font-family:  JimNightshade, Times, sans-serif;
+	font-size: 8vh;
 	height:10%;
+	padding: 1.5vh;
 }
 
 
@@ -36,31 +45,31 @@ body {
 #map_tag {
     border: 3px solid; 
     display: inline-block;
+    margin-left: 10px;
+	height: 84%;
+
 }
 
 #map_tag.texton {
-	height: 85%;
-	width: 49%;
+	width: 48%;
 }
 
 #map_tag.textoff {
-	height: 85%;
-	width: 85%;
+	width: 84%;
 }
 
 #lateral_panel {
 	position: absolute;
 	display: inline-block;	
-    right:0;
+    right:10px;
+    height: 84%;
 }
 
 #lateral_panel.texton {
-	height: 85%;
 	width: 50%;
 }
 
 #lateral_panel.textoff {
-	height: 85%;
 	width: 14%;
 	/*width: 150px*/
 	/*float: right;*/

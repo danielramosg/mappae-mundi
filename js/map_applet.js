@@ -30,7 +30,7 @@ menu.selectAll("option")
     .attr("class","trn")
     .text(function(d) { return d.name; });
 
-menu.node().value = "ortho"; //Default projection
+menu.node().value = "platecarre"; //Default projection  "ortho";
 
 
 function menu_changed () 
