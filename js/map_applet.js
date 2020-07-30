@@ -326,22 +326,35 @@ function default_mouseleave(){
 
 
 var move_drag = d3.behavior.drag()
-	.on("dragstart", function() {
+	.on("dragstart", dragstarted)
+	.on("drag", dragged)
+	.on("dragend", dragended);
+
+function dragstarted() {
+	  d3.event.sourceEvent.stopPropagation(); // silence other listeners
+	  //d3.select("#title_banner").node().innerHTML = "dragstarted";
 	// Adapted from http://mbostock.github.io/d3/talk/20111018/azimuthal.html and updated for d3 v3
 	  var proj = projection.rotate();
-	  m0 = [d3.event.sourceEvent.pageX, d3.event.sourceEvent.pageY];
+	  //m0 = [d3.event.sourceEvent.pageX, d3.event.sourceEvent.pageY];
+	  m0 = d3.mouse(this);
 	  o0 = [-proj[0],-proj[1]];
+	  //d3.select("#title_banner").node().innerHTML = m0;
 
 	  d3.select(".land").style("visibility","visible");	
 	  d3.select("canvas").remove();
 	  aspect.node().value = "oblique_other";
+	}
 
-	})
-	
-	.on("drag", function() {
+function dragged() {
+		d3.event.sourceEvent.stopPropagation(); // silence other listeners
 	  if (m0) {
-		var m1 = [d3.event.sourceEvent.pageX, d3.event.sourceEvent.pageY],
-			o1 = [o0[0] + (m0[0] - m1[0]) / 4, o0[1] + (m1[1] - m0[1]) / 4];
+		//var m1 = [d3.event.sourceEvent.pageX, d3.event.sourceEvent.pageY];
+		//var m1 = [d3.event.x,d3.event.y]
+
+		var m1 = d3.mouse(this);
+		var	o1 = [o0[0] + (m0[0] - m1[0]) / 4, o0[1] + (m1[1] - m0[1]) / 4];
+			//d3.select("#title_banner").node().innerHTML = d3.event.x;
+
 		projection.rotate([-o1[0], -o1[1]]);
 	  }
 		// Update the map
@@ -349,12 +362,22 @@ var move_drag = d3.behavior.drag()
 	  d3.selectAll("path").attr("d", path);
 	  removeEllipses();
 	  drawEllipses();
-	})
-	
-	.on("dragend", function() {
+	}	
+
+function dragended() {
+		//d3.select("#title_banner").node().innerHTML = "dragended";
+
 	  drawCanvas();
 
-	 }) ;
+	 }
+
+function nozoom() {
+  d3.event.preventDefault();
+}
+
+d3.select("body")
+    .on("touchstart", nozoom)
+    .on("touchmove", nozoom)
 
 
 function mode_aspect() {

@@ -16,6 +16,9 @@ body {
     width:100%;
     margin: 0;
     overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none; /* Safari */
+  	-ms-user-select: none; /* IE 10+ and Edge */
 }
 
 body {
@@ -26,7 +29,7 @@ body {
 
 
 #title_banner {
-	font-family:  JimNightshade, Times, sans-serif;
+	font-family:  JimNightshade, verdana, arial, sans-serif;
 	font-size: 8vh;
 	height:10%;
 	padding: 1.5vh;
@@ -78,6 +81,7 @@ body {
 
 
 #text_tag {
+	user-select: text;
 	position: absolute;
 	top: 0px;    
 	bottom: 200px;
@@ -157,7 +161,7 @@ body {
 }
 
 #tool_buttons label {
-	width: 140px;
+	width: 150px;
 }
 
 #tool_buttons div {
