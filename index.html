@@ -12,11 +12,11 @@
 <script type='text/javascript' src="vendor/numeric/numeric-1.2.6.min.js"></script>
 <script type='text/javascript' src="vendor/css-element-queries/ResizeSensor.js"></script> <!--for Resize events-->
 <script type='text/javascript' src="vendor/css-element-queries/ElementQueries.js"></script> <!--for Resize events-->
-<script type='text/javascript' src="vendor/jquery/jquery.min.js"/></script><!--for translations-->
-<script type='text/javascript' src="vendor/jquery/jquery.translate.js"/></script><!--for translations-->
+<script type='text/javascript' src="vendor/jquery/jquery.min.js"></script><!--for translations-->
+<script type='text/javascript' src="vendor/jquery/jquery.translate.js"></script><!--for translations-->
 
-<script src="js/translations.js"/></script>
-<script src="js/projections.js"/></script>
+<script src="js/translations.js"></script>
+<script src="js/projections.js"></script>
 <script src="js/map_math.js"></script>
 <script src="js/tools_tissot.js"></script>
 <script src="js/tools_geodesic.js"></script>
@@ -33,7 +33,7 @@
 
 <div id="top_controls">
 	<input type="checkbox" id="checktext" onclick="hideshowText()" checked>
-	<label for="checktext" class="trn">Information</label> </input> 
+	<label for="checktext" class="trn">Information</label> </input>
 
 	<div class="dropdown">
 	<input type="button" id="lang_menu" onclick="showLangMenu()" class="dropbtn">
@@ -48,51 +48,51 @@
 	</div>
 
 	<br>
-	
+
 	<div id="text_controls">
-	<input type="button" id="button_start" onclick='setText("info_map")'> 
-	<label for="button_start" class="trn">Start</label> 
-	
+	<input type="button" id="button_start" onclick='setText("info_map")'>
+	<label for="button_start" class="trn">Start</label>
+
 	<input type="radio" id="radio_text_tool" name="text_mode" value="tool" onclick="updateText()">
 	<label for="radio_text_tool" class="trn">Tools</label>
-	
+
 	<input type="radio" id="radio_text_proj" name="text_mode" value="proj" onclick="updateText()">
 	<label for="radio_text_proj" class="trn">Projections</label>
-	
-	<input type="button" id="button_about" onclick='setText("about")'> 
+
+	<input type="button" id="button_about" onclick='setText("about")'>
 	<label for="button_about" class="trn">About</label>
 	</div>
-	
+
 </div>
 
 
-<div align="center" id="title_banner"> 
+<div align="center" id="title_banner">
 	<!-- <img src="./txt/common/title.png" height="90%"> -->
 	Mappae mundi
 </div>
 
 
 
-<div id="map_tag"> 
+<div id="map_tag">
 	<div id="coords_tag" class="coords_tag"> </div>
 
 	<div id="geo_tag" class="geo_tag">
 	<span class="trn">Geodesic</span>: <span id="geolength_tag"></span></div>
 	<div id="loxo_tag" class="loxo_tag">
-	<span class="trn">Loxodrome</span>: <span id="loxolength_tag"></span>, 
+	<span class="trn">Loxodrome</span>: <span id="loxolength_tag"></span>,
 	Az: <span id="loxoazimuth_tag"> </span></div>
 </div>
 
 
 <div id="lateral_panel">
 
-	<div id="text_tag"> 
+	<div id="text_tag">
 	</div>
 
 	<div id="controls_tag">
 
 		<div id="control_tools" class="control_block">
-			<div class="control_title trn">Tools</div> 
+			<div class="control_title trn">Tools</div>
 
 			<div id="tool_buttons">
 				<div>
@@ -114,14 +114,14 @@
 				<input type="radio" id="radio_aspect" name="mode" value="move" onclick="mode_aspect()">
 				<label for="radio_aspect" class="trn">Aspect</label>
 				</div>
-			</div>	
+			</div>
 		</div>
 
 		<div id="control_view" class="control_block">
-			<div class="control_title trn">View</div> 
+			<div class="control_title trn">View</div>
 
-			<div id="tissot_tools" class="subtool">		
-				<!-- 
+			<div id="tissot_tools" class="subtool">
+				<!--
 						<input type="button" id="clear_ellipses" onclick="clearEllipses()" >
 						<label for="clear_ellipses" class="tooltip">
 						<span class="tooltiptext"><span class="trn">Clear</span></span>
@@ -139,14 +139,14 @@
 				<span class="tooltiptext"><span class="trn">Sample</span></span>
 				<img src="./icons/tissotsample2.svg" width="20px" ></label>
 
-				<input type="checkbox" id="decorate_ellipses" 
+				<input type="checkbox" id="decorate_ellipses"
 				onclick="d3.selectAll('.tissot_decoration').style('visibility', this.checked ? 'visible' : 'hidden')" >
 				<label for="decorate_ellipses" class="tooltip">
 				<span class="tooltiptext"><span class="trn">Goniometer</span></span>
 				<img src="./icons/goniometer.svg" width="20px" ></label>
 
-				<span class="tooltip"><input type="number" id="ellipradius" 
-				min="0" max="20000" step="100" value="1000" style="width:50px; margin:0.5em;" 
+				<span class="tooltip"><input type="number" id="ellipradius"
+				min="0" max="20000" step="100" value="1000" style="width:50px; margin:0.5em;"
 				onchange="ellipradiusChanged()">km <span class="tooltiptext"><span class="trn">Radius</span> </span></span>
 			</div>
 
@@ -174,7 +174,7 @@
 
 			<div id="aspect_tools" class="subtool">
 				<span class="tooltip"><span class="tooltiptext"><span class="trn">Fix aspect</span></span>
-				<select id="select-aspect"> 
+				<select id="select-aspect">
 				<option value=equatorial class="trn">Equatorial</option>
 				<option value=polar_north class="trn">Polar (North)</option>
 				<option value=polar_south class="trn">Polar (South)</option>
@@ -189,30 +189,30 @@
 				<label for="clear_all" class="tooltip">
 				<span class="tooltiptext"><span class="trn">Clear</span></span>
 				<img src="./icons/trash.svg" width="20px" ></label>
-			
+
 				<input type="checkbox" id="rastervisible" onclick=
 				"document.getElementsByTagName('canvas')[0]
 				.style.visibility = this.checked? 'visible':'hidden';
-				document.getElementsByClassName('land')[0].style.visibility = this.checked? 'hidden':'visible'; "> 
+				document.getElementsByClassName('land')[0].style.visibility = this.checked? 'hidden':'visible'; ">
 				<label for="rastervisible" class="tooltip">
 				<span class="tooltiptext"><span class="trn">Terrain</span></span><img src="./icons/terrain.svg" width="20px" ></label> </input>
 
 				<input type="checkbox" id="countriesvisible" onclick=
 				"document.getElementsByClassName('boundary')[0]
-				.style.visibility = this.checked? 'visible':'hidden' "> 
+				.style.visibility = this.checked? 'visible':'hidden' ">
 				<label for="countriesvisible" class="tooltip">
 				<span class="tooltiptext"><span class="trn">Country borders</span></span><img src="./icons/border.svg" width="20px" ></label> </input>
 
 				<input type="checkbox" id="graticulevisible" onclick=
 				"document.getElementsByClassName('graticule')[0]
-				.style.visibility = this.checked? 'visible':'hidden' "> 
+				.style.visibility = this.checked? 'visible':'hidden' ">
 				<label for="graticulevisible" class="tooltip">
 				<span class="tooltiptext"><span class="trn">Graticule</span></span><img src="./icons/graticule.svg" width="20px" ></label> </input>
 			</div>
 		</div>
 
 		<div id="control_projections" class="control_block">
-			<div class="control_title trn">Projections</div> 
+			<div class="control_title trn">Projections</div>
 			<select id="projection-menu" size=8></select>
 		</div>
 	</div>
@@ -221,10 +221,9 @@
 
 <script src="js/map_applet.js"></script>
 
-<script> 
-var translator = $('body').translate({lang: Language, t: dict}); //initial translation 
+<script>
+var translator = $('body').translate({lang: Language, t: dict}); //initial translation
 </script>
 
 </body>
 </html>
-
