@@ -1,5 +1,5 @@
 var dict = {
-  
+
   "Information": {
     en: "Information",
     pt: "Informação",
@@ -7,7 +7,7 @@ var dict = {
     es: "Información",
     ca: "Informació"
   },
-  
+
   "Start": {
     en: "Start",
     pt: "Início",
@@ -23,7 +23,7 @@ var dict = {
     es: "Acerca de",
     ca: "Sobre"
   },
-  
+
     "Geodesic": {
     en: "Geodesic",
     pt: "Geodésica",
@@ -47,7 +47,7 @@ var dict = {
     es: "Proyecciones",
     ca: "Projeccions"
   },
-  
+
   "Tools": {
     en: "Tools",
     pt: "Ferramentas",
@@ -55,7 +55,7 @@ var dict = {
     es: "Herramientas",
     ca: "Eines"
   },
-  
+
   "View": {
     en: "View",
     pt: "Vista",
@@ -63,7 +63,7 @@ var dict = {
     es: "Vista",
     ca: "Vista"
   },
-  
+
   "Tissot's indicatrix": {
     en: "Tissot's indicatrix",
     pt: "Indicatriz de Tissot",
@@ -71,7 +71,7 @@ var dict = {
     es: "Indicatriz de Tissot",
     ca: "Indicatriu de Tissot"
   },
-  
+
   "Clear": {
     en: "Clear",
     pt: "Limpar",
@@ -79,7 +79,7 @@ var dict = {
     es: "Borrar",
     ca: "Esborrar"
   },
-    
+
   "Undo": {
     en: "Undo",
     pt: "Anular",
@@ -87,7 +87,7 @@ var dict = {
     es: "Deshacer",
     ca: "Desfer"
   },
-  
+
   "Sample": {
     en: "Sample",
     pt: "Amostra",
@@ -95,7 +95,7 @@ var dict = {
     es: "Muestra",
     ca: "Mostra"
   },
-  
+
   "Goniometer": {
     en: "Goniometer",
     pt: "Goniómetro",
@@ -103,7 +103,7 @@ var dict = {
     es: "Goniómetro",
     ca: "Goniòmetre"
   },
-  
+
   "Radius": {
     en: "Radius",
     pt: "Raio",
@@ -205,81 +205,81 @@ var dict = {
 
 "Plate Carrée": {
   	en: "Plate Carrée",
-	pt: "Cilíndrica Equidistante",
-	fr: "Plate Carrée",
+    pt: "Cilíndrica Equidistante",
+    fr: "Plate Carrée",
     es: "Plate Carrée",
-    ca: "Plate Carrée" 
-   },
+    ca: "Plate Carrée"
+  },
 
 "Mercator": {
-	en: "Mercator",
-	pt: "Mercator", 
-	fr: "Mercator",
+  	en: "Mercator",
+  	pt: "Mercator",
+  	fr: "Mercator",
     es: "Mercator",
     ca: "Mercator",
-    },
+  },
 
 "Gall-Peters": {
-	en: "Gall-Peters",
-	pt: "Cilíndrica Equivalente", 
-	fr: "Gall-Peters",
+  	en: "Gall-Peters",
+  	pt: "Cilíndrica Equivalente",
+  	fr: "Gall-Peters",
     es: "Gall-Peters",
     ca: "Gall-Peters",
-    },
+  },
 
 "Mollweide": {
-	en: "Mollweide",
-	pt: "Mollweide", 
-	fr: "Mollweide",
+  	en: "Mollweide",
+  	pt: "Mollweide",
+  	fr: "Mollweide",
     es: "Mollweide",
     ca: "Mollweide"
-    },
+  },
 
 "Azimuthal Equidistant": {
-	en: "Azimuthal Equidistant",
-	pt: "Azimutal Equidistante", 
-	fr: "Postel",
+    en: "Azimuthal Equidistant",
+    pt: "Azimutal Equidistante",
+    fr: "Postel",
     es: "Azimutal Equidistante",
     ca: "Azimutal Equidistant"
-    },
-	
+  },
+
 "Gnomonic": {
-	en: "Gnomonic",
-	pt: "Gnomónica", 
-	fr: "Gnomonique",
+  	en: "Gnomonic",
+  	pt: "Gnomónica",
+  	fr: "Gnomonique",
     es: "Gnomónica",
     ca: "Gnomònica"
-    },
+  },
 
 "Stereographic": {
-	en: "Stereographic",
-	pt: "Estereográfica", 
-	fr: "Stéréographique",
+  	en: "Stereographic",
+  	pt: "Estereográfica",
+  	fr: "Stéréographique",
     es: "Estereográfica",
     ca: "Estereogràfica"
-    },
+  },
 
 "Orthographic": {
-	en: "Orthographic",
-	pt: "Ortográfica", 
-	fr: "Orthographique",
+  	en: "Orthographic",
+  	pt: "Ortográfica",
+  	fr: "Orthographique",
     es: "Ortográfica",
     ca: "Ortogràfica"
-    },
+  },
 
 
 
 
-	
-			
-			
-			
-			
-			
-			
-			
-			
-			
-  
+
+
+
+
+
+
+
+
+
+
+
 
 }
