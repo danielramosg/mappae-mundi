@@ -60,13 +60,7 @@ d3.json('./carto/world-50m.json', function(error,data){
         defineProjections();
         updateMap();
         });
-
 });
-
-// World data pasted into variable instead of retrieving online
-
-
-
 
 
 
@@ -100,7 +94,20 @@ d3.select("body")
     .on("touchmove", nozoom)
 
 
-// updateMap();
 hideshowText();
 
 setText("info_map");
+
+
+
+d3.json('./txt/ui-translations.json', function(error,data){
+			if(error) return console.warn(error);
+
+      translator = $('body').translate({lang: Language, t: data.dictionary})
+
+      d3.select("#lang_options").selectAll("a")
+          .data(data.languages).enter().append("a")
+          .attr("href","#")
+          .text(d => d.endonym)
+          .on("click", d => {Language=d.isoCode; translateAll();} );
+});
