@@ -1,3 +1,5 @@
+var listellip = [];
+
 
 function createTissotEllipse( proj, lp, scalefactor ) {
 	var grp = d3.select(document.createElementNS(d3.ns.prefix.svg, 'g'));
@@ -7,23 +9,23 @@ function createTissotEllipse( proj, lp, scalefactor ) {
 		.attr("cy",0)
 		.attr("stroke-width",2)
 		.attr("fill-opacity",0.3);
-				
+
 	grp.append("line")
 		.attr("class","vec_par tissot_decoration")
 		.attr("stroke-width",0.5);
-		
+
 	grp.append("line")
 		.attr("class","vec_mer tissot_decoration")
 		.attr("stroke-width",0.5);
-	
+
 	grp.append("path")
 		.attr("class","goniometer tissot_decoration")
-		.attr("stroke-width",1);	
-				
+		.attr("stroke-width",1);
+
 	grp.attr("class","listellip");
-	
+
 	updateTissotEllipse(proj, lp, scalefactor, grp );
-		
+
 	return grp;
 
 };
@@ -41,7 +43,7 @@ function updateTissotEllipse( proj, lp, scalefactor, grp ) {
 		.attr("stroke",	strokecolor)
 		.attr("fill", fillcolor)
 		.attr("transform","translate("+xy[0] +' '+ xy[1] +") "+ "rotate("+ props.angle+ ")");
-				
+
  	grp.select(".vec_par")
  		.attr("x1",-scalefactor *props.vec_par[0])
 		.attr("y1",-scalefactor *props.vec_par[1])
@@ -50,7 +52,7 @@ function updateTissotEllipse( proj, lp, scalefactor, grp ) {
 		.attr("stroke", strokecolor)
 		.style("visibility", d3.select("#decorate_ellipses").node().checked ? "visible" : "hidden")
 		.attr("transform","translate("+xy[0] +' '+ xy[1] +")" );
-		
+
 	grp.select(".vec_mer")
 		.attr("x1",-scalefactor *props.vec_mer[0])
 		.attr("y1",-scalefactor *props.vec_mer[1])
@@ -59,21 +61,21 @@ function updateTissotEllipse( proj, lp, scalefactor, grp ) {
 		.attr("stroke", strokecolor)
 		.style("visibility", d3.select("#decorate_ellipses").node().checked ? "visible" : "hidden")
 		.attr("transform","translate("+xy[0] +' '+ xy[1] +")" );
-	
-	var d = "";	
+
+	var d = "";
 	for (var i=0; i<360; i+=22.5) {
 		var ii = i * Math.PI /180;
 		var pt0 = scalefactor * (Math.cos(ii) * props.vec_mer[0] + Math.sin(ii) * props.vec_par[0] );
 		var pt1 = scalefactor * (Math.cos(ii) * props.vec_mer[1] + Math.sin(ii) * props.vec_par[1] );
 		d += "M" + pt0 + " " + pt1 + " " + "L" + 0.8*pt0 + " " + 0.8*pt1 + " ";
 	}
-		
+
 	grp.select(".goniometer")
 		.attr("d",d)
 		.attr("stroke", strokecolor)
 		.style("visibility", d3.select("#decorate_ellipses").node().checked ? "visible" : "hidden")
-		.attr("transform","translate("+xy[0] +' '+ xy[1] +")" );	
-		
+		.attr("transform","translate("+xy[0] +' '+ xy[1] +")" );
+
 
 };
 
@@ -90,12 +92,12 @@ function sampleEllipses() {
 		for (j=-40; j<=40; j+=40) {
 			listellip.push([i-1e-3,j]);
 	}};
-	
+
 	for (i=-150; i<180; i+=60) {
 		for (j=-60; j<=80; j+=40) {
 			listellip.push([i-1e-3,j]);
 	}};
-	removeEllipses(); drawEllipses();	
+	removeEllipses(); drawEllipses();
 };
 
 
@@ -109,25 +111,25 @@ function drawEllipses () {
 		var lp = listellip[i];
 		var xy = projection(lp);
 		var lp_vf = projection.invert(xy);
-		
+
 		var tolerance = 1;
-		if ( 
-  			(Math.abs(lp[0] - lp_vf[0]) < tolerance ) && 
- 			(Math.abs(lp[1] - lp_vf[1]) < tolerance ) &&		
+		if (
+  			(Math.abs(lp[0] - lp_vf[0]) < tolerance ) &&
+ 			(Math.abs(lp[1] - lp_vf[1]) < tolerance ) &&
 			(xy[0] > rect.x + 5 ) && (xy[0] < rect.x + rect.width -5 ) &&
 			(xy[1] > rect.y + 5 ) && (xy[1] < rect.y + rect.height -5 )
-			) { 
-					
+			) {
+
 			var ellip = createTissotEllipse(projection,listellip[i],scalefactor);
-			svg.node().appendChild(ellip.node());		
+			svg.node().appendChild(ellip.node());
 
 			};
-		};	
+		};
 };
 
 function ellipradiusChanged () {
 scalefactor = projection.scale() * document.getElementById("ellipradius").value /6283.185 ;
-removeEllipses(); 
+removeEllipses();
 drawEllipses();
 }
 
@@ -147,7 +149,7 @@ function tissot_mousemove() {
 function tissot_click() {
 	//xy = d3.mouse(this);
 	//lp = projection.invert(xy);
-	listellip.push( lp ); 
+	listellip.push( lp );
 	ellip = createTissotEllipse(projection,lp,scalefactor);
 	svg.node().appendChild(ellip.node());
 
@@ -173,26 +175,10 @@ function mode_tissot() {
 	maparea.on('mouseleave', tissot_mouseleave);
 	maparea.on('mouseenter', tissot_mouseenter);
 	document.getElementById("sphere").style.cursor = 'crosshair';
-	
+
 	document.getElementById("tissot_tools").style.display = 'inline';
 	document.getElementById("geodesic_tools").style.display = 'none';
 	document.getElementById("loxodrome_tools").style.display = 'none';
 	document.getElementById("aspect_tools").style.display = 'none';
 
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
