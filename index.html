@@ -30,15 +30,14 @@
 
 
 <body>
-<script> Language = "en" </script>
 
 
 <div id="top_controls">
-	<input type="checkbox" id="checktext" onclick="hideshowText()" checked>
+	<input type="checkbox" id="checktext" checked>
 	<label for="checktext" class="trn">Information</label> </input>
 
 	<div class="dropdown">
-	<input type="button" id="lang_menu" onclick="showLangMenu()" class="dropbtn">
+	<input type="button" id="lang_menu" class="dropbtn">
 	<label for="lang_menu"> 설 ⇄ A </label>
 		<div id="lang_options" class="dropdown-content"> </div>
 	</div>
@@ -46,16 +45,16 @@
 	<br>
 
 	<div id="text_controls">
-	<input type="button" id="button_start" onclick='setText("info_map")'>
+	<input type="button" id="button_start">
 	<label for="button_start" class="trn">Start</label>
 
-	<input type="radio" id="radio_text_tool" name="text_mode" value="tool" onclick="updateText()">
+	<input type="radio" id="radio_text_tool" name="text_mode" value="tool">
 	<label for="radio_text_tool" class="trn">Tools</label>
 
-	<input type="radio" id="radio_text_proj" name="text_mode" value="proj" onclick="updateText()">
+	<input type="radio" id="radio_text_proj" name="text_mode" value="proj">
 	<label for="radio_text_proj" class="trn">Projections</label>
 
-	<input type="button" id="button_about" onclick='setText("about")'>
+	<input type="button" id="button_about">
 	<label for="button_about" class="trn">About</label>
 	</div>
 
@@ -92,22 +91,22 @@
 
 			<div id="tool_buttons">
 				<div>
-				<input type="radio" id="radio_tissot" name="mode" value="tissot" onclick="mode_tissot()" checked >
+				<input type="radio" id="radio_tissot" name="mode" value="tissot" checked>
 				<label for="radio_tissot" class="trn">Tissot's indicatrix</label>
 				</div>
 
 				<div>
-				<input type="radio" id="radio_geodesic" name="mode" value="move" onclick="mode_geodesic()">
+				<input type="radio" id="radio_geodesic" name="mode" value="move">
 				<label for="radio_geodesic" class="trn">Geodesic</label>
 				</div>
 
 				<div>
-				<input type="radio" id="radio_loxodrome" name="mode" value="move" onclick="mode_loxodrome()">
+				<input type="radio" id="radio_loxodrome" name="mode" value="move">
 				<label for="radio_loxodrome" class="trn">Loxodrome</label>
 				</div>
 
 				<div>
-				<input type="radio" id="radio_aspect" name="mode" value="move" onclick="mode_aspect()">
+				<input type="radio" id="radio_aspect" name="mode" value="move">
 				<label for="radio_aspect" class="trn">Aspect</label>
 				</div>
 			</div>
@@ -123,47 +122,47 @@
 						<span class="tooltiptext"><span class="trn">Clear</span></span>
 						<img src="./icons/trash.svg" width="20px" ></label>
 				 -->
-
-				<input type="button" id="pop_ellipses" onclick="popEllipse()" >
+				<input type="button" id="pop_ellipses">
 				<label for="pop_ellipses" class="tooltip">
 				<span class="tooltiptext"><span class="trn">Undo</span></span>
 				<img src="./icons/undo.svg" width="20px" ></label>
 
-
-				<input type="button" id="sample_ellipses" onclick="sampleEllipses()" >
+				<input type="button" id="sample_ellipses">
 				<label for="sample_ellipses" class="tooltip">
 				<span class="tooltiptext"><span class="trn">Sample</span></span>
 				<img src="./icons/tissotsample2.svg" width="20px" ></label>
 
-				<input type="checkbox" id="decorate_ellipses"
-				onclick="d3.selectAll('.tissot_decoration').style('visibility', this.checked ? 'visible' : 'hidden')" >
+				<input type="checkbox" id="decorate_ellipses">
 				<label for="decorate_ellipses" class="tooltip">
 				<span class="tooltiptext"><span class="trn">Goniometer</span></span>
 				<img src="./icons/goniometer.svg" width="20px" ></label>
 
-				<span class="tooltip"><input type="number" id="ellipradius"
-				min="0" max="20000" step="100" value="1000" style="width:50px; margin:0.5em;"
-				onchange="ellipradiusChanged()">km <span class="tooltiptext"><span class="trn">Radius</span> </span></span>
+				<span class="tooltip">
+					<input type="number" id="ellipradius" style="width:50px; margin:0.5em;">
+				 	km <span class="tooltiptext"><span class="trn">Radius</span> </span>
+				</span>
 			</div>
 
 			<div id="geodesic_tools" class="subtool">
-				<input type="button" id="clear_geodesic" onclick="popGeodesic()" >
+				<input type="button" id="clear_geodesic">
 				<label for="clear_geodesic" class="tooltip">
 				<span class="tooltiptext"><span class="trn">Undo</span></span>
 				<img src="./icons/undo.svg" width="20px" ></label>
 
-				<input type="checkbox" id="geoextended" onclick="geodesic_draw()"> <label for="geoextended" class="tooltip">
+				<input type="checkbox" id="geoextended">
+				<label for="geoextended" class="tooltip">
 				<span class="tooltiptext"><span class="trn">Extend</span></span>
 				<img src="./icons/extend.svg" width="20px" ></label> </input>
 			</div>
 
 			<div id="loxodrome_tools" class="subtool">
-				<input type="button" id="clear_loxodrome" onclick="popLoxodrome()" >
+				<input type="button" id="clear_loxodrome">
 				<label for="clear_loxodrome" class="tooltip">
 				<span class="tooltiptext"><span class="trn">Undo</span></span>
 				<img src="./icons/undo.svg" width="20px" ></label>
 
-				<input type="checkbox" id="loxoextended" onclick="loxodrome_draw()"> <label for="loxoextended" class="tooltip">
+				<input type="checkbox" id="loxoextended">
+				<label for="loxoextended" class="tooltip">
 				<span class="tooltiptext"><span class="trn">Extend</span></span>
 				<img src="./icons/extend.svg" width="20px" ></label>
 			</div>
@@ -181,29 +180,25 @@
 			</div>
 
 			<div id="common_tools">
-				<input type="button" id="clear_all" onclick="clearEllipses(); clearGeodesic(); clearLoxodrome();" >
+				<input type="button" id="clear_all">
 				<label for="clear_all" class="tooltip">
 				<span class="tooltiptext"><span class="trn">Clear</span></span>
-				<img src="./icons/trash.svg" width="20px" ></label>
+				<img src="./icons/trash.svg" width="20px" ></label></input>
 
-				<input type="checkbox" id="rastervisible" onclick=
-				"document.getElementsByTagName('canvas')[0]
-				.style.visibility = this.checked? 'visible':'hidden';
-				document.getElementsByClassName('land')[0].style.visibility = this.checked? 'hidden':'visible'; ">
+				<input type="checkbox" id="rastervisible">
 				<label for="rastervisible" class="tooltip">
-				<span class="tooltiptext"><span class="trn">Terrain</span></span><img src="./icons/terrain.svg" width="20px" ></label> </input>
+				<span class="tooltiptext"><span class="trn">Terrain</span></span>
+				<img src="./icons/terrain.svg" width="20px" ></label> </input>
 
-				<input type="checkbox" id="countriesvisible" onclick=
-				"document.getElementsByClassName('boundary')[0]
-				.style.visibility = this.checked? 'visible':'hidden' ">
+				<input type="checkbox" id="countriesvisible">
 				<label for="countriesvisible" class="tooltip">
-				<span class="tooltiptext"><span class="trn">Country borders</span></span><img src="./icons/border.svg" width="20px" ></label> </input>
+				<span class="tooltiptext"><span class="trn">Country borders</span></span>
+				<img src="./icons/border.svg" width="20px" ></label> </input>
 
-				<input type="checkbox" id="graticulevisible" onclick=
-				"document.getElementsByClassName('graticule')[0]
-				.style.visibility = this.checked? 'visible':'hidden' ">
+				<input type="checkbox" id="graticulevisible">
 				<label for="graticulevisible" class="tooltip">
-				<span class="tooltiptext"><span class="trn">Graticule</span></span><img src="./icons/graticule.svg" width="20px" ></label> </input>
+				<span class="tooltiptext"><span class="trn">Graticule</span></span>
+				<img src="./icons/graticule.svg" width="20px" ></label> </input>
 			</div>
 		</div>
 
